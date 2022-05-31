@@ -5369,7 +5369,7 @@ country_event = {
 					check_variable = { which = Eighth_Victor value = 0.99 }
 				}
 			}
-			set_variable = { which = dismantlement_dollars value = 10 }
+			set_variable = { which = dismantlement_dollars value = 14 }
 			random_owned = {
 				limit = {
 					owner = {
@@ -7216,7 +7216,7 @@ country_event = {
 					tag = CHR
 					tag = PRR
 					tag = BNF
-					tag = HSA
+					has_country_flag = i_am_hsa
 					tag = VNR
 					tag = USA
 					tag = US2

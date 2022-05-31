@@ -2610,6 +2610,45 @@ country_event = {
 
     }
 }
+country_event = {
+    id = 16121929
+    title = "The Ding-Wu Disaster"
+    desc = "DINGWUQIHUANG"
+    fire_only_once = yes
+    picture = "chinese_famine_1876"
+
+    trigger = {
+        year = 1876
+		tag = QNG
+		NOT = { has_global_flag = 1876_chinese_famine }
+    }
+
+    mean_time_to_happen = { months = 3 }
+
+    option = {
+        name = "This is bad."
+        set_global_flag = 1876_chinese_famine
+		any_pop = {
+            limit = {
+                location = {
+                    OR = {
+                        region = CHI_1565
+						region = CHI_1563
+						region = CHI_1510
+						region = CHI_1612
+						region = CHI_1508
+						region = CHI_1559
+                    }
+                }
+            }
+            reduce_pop = 0.95
+            consciousness = 5
+			militancy = 3
+        }
+		treasury = -100000
+
+    }
+}
 
 #################################################################################################################
 #                                                                                                                #
@@ -4854,8 +4893,8 @@ country_event = {
             limit = {
                 tag = MCK
                 OR = {
-                    vassal_of = THIS
-                    substate_of = THIS
+                    vassal_of = QNG
+                    substate_of = QNG
                 }
             }
             government = presidential_dictatorship
@@ -4866,13 +4905,15 @@ country_event = {
             political_reform = state_press
             political_reform = no_trade_unions
             political_reform = underground_parties
+			QNG = { set_country_flag = manchuria_donot_escape }
             THIS = { release_vassal = MCK }
         }
-        any_owned = {
-            limit = { is_core = MCK }
-            secede_province = MCK
+		random_owned = { limit = { owner = { QNG = { has_country_flag = manchuria_donot_escape } } }
+        random_owned = {
+            limit = { owner = { is_core = MCK } }
+            owner = { secede_province = MCK }
         }
-
+		}
         random_country = {
             limit = {
                 tag = MGL
@@ -8297,6 +8338,231 @@ country_event = {
 }
 
 country_event = {
+    id = 16121930
+    title = "The Holy War of the Seven Khojas"
+    desc = "QIHEZHUOREBELLION"
+	picture = "qihezhuo_rebellion"
+    is_triggered_only = yes
+
+    option = {
+        name = "Crush them!"
+		1594 = { secede_province = THIS }
+		1594 = { secede_province = UYG }
+		3527 = { secede_province = THIS }
+		3527 = { secede_province = UYG }
+		casus_belli = { target = UYG type = free_allied_cores months = 36 }
+		UYG = {
+			government = theocracy
+			casus_belli = { target = QNG type = acquire_substate_region months = 36 }
+		}
+        define_general = {
+            name = "Kata Tiaole"
+            personality = defence_1.1
+            background = attack_3.1
+        }
+        war = {
+			target = UYG
+			attacker_goal = { casus_belli = free_allied_cores state_province_id = 1594 country = XIN }
+			defender_goal = { casus_belli = acquire_substate_region state_province_id = 1595 }
+			call_ally = yes
+		}
+    }
+    option = {
+        name = "Restore Kashgaria to the Khojas! §BPlay as the invasion§W"
+		1594 = { secede_province = THIS }
+		1594 = { secede_province = UYG }
+		3527 = { secede_province = THIS }
+		3527 = { secede_province = UYG }
+		casus_belli = { target = UYG type = free_allied_cores months = 36 }
+		UYG = {
+			government = theocracy
+			casus_belli = { target = QNG type = acquire_substate_region months = 36 }
+		}
+        define_general = {
+            name = "Kata Tiaole"
+            personality = defence_1.1
+            background = attack_3.1
+        }
+        war = {
+			target = UYG
+			attacker_goal = { casus_belli = free_allied_cores state_province_id = 1594 country = XIN }
+			defender_goal = { casus_belli = acquire_substate_region state_province_id = 1598 }
+			call_ally = yes
+		}
+		change_tag_no_core_switch = UYG
+    }
+}
+
+country_event = {
+    id = 16121932
+    title = "The Nagasaki Incident"
+    desc = "NAGASAKIINCIDENT1"
+	picture = "nagasaki_incident"
+    fire_only_once = yes
+
+    trigger = {
+        tag = QNG
+        has_country_flag = beiyang_fleet_established
+		war = no
+		OR = {
+			JAP = {
+				war = no
+				owns = 1661
+				NOT = { truce_with = THIS }
+			}
+			TKG = {
+				war = no
+				owns = 1661
+				NOT = { truce_with = THIS }
+			}
+		}
+		year = 1886
+		month = 7
+    }
+
+    mean_time_to_happen = {
+        days = 13
+    }
+
+    option = {
+        name = "Uh oh..."
+		random_owned = {
+			limit = {
+				owner = {
+					JAP = {
+						war = no
+						owns = 1661
+						NOT = { truce_with = THIS }
+					}					
+				}
+			}
+			owner = {
+				JAP = { country_event = { id = 16121933 days = 2 } }
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = {
+					TKG = {
+						war = no
+						owns = 1661
+						NOT = { truce_with = THIS }
+					}					
+				}
+			}
+			owner = {
+				TKG = { country_event = { id = 16121933 days = 2 } }
+			}
+		}
+    }
+}
+
+country_event = {
+    id = 16121933
+    title = "The Nagasaki Incident"
+    desc = "NAGASAKIINCIDENT2"
+	picture = "nagasaki_incident"
+    fire_only_once = yes
+	is_triggered_only = yes
+
+    option = {
+        name = "Let it slide."
+		prestige = -10
+		QNG = { country_event = { id = 16121934 days = 2 } }
+    }
+	
+	option = {
+        name = "We demand an apology!"
+		QNG = { country_event = { id = 16121935 days = 2 } }
+    }
+}
+
+country_event = {
+    id = 16121934
+    title = "The Nagasaki Incident"
+    desc = "The Japanese have voiced their concerns but largely let the incident slide, not demanding any recompense or apology."
+	picture = "nagasaki_incident"
+    fire_only_once = yes
+	is_triggered_only = yes
+
+    option = {
+        name = "Thank goodness."
+    }
+}
+
+country_event = {
+    id = 161219341
+    title = "The Nagasaki Incident"
+    desc = "Japan has backed down from its threats, evidently not willing to fight a war over a diplomatic squabble."
+	picture = "nagasaki_incident"
+    fire_only_once = yes
+	is_triggered_only = yes
+
+    option = {
+        name = "Thank goodness."
+    }
+}
+
+country_event = {
+    id = 16121935
+    title = "The Nagasaki Incident"
+    desc = "The Japanese have demand an apology for the acts of our sailors in Nagasaki under the threat of retribution should we not comply."
+	picture = "nagasaki_incident"
+    fire_only_once = yes
+	is_triggered_only = yes
+
+    option = {
+        name = "We fully apologize."
+		prestige = -10
+		FROM = { country_event = { id = 16121936 days = 2 } }
+    }
+	
+	option = {
+        name = "We aren't responsible for a couple bad apples."
+		FROM = { country_event = { id = 16121937 days = 2 } }
+    }
+}
+
+country_event = {
+    id = 16121936
+    title = "The Nagasaki Incident"
+    desc = "The Chinese have fully apologized for the conduct of their sailors, taking full responsibility for all wrongs committed."
+	picture = "nagasaki_incident"
+    fire_only_once = yes
+	is_triggered_only = yes
+
+    option = {
+        name = "A wise decision."
+		prestige = 10
+    }
+}
+
+country_event = {
+    id = 16121937
+    title = "The Nagasaki Incident"
+    desc = "The Chinese have refused to apologize, snidely explaining that they are not responsible for the actions of a couple sailors on leave."
+	picture = "nagasaki_incident"
+    fire_only_once = yes
+	is_triggered_only = yes
+
+    option = {
+        name = "This isn't worth a war."
+		prestige = -10
+		FROM = { country_event = { id = 161219341 days = 2 } }
+    }
+	
+	option = {
+        name = "We will make them pay on the field of battle!"
+		war = {
+			target = QNG
+			attacker_goal = { casus_belli = humiliate_no_infamy }
+			defender_goal = { casus_belli = humiliate_no_infamy }
+			call_ally = yes
+		}
+    }
+}
+
+country_event = {
     id = 80125
     title = "EVTNAME80125" #Dungan Revolt
     desc = "EVTDESC80125"
@@ -8306,6 +8572,7 @@ country_event = {
 
     trigger = {
         tag = QNG
+		year = 1862
         XIN = {
             substate_of = THIS
             NOT = { num_of_revolts = 1 }
@@ -8321,21 +8588,13 @@ country_event = {
         }
         OR = {
             has_global_flag = tpg_war_started
-            year = 1860
+            year = 1862
         }
         NOT = { has_global_flag = dungan_rebellion }
     }
 
     mean_time_to_happen = {
-        months = 6
-        modifier = {
-            factor = 4
-            war = no
-        }
-        modifier = {
-            factor = 0.1
-            has_global_flag = ever_victorious_army
-        }
+        months = 1
     }
 
     option = {
@@ -8375,6 +8634,56 @@ country_event = {
                 casus_belli = status_quo
             }
         }
+		random_owned = {
+			limit = {
+				owner = {
+					has_global_flag = taiping_has_been_defeated
+				}
+			}
+			owner = {
+				any_owned = {
+					limit = {
+						OR = {
+							province_id = 1488
+							province_id = 1489
+							province_id = 1490
+							province_id = 1491
+							province_id = 1492
+							province_id = 1559
+						}
+					}
+					secede_province = IMG
+				}
+				release_vassal = IMG
+				any_country = {
+					limit = { war_with = IMG }
+					end_war = IMG
+				}
+				IMG = { primary_culture = hanhui remove_accepted_culture = han_chinese government = theocracy }
+				QNG = {
+					war = {
+						target = IMG
+						attacker_goal = {
+							casus_belli = conquest_any
+						}
+						defender_goal = {
+							casus_belli = humiliate_no_infamy
+						}
+					}
+				}
+				UYG = {
+					war = {
+						target = IMG
+						attacker_goal = {
+							casus_belli = conquest_any
+						}
+						defender_goal = {
+							casus_belli = humiliate_no_infamy
+						}
+					}
+				}
+			}
+		}
         ai_chance = {
             factor = 100
         }
@@ -8411,7 +8720,143 @@ country_event = {
                 casus_belli = status_quo
             }
         }
-        change_tag_no_core_switch = UYG
+		random_owned = {
+			limit = {
+				owner = {
+					has_global_flag = taiping_has_been_defeated
+				}
+			}
+			owner = {
+				any_owned = {
+					limit = {
+						OR = {
+							province_id = 1488
+							province_id = 1489
+							province_id = 1490
+							province_id = 1491
+							province_id = 1492
+							province_id = 1559
+						}
+					}
+					secede_province = IMG
+				}
+				release_vassal = IMG
+				any_country = {
+					limit = { war_with = IMG }
+					end_war = IMG
+				}
+				IMG = { primary_culture = hanhui remove_accepted_culture = han_chinese government = theocracy }
+				QNG = {
+					war = {
+						target = IMG
+						attacker_goal = {
+							casus_belli = conquest_any
+						}
+						defender_goal = {
+							casus_belli = humiliate_no_infamy
+						}
+					}
+				}
+				UYG = {
+					war = {
+						target = IMG
+						attacker_goal = {
+							casus_belli = conquest_any
+						}
+						defender_goal = {
+							casus_belli = humiliate_no_infamy
+						}
+					}
+				}
+			}
+		}
+		change_tag_no_core_switch = UYG
+        ai_chance = { factor = 0 }
+    }
+	
+	option = {
+        name = "EVT80125OPTC"
+        set_global_flag = dungan_rebellion
+        release_vassal = XIN
+        XIN = { change_tag = UYG }
+        UYG = {
+            primary_culture = uighur
+            add_accepted_culture = tajik
+            add_accepted_culture = kazak
+            add_accepted_culture = kirgiz
+            capital = 1594
+            any_pop = {
+                consciousness = -5
+                militancy = -5
+            }
+            relation = { who = RUS value = 400 }
+        }
+        casus_belli = {
+            target = UYG
+            type = make_puppet
+            months = 30
+        }
+        war = {
+            target = UYG
+            attacker_goal = {
+                casus_belli = make_puppet
+            }
+            defender_goal = {
+                casus_belli = status_quo
+            }
+        }
+		
+		random_owned = {
+			limit = {
+				owner = {
+					has_global_flag = taiping_has_been_defeated
+				}
+			}
+			owner = {
+				any_owned = {
+					limit = {
+						OR = {
+							province_id = 1488
+							province_id = 1489
+							province_id = 1490
+							province_id = 1491
+							province_id = 1492
+							province_id = 1559
+						}
+					}
+					secede_province = IMG
+				}
+				release_vassal = IMG
+				any_country = {
+					limit = { war_with = IMG }
+					end_war = IMG
+				}
+				IMG = { primary_culture = hanhui remove_accepted_culture = han_chinese government = theocracy }
+				QNG = {
+					war = {
+						target = IMG
+						attacker_goal = {
+							casus_belli = conquest_any
+						}
+						defender_goal = {
+							casus_belli = humiliate_no_infamy
+						}
+					}
+				}
+				UYG = {
+					war = {
+						target = IMG
+						attacker_goal = {
+							casus_belli = conquest_any
+						}
+						defender_goal = {
+							casus_belli = humiliate_no_infamy
+						}
+					}
+				}
+				change_tag_no_core_switch = IMG
+			}
+		}
         ai_chance = { factor = 0 }
     }
 }
@@ -8426,6 +8871,7 @@ country_event = {
         tag = QNG
         has_global_flag = dungan_rebellion
         is_our_vassal = UYG
+		IMG = { exists = no } 
     }
 
     mean_time_to_happen = {

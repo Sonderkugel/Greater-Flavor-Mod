@@ -1,43 +1,4 @@
-political_decisions = {
-	aztec_pride = {
-		picture = manufacturing_belt
-		potential = {
-			tag = MEX
-			is_greater_power = yes
-			NOT = { has_country_flag = aztecpride }
-			OR = {
-				has_country_flag = finished_expanding
-				has_country_flag = manifest_destiny_refuted
-			}
-		}
-		allow = {
-			idealism = 1
-			state_n_government = 1
-			NOT = { has_country_modifier = recently_lost_war }
-			any_core = { 
-				continent = north_america 
-				NOT = { 
-					province_id = 2190 
-					province_id = 2196 
-					province_id = 2200 
-					province_id = 3411
-					province_id = 3491
-				} 
-				owned_by = THIS 
-			}
-			is_greater_power = yes
-			war = no
-		}
-		effect = {
-			set_country_flag = aztecpride
-			prestige = 2.5
-			add_country_modifier = {
-				name = aztec_pride
-				duration = -1
-			}
-		}
-		ai_will_do = { factor = 1 }
-	}
+political_decisions = {	
 	claim_oregon = {
 		picture = map_alaska
 		potential = {
@@ -94,7 +55,7 @@ political_decisions = {
 		potential = {
 			OR = {
 				tag = MEX
-				AND = { tag = HSA owns = 2172 }
+				AND = { has_country_flag = i_am_hsa owns = 2172 }
 			}
 			owns = 2172
 			capital = 2172
@@ -134,7 +95,7 @@ political_decisions = {
 			capital = 2172
 			OR = {
 				tag = MEX
-				AND = { tag = HSA owns = 2172 }
+				AND = { has_country_flag = i_am_hsa owns = 2172 }
 			}
 		}
 		allow = {
@@ -386,7 +347,7 @@ political_decisions = {
 	picture = banque_belgique
 		potential = {
 			OR = {
-				AND = { tag = HSA owns = 2172 }
+				AND = { has_country_flag = i_am_hsa owns = 2172 }
 				tag = MEX
 			}
 			year = 1842
@@ -487,7 +448,7 @@ political_decisions = {
 		potential = {
 			OR = {
 				tag = MEX
-				AND = { tag = HSA owns = 2172 }
+				AND = { has_country_flag = i_am_hsa owns = 2172 }
 			}
 			owns = 2172
 			NOT = { has_global_flag = banamex_founded }
@@ -688,7 +649,7 @@ political_decisions = {
 			OR = {
 				tag = MEX
 				AND = {
-					tag = HSA
+					has_country_flag = i_am_hsa
 					capital = 2172
 					owns = 2172
 				}
@@ -726,7 +687,7 @@ political_decisions = {
 			OR = {
 				tag = MEX
 				AND = {
-					tag = HSA
+					has_country_flag = i_am_hsa
 					owns = 2172
 				}
 			}
@@ -1113,62 +1074,6 @@ political_decisions = {
 				consciousness = 10
 				reduce_pop = 0.9
 			}
-		}
-		ai_will_do = { factor = 1 }
-	}
-
-	rename_phl_spanish = {
-		picture = gtfo
-		potential = {
-			OR = {
-				primary_culture = spanish
-				AND = {
-					is_culture_group = latin_american_cultures
-					NOT = { primary_culture = brazilian }
-				}
-			}
-			OR = {
-				AND = { owns = 1455 NOT = { has_global_flag = phl_rename_spanish } }
-			}
-		}
-
-		allow = {
-			war = no
-		}
-
-		effect = {
-			set_global_flag = phl_rename_spanish
-			prestige = 2
-			1456 = { change_province_name = "Isabela" }
-			1457 = { change_province_name = "Camarines" }
-		}
-		ai_will_do = { factor = 1 }
-	}
-
-	rename_marianas_spanish = {
-		picture = gtfo
-		potential = {
-			OR = {
-				primary_culture = spanish
-				AND = {
-					is_culture_group = latin_american_cultures
-					NOT = { primary_culture = brazilian }
-				}
-			}
-			OR = {
-				AND = { owns = 2517 NOT = { has_global_flag = marianas_rename_spanish } }
-			}
-		}
-
-		allow = {
-			war = no
-		}
-
-		effect = {
-			set_global_flag = marianas_rename_spanish
-			prestige = 2
-			2517 = { change_province_name = "San Juan" }
-			2521 = { change_province_name = "San José" }
 		}
 		ai_will_do = { factor = 1 }
 	}

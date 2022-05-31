@@ -2329,3 +2329,497 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = 4207010
+	title = "The Belgian rebels declare Independence"
+	desc = "EVTDESC4207010"
+	picture = "belgian_revolution"
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NET
+		year = 1831
+	}
+	
+	mean_time_to_happen = {
+		months = 8
+	}
+	
+	option = { 
+		name = "We cannot allow this!"
+		set_global_flag = belgian_revolution_war
+		any_owned = {
+			limit = {
+				is_core = BEL
+			}
+			secede_province = BEL
+		}
+		any_pop = {
+			limit = {
+				has_pop_religion = catholic
+			}
+			militancy = 5
+			consciousness = 8
+		}
+		BEL = { government = prov_gov_liberal_two }
+		any_country = {
+			limit = {
+				exists = yes
+				OR = {
+					tag = FRA
+					tag = BOR
+				}
+			}
+			create_alliance = BEL
+			diplomatic_influence = {
+				who = BEL
+				value = 100
+			}
+		}
+		ENG = {
+			diplomatic_influence = {
+				who = BEL
+				value = 100
+			}
+		}
+		war = { 
+			target = BEL
+			attacker_goal = { casus_belli = annex_core_country } 
+			defender_goal = { casus_belli = status_quo }
+			call_ally = yes
+		}
+		ai_chance = {
+			factor = 99
+			modifier = {
+				factor = 0
+				has_global_flag = railroaded_no_belgian_revolutionary_war 
+			}
+		}
+	}
+	
+	option = {
+		name = "Let them go."
+		prestige = -15
+		any_pop = {
+			limit = {
+				has_pop_religion = protestant
+			}
+			militancy = 3
+			consciousness = 5
+		}
+		any_owned = {
+			limit = {
+				is_core = BEL
+			}
+			remove_core = THIS
+			secede_province = BEL
+		}
+		diplomatic_influence = {
+			who = BEL
+			value = 15
+		}
+		BEL = {
+			government = hms_government
+			relation = {
+				who = NET
+				value = 15
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { has_global_flag = railroaded_no_belgian_revolutionary_war }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = 4207011
+	title = "The Belgian independence is Absolute"
+	desc = "EVTDESC4207011"
+	picture = "belgian_victory"
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BEL
+		war = no
+		has_global_flag = belgian_revolution_war
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	option = { 
+		name = "Hurrah!"
+		set_global_flag = 1831_london_conference
+		government = hms_government
+		election = yes
+		prestige = 10
+		NET = { prestige = -15 }
+	}
+}
+
+country_event = {
+	id = 4207012
+	title = "The London Conference of $YEAR$"
+	desc = "EVTDESC4207012"
+	picture = "london_conference1831"
+	allow_multiple_instances = yes
+	
+	trigger = {
+		is_greater_power = yes
+		OR = {
+			tag = ENG
+			tag = AUS
+			tag = FRA
+			tag = PRU
+			tag = RUS
+			tag = NET
+		}
+		has_global_flag = 1831_london_conference
+		NOT = { has_country_flag = decided_on_london_conference }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = { 
+		name = "We do not support Belgian independence."
+		set_country_flag = decided_on_london_conference
+		relation = {
+			who = BEL
+			value = -50
+		}
+		diplomatic_influence = {
+			who = BEL
+			value = -50
+		}
+		relation = {
+			who = NET
+			value = 50
+		}
+		diplomatic_influence = {
+			who = NET
+			value = 50
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				tag = NET
+			}
+		}
+	}
+	
+	option = { 
+		name = "We recognize Belgian independence."
+		set_country_flag = decided_on_london_conference
+		relation = {
+			who = BEL
+			value = 15
+		}
+		diplomatic_influence = {
+			who = BEL
+			value = 15
+		}
+		ai_chance = {
+			factor = 99
+			modifier = {
+				factor = 0
+				OR = {
+					tag = ENG
+				}
+			}
+		}
+	}
+	
+	option = { 
+		name = "We guarantee Belgian independence!"
+		set_country_flag = decided_on_london_conference
+		relation = {
+			who = BEL
+			value = 50
+		}
+		diplomatic_influence = {
+			who = BEL
+			value = 50
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				tag = ENG
+			}
+		}
+	}
+}
+
+country_event = {
+	id = 16051838
+	title = "The Assasination of Antonio José de Sucre"
+	desc = "DEATHSUCRE"
+	picture = "assasinat_sucre"
+	fire_only_once = yes
+	
+	trigger = {
+		tag = GCO
+		year = 1830
+		month = 5
+	}
+	
+	mean_time_to_happen = {
+		days = 4
+	}
+	
+	option = { 
+		name = "Find those assassins!"
+		any_pop = { consciousness = 1 }
+	}
+}
+
+country_event = {
+	id = 16051839
+	title = "The Burning of the Parliament"
+	desc = "EVTDESC16051839"
+	picture = "parliament_burning"
+
+	fire_only_once = yes
+	mean_time_to_happen = { days = 16 }
+
+	trigger = {
+		tag = ENG
+		year = 1834
+		month = 9
+		owns = 300
+	}
+	
+	immediate = {
+        300 = {
+            infrastructure = -1
+            any_pop = {
+                consciousness = 1.5
+            }
+        }
+    }
+	
+	option = { 
+		name = "Pray for the victims of the fire."
+		set_country_flag = parliament_burning
+	}
+}
+
+country_event = {
+	id = 16051840
+	title = "Der Ustertag"
+	desc = "EVTDESC16051840"
+	picture = "ustertag_constitution"
+
+	fire_only_once = yes
+	mean_time_to_happen = { days = 22 }
+
+	trigger = {
+		tag = SWI
+		year = 1830
+		month = 10
+	}
+	
+	option = { 
+		name = "Give their constitution a chance."
+		political_reform = wealth_weighted_voting
+		political_reform = free_press
+		political_reform = proportional_representation
+		any_pop = { militancy = -2 }
+	}
+	
+	option = { 
+		name = "Never!"
+		scaled_consciousness = { factor = 5 ideology = liberal }
+        scaled_militancy = { factor = 5 ideology = liberal }
+	}
+}
+
+country_event = {
+	id = 16051841
+	title = "Freiämtersturm"
+	desc = "EVTDESC16051841"
+	picture = "Freiamtersturm_rev"
+
+	fire_only_once = yes
+	mean_time_to_happen = { days = 5 }
+
+	trigger = {
+		tag = SWI
+		year = 1830
+		month = 11
+	}
+	
+	option = { 
+		name = "I guess they can get what they want..."
+		any_pop = { limit = { location = { province_id = 604 } } militancy = -2 }
+	}
+}
+
+country_event = {
+	id = 160518411
+	title = "Anastasio Aquino's Rebellion"
+	desc = "EVTDESC160518411"
+	picture = "Anastasio_Aquino"
+
+	fire_only_once = yes
+	mean_time_to_happen = { days = 5 }
+
+	trigger = {
+		owns = 2191
+		year = 1833
+		month = 1
+	}
+	
+	option = { 
+		name = "So annoying!"
+		any_pop = { limit = { location = { OR = { province_id = 2191 province_id = 2192 } } } militancy = 4 }
+	}
+}
+
+country_event = {
+    id = 16051842
+    title = "Priest Jovica's Rebellion"
+    desc = "PRIESTJOVICA"
+    fire_only_once = yes
+    picture = "priest_jovica"
+    mean_time_to_happen = { days = 10 }
+    trigger = {
+        tag = TUR
+        owns = 786
+        year = 1834
+        month = 2
+    }
+    option = {
+        name = "Crush them!"
+        any_pop = {
+            limit = {
+                has_pop_culture = serb
+            }
+            consciousness = 2
+            militancy = 2
+        }
+        786 = {
+            secede_province = SRR
+        }
+        war = {
+            target = SRR
+            attacker_goal = { casus_belli = conquest_any }
+            defender_goal = { casus_belli = status_quo }
+        }
+		SRR = { define_general = { name = "Priest Jovica Ilic" personality = defence_2.1 background = attack_1.1 } }
+    }
+    option = {
+        name = "Serbia shall be free! §BPlay as the revolt§W"
+        any_pop = {
+            limit = {
+                has_pop_culture = serb
+            }
+            consciousness = 2
+            militancy = 2
+        }
+        786 = {
+            secede_province = SRR
+        }
+        war = {
+            target = SRR
+            attacker_goal = { casus_belli = conquest_any }
+            defender_goal = { casus_belli = status_quo }
+        }
+		SRR = { define_general = { name = "Priest Jovica Ilic" personality = defence_2.1 background = attack_1.1 } }
+		change_tag_no_core_switch = SRR
+	}
+	option = {
+        name = "We can't fight them now."
+        any_pop = {
+            limit = {
+                has_pop_culture = serb
+            }
+            militancy = 5
+        }
+        any_pop = {
+            limit = {
+                OR = { has_pop_culture = greek has_pop_culture = bulgarian has_pop_culture = albanian has_pop_culture = bosniak }
+            }
+            consciousness = 3
+        }
+        786 = {
+            secede_province = SER
+			remove_core = THIS
+        }
+	}
+
+}
+
+country_event = {
+	id = 16051843
+	title = "Massacre of the Albanian Beys"
+	desc = "EVTDESC16051843"
+	picture = "massacre_albbeys"
+
+	fire_only_once = yes
+	mean_time_to_happen = { days = 9 }
+
+	trigger = {
+		tag = TUR
+		year = 1830
+		month = 7
+	}
+	
+	option = { 
+		name = "Annex them now!"
+		ALB = { country_event = 16051844 }
+		release_vassal = ALB
+		war = {
+            target = ALB
+            attacker_goal = { casus_belli = conquest_any }
+            defender_goal = { casus_belli = status_quo }
+        }
+	}
+}
+
+country_event = {
+	id = 16051844
+	title = "Fight for our liberation"
+	desc = "EVTDESC16051844"
+	picture = "massacre_albbeys"
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+	
+	option = { 
+		name = "Oh no."
+		aristocrats = { reduce_pop = 0.70 }
+		government = absolute_monarchy
+	}
+}
+
+country_event = {
+	id = 16051845
+	title = "The Great Moon Hoax"
+	desc = "GREATMOONHOAX"
+	picture = "greatmoonhoax"
+
+	fire_only_once = yes
+	mean_time_to_happen = { days = 25 }
+
+	trigger = {
+		tag = ENG
+		year = 1835
+		month = 7
+	}
+	
+	option = { 
+		name = "What?"
+		prestige = 2
+	}
+}

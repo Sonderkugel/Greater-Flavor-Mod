@@ -129,7 +129,6 @@ CHR        = "countries/Chile Revolt.txt"
 CLR        = "countries/Colombia Revolt.txt"
 PRR        = "countries/Peru Revolt.txt"
 BNF        = "countries/Belgium-Netherlands.txt"
-HSA        = "countries/Hispanic America.txt"
 ALN        = "countries/Aland.txt"
 AOS        = "countries/Aosta.txt"
 SOC        = "countries/So.txt"
@@ -139,6 +138,7 @@ CNR        = "countries/Canaria.txt"
 HNZ        = "countries/Hunza-Nagar.txt"
 VNR        = "countries/Venezuela Revolt.txt"
 PCF        = "countries/Pacifika.txt"
+SAA        = "countries/Saar.txt"
 
 ###GFM Meta-Tags###
 
