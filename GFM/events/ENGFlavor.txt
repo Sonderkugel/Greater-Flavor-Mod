@@ -2365,7 +2365,7 @@ country_event = {
         name = "EVT36965OPTA"
         set_country_flag = lagos_slave_trade
         1923 = { owner = { country_event = 36966 } }
-        1923 = { secede_province = THIS }
+        1923 = { secede_province = THIS trade_goods = fish }
         relation = { who = SOK value = -400 }
         relation = { who = OYO value = -400 }
         relation = { who = ARO value = -400 }
@@ -2880,8 +2880,15 @@ country_event = {
                 limit = {
                     owner = { ai = yes neighbour = RUS }
                     OR = {
-                        region = RUS_1196
-                        region = KHI_1191
+						region = RUS_1196
+						region = KHI_1191
+						province_id = 2656
+						province_id = 29
+						province_id = 1198
+						province_id = 1200
+						province_id = 1199
+						province_id = 1195
+						province_id = 1202
                         region = KOK_1190
                     }
                 }
@@ -3780,7 +3787,16 @@ country_event = {
 
     trigger = {
         tag = ENG
-        any_greater_power = { alliance_with = ENG }
+		OR = {
+			AND = {
+				any_greater_power = { alliance_with = ENG }
+				NOT = { has_country_flag = ai_splendid_isolation }
+			}
+			AND = {
+				any_greater_power = { AND = { ai = yes alliance_with = ENG } }
+				has_country_flag = ai_splendid_isolation
+			}			
+		}
         NOT = { exists = IRE }
         has_country_modifier = pax_britannica
         NOT = { exists = GER }
@@ -3803,6 +3819,10 @@ country_event = {
                 NOT = { alliance_with = THIS }
             }
             TUR = { is_greater_power = no }
+			AND = {
+				has_country_flag = ai_splendid_isolation
+				TUR = { ai = no }
+			}
         }
         OR = {
             BEL = {
@@ -3810,6 +3830,10 @@ country_event = {
                 NOT = { alliance_with = THIS }
             }
             BEL = { is_greater_power = no }
+			AND = {
+				has_country_flag = ai_splendid_isolation
+				BEL = { ai = no }
+			}
         }
         OR = {
             JAP = {
@@ -3817,6 +3841,10 @@ country_event = {
                 NOT = { alliance_with = THIS }
             }
             JAP = { is_greater_power = no }
+			AND = {
+				has_country_flag = ai_splendid_isolation
+				JAP = { ai = no }
+			}
         }
         OR = {
             POR = {
@@ -3824,6 +3852,10 @@ country_event = {
                 NOT = { alliance_with = THIS }
             }
             POR = { is_greater_power = no }
+			AND = {
+				has_country_flag = ai_splendid_isolation
+				POR = { ai = no }
+			}
         }
         OR = {
             UPB = {
@@ -3831,22 +3863,58 @@ country_event = {
                 NOT = { alliance_with = THIS }
             }
             UPB = { is_greater_power = no }
+			UPB = {
+				has_country_flag = ai_splendid_isolation
+				UPB = { ai = no }
+			}
         }
     }
 
     option = {
         name = "EVT99930OPT"
-        any_greater_power = {
-            limit = {
-                NOT = {
-                    tag = BEL
-                    tag = TUR
-                }
-                alliance_with = ENG
-            }
-            leave_alliance = THIS
-            relation = { who = THIS value = -150 }
-        }
+		random_owned = {
+			limit = {
+				owner = {
+					NOT = { has_country_flag = ai_splendid_isolation }
+				}
+			}
+			owner = {
+				any_greater_power = {
+					limit = {
+						NOT = {
+							tag = BEL
+							tag = TUR
+							tag = JAP
+						}
+						alliance_with = ENG
+					}
+					leave_alliance = THIS
+					relation = { who = THIS value = -150 }
+				}
+			}
+		}
+		random_owned = {
+			limit = {
+				owner = {
+					has_country_flag = ai_splendid_isolation
+				}
+			}
+			owner = {
+				any_greater_power = {
+					limit = {
+						ai = yes
+						NOT = {
+							tag = BEL
+							tag = TUR
+							tag = JAP
+						}
+						alliance_with = ENG
+					}
+					leave_alliance = THIS
+					relation = { who = THIS value = -150 }
+				}
+			}
+		}
     }
 }
 
@@ -3903,9 +3971,13 @@ country_event = {
             AND = {
                 exists = IRE
                 NOT = { year = 1905 }
-                has_recently_lost_war = yes
+                has_country_modifier = recently_lost_war
             }
-            NOT = { exists = BEL }
+			AND = {
+				NOT = { exists = BEL }
+				NOT = { AND = { has_global_flag = you_are_playing_mp NET = { ai = no } } }
+				NOT = { AND = { has_country_flag = ai_splendid_isolation NET = { ai = no } } }
+			}
             NOT = { rank = 1 }
             has_global_flag = EIC_independence
 			has_global_flag = prussia_lost_brothers_war
@@ -3919,7 +3991,7 @@ country_event = {
         prestige = -25
         remove_country_modifier = pax_britannica
         any_greater_power = {
-            limit = { NOT = { truce_with = ENG } }
+            limit = { NOT = { truce_with = ENG war_with = ENG } }
             relation = { who = ENG value = 100 }
         }
     }
@@ -4883,7 +4955,7 @@ country_event = {
     option = {
         name = "We don't want to sell the the colony to the Polish."
         FROM = { country_event = 21371003 }
-        relation = {who = FROM value = -50 }
+        relation = { who = FROM value = -50 }
     }
 }
 
@@ -4929,7 +5001,7 @@ country_event = {
 	
 	trigger = {
 		tag = ENG
-		has_recently_lost_war = yes
+		has_country_modifier = recently_lost_war
 		NOT = {
 			owns = 2087
 			2087 = {
@@ -5181,5 +5253,60 @@ country_event = {
 	option = {
 		name = "Surely they got to the top..."
 		prestige = 5
+	}
+}
+
+country_event = {
+	id = 16121917
+	picture = "basuto_gunwar"
+	title = "The Basuto Gun War"
+    desc = "BASUTOGUNWAR"
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		tag = ENG
+		year = 1880
+		month = 8
+		owns = 2104
+	}
+
+	mean_time_to_happen = { days = 13 }
+
+	option = {
+		name = "Fight them!"
+		2104 = { secede_province = BSH }
+		war = {
+            target = BSH
+            attacker_goal = { casus_belli = conquest_any }
+            defender_goal = { casus_belli = humiliate_no_infamy }
+        }
+		2104 = { 
+			sub_unit = { type = infantry value = current }
+			sub_unit = { type = infantry value = current } 
+		}
+	}
+	
+	option = {
+		name = "Telele phelang Basotho! §BPlay as Basotho§W"
+		2104 = { secede_province = BSH }
+		war = {
+            target = BSH
+            attacker_goal = { casus_belli = conquest_any }
+            defender_goal = { casus_belli = humiliate_no_infamy }
+        }
+		2104 = { 
+			sub_unit = { type = infantry value = current }
+			sub_unit = { type = infantry value = current } 
+		}
+		change_tag_no_core_switch = BSH
+	}
+	
+	option = {
+		name = "Pass the disannexation act."
+		2104 = { secede_province = BSH }
+		create_vassal = BSH
+		prestige = -5
 	}
 }

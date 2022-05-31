@@ -43,7 +43,7 @@ country_event = {
 		87 = { naval_base = -6 }
 		3340 = { naval_base = -6 }
 		89 = { naval_base = 2 }
-		85 = { naval_base = 2 }
+		104 = { naval_base = 2 }
         any_pop = {
             limit = {
                 location = { is_core = CAL }
@@ -240,7 +240,6 @@ country_event = {
 
     option = {
         name = "EVT110060OPTA"
-        release = CAL
         any_owned = {
 			limit = {
 				OR = {
@@ -278,16 +277,22 @@ country_event = {
             }
             treasury = 20000
         }
+		MEX_94 = { remove_core = CAL }
+		MEX_97 = { remove_core = CAL }
+		MEX_100 = { remove_core = CAL } 
         set_global_flag = bear_flag_revolt
         ai_chance = { factor = 100 }
     }
 
     option = {
         name = "EVT110060OPTB"
-        CAL = { any_owned = {remove_core = MEX } }
+        CAL = { any_owned = { remove_core = MEX } }
         release = CAL
         prestige = -50
         set_global_flag = bear_flag_revolt
+		MEX_94 = { remove_core = CAL }
+		MEX_97 = { remove_core = CAL }
+		MEX_100 = { remove_core = CAL } 
         ai_chance = { factor = 0 }
     }
 }
@@ -2129,12 +2134,9 @@ country_event = {
     picture = "1843_GreatMigration"
 
     trigger = {
-        OR = {
-			OR = { tag = USA tag = US2 }
-			AND = {
-				has_country_flag = has_taken_oregon_or_more
-				tag = MEX
-			}
+		OR = {
+			tag = USA
+			tag = US2
 		}
         year = 1841
         81 = { empty = yes }
@@ -3658,4 +3660,135 @@ country_event = {
 		ai_chance = { factor = 1 }
 	}
 
+}
+
+country_event = {
+	id = 600353
+	title = "The Assassination of James A. Garfield"
+	desc = "ASSASSINATIONAGARFIELD"
+	major = yes
+	picture = "Abram_Garfield"
+	fire_only_once = yes
+	
+	trigger = {
+		OR = { tag = USA tag = US2 }
+		year = 1881
+		month = 6
+		NOT = { year = 1883 }
+		ruling_party_ideology = liberal
+	}
+	
+	mean_time_to_happen = {
+        days = 2
+    }
+	
+	option = {
+		name = "How shocking!"
+		any_pop = { consciousness = 1 }
+		ai_chance = { factor = 1 }
+	}
+
+}
+
+country_event = {
+	id = 600354
+	title = "The Assassination of William McKinley"
+	desc = "ASSASSINATIONWMCKINLEY"
+	major = yes
+	picture = "William_McKinley"
+	fire_only_once = yes
+	
+	trigger = {
+		OR = { tag = USA tag = US2 }
+		year = 1901
+		month = 8
+		NOT = { year = 1903 }
+		ruling_party_ideology = liberal
+	}
+	
+	mean_time_to_happen = {
+        days = 6
+    }
+	
+	option = {
+		name = "We hope he will recover soon."
+		any_pop = { consciousness = 1 }
+		ai_chance = { factor = 1 }
+	}
+
+}
+
+country_event = { 
+	id = 600355 
+	title = "The 1860 Great Meteor" 
+	desc = "1860GREATMETEOR"
+	picture = "1860_meteor" 
+	fire_only_once = yes 
+
+	trigger = { 
+		OR = { tag = USA tag = US2 } 
+		year = 1860 
+		month = 7 
+	}
+	
+	mean_time_to_happen = { days = 20 } 
+
+	option = { 
+		name = "Year of meteors! Brooding year!"
+		any_pop = { 
+			consciousness = -0.1
+		}
+		research_points = 300 
+	}
+}
+
+country_event = { 
+	id = 600356 
+	title = "The 1913 Great Meteor Procession"
+	desc = "1913GREATMETEOR"
+	picture = "1913_meteor"
+	fire_only_once = yes 
+	
+	trigger = { 
+		OR = { tag = USA tag = US2 } 
+		year = 1913 
+		month = 2 
+	}
+	
+	mean_time_to_happen = { days = 7 } 
+	
+	option = { 
+		name = "Let God guide us to understanding these meteors."
+		any_pop = { 
+			consciousness = -0.1
+		}
+		any_country = { 
+			limit = { 
+				CAN = { 
+					any_core = { owned_by = THIS } 
+				}
+			}
+			country_event = 600357
+		}
+		research_points = 300 
+	}
+}
+
+country_event = { 
+	id = 600357 
+	title = "The 1913 Great Meteor Procession"
+	desc = "1913GREATMETEOR2"
+	picture = "1913_meteor"
+	
+	is_triggered_only = yes 
+	
+	mean_time_to_happen = { days = 7 } 
+	
+	option = { 
+		name = "Let God guide us to understanding these meteors."
+		any_pop = { 
+			consciousness = -0.1
+		}
+		research_points = 300 
+	}
 }

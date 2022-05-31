@@ -136,37 +136,6 @@ political_decisions = {
         }
     }
 
-    claim_santa_catarina = {
-        picture = claim_santa_catarina
-        potential = {
-            tag = RGS
-            NOT = { has_country_flag = claim_santa_catarina }
-        }
-
-        allow = {
-            war = no
-            is_vassal = no
-            prestige = 45
-        }
-
-        effect = {
-            set_country_flag = claim_santa_catarina
-            badboy = 5
-            2461 = { #Desterro
-                add_core = RGS
-            }
-            2462 = { #Sao Miguel
-                add_core = RGS
-            }
-            2459 = { #Lajes
-                add_core = RGS
-            }
-        }
-
-        ai_will_do = {
-            factor = 1
-        }
-    }
 
     greater_afghanistan = {
         picture = form_durrani_empire
@@ -364,30 +333,9 @@ political_decisions = {
         effect = {
             set_global_flag = reclaimed_croatia
             prestige = 5
-            AUS_771 = { add_core = HUN }
-			any_country = {
-				limit = {
-					tag = HUR
-					exists = yes
-				}
-				AUS_771 = { add_core = HUR }
-			}
-            AUS_777 = { add_core = HUN }
-			any_country = {
-				limit = {
-					tag = HUR
-					exists = yes
-				}
-				AUS_777 = { add_core = HUR }
-			}
-            778 = { add_core = HUN }
-			any_country = {
-				limit = {
-					tag = HUR
-					exists = yes
-				}
-				778 = { add_core = HUR }
-			}
+            AUS_771 = { add_core = HUN add_core = THIS }
+            AUS_777 = { add_core = HUN add_core = THIS }
+            778 = { add_core = HUN add_core = THIS }
             any_country = {
                 limit = {
                     any_owned_province = { region = AUS_771 }
@@ -493,6 +441,7 @@ political_decisions = {
             tag = RUT
             exists = UKR
             NOT = { has_country_flag = unite_with_ukraine }
+            NOT = { has_global_flag = sw_set }
         }
 
         allow = {
@@ -507,7 +456,6 @@ political_decisions = {
                 neighbour = THIS
                 is_vassal = no
             }
-            NOT = { has_global_flag = sw_set }
         }
 
         effect = {
@@ -671,7 +619,6 @@ political_decisions = {
                 tag = UPB
             }
             NOT = { has_country_flag = prata_is_ours }
-            government = fascist_dictatorship
         }
 
         allow = {
@@ -690,98 +637,6 @@ political_decisions = {
 
         ai_will_do = {
             factor = 0
-        }
-    }
-
-    rename_uruguay = {
-        picture = banda_oriental
-        potential = {
-            OR = {
-                tag = BRZ
-                tag = UPB
-            }
-            owns = 2344
-            owns = 2345
-            owns = 2346
-            owns = 2347
-            has_country_flag = cisplatina_is_ours
-            NOT = {
-                has_global_flag = brazil_has_renamed_cisplatina
-            }
-        }
-
-        allow = {
-            owns = 2344
-        }
-
-        effect = {
-            2344 = {
-                change_province_name = "Sacramento"
-                state_scope = {
-                    change_region_name = "Cisplatina"
-                }
-            }
-            2347 = {
-                change_province_name = "Mirim"
-            }
-			2345 = {
-                change_province_name = "Frederico Lecor"
-            }
-			2346 = {
-                change_province_name = "Quarahy"
-            }
-            prestige = 5
-            set_global_flag = brazil_has_renamed_cisplatina
-        }
-
-        ai_will_do = {
-            factor = 1
-        }
-    }
-
-    restore_uruguay = {
-        picture = banda_oriental
-        potential = {
-            OR = {
-                tag = URU
-                tag = ARG
-                tag = PRG
-                tag = LPL
-            }
-            has_global_flag = brazil_has_renamed_cisplatina
-            owns = 2344
-            owns = 2345
-            owns = 2346
-            owns = 2347
-        }
-
-        allow = {
-            owns = 2344
-        }
-
-        effect = {
-            2344 = {
-                change_province_name = "Montevideo"
-                state_scope = {
-                    change_region_name = "Uruguay"
-                }
-            }
-			2347 = {
-                change_province_name = "Melo"
-            }
-			2345 = {
-                change_province_name = "Paysandu"
-            }
-			2346 = {
-                change_province_name = "Tacuarembo"
-            }
-            prestige = 5
-            BRZ = { prestige = -10 }
-            clr_global_flag = brazil_has_renamed_cisplatina
-        }
-
-        ai_will_do = {
-            factor = 1
         }
     }
 
@@ -1616,9 +1471,12 @@ political_decisions = {
             set_country_flag = grand_duchy_lit
             badboy = 10
             BYE = { all_core = { add_core = LIT } }
-            945 = { remove_core = LIT}
-            944 = { remove_core = LIT}
-            949 = { remove_core = LIT}
+            945 = { remove_core = LIT }
+            944 = { remove_core = LIT }
+            949 = { remove_core = LIT }
+            1007 = { remove_core = LIT }
+            943 = { remove_core = LIT }
+            1015 = { remove_core = LIT }
         }
     }
 	
@@ -1635,7 +1493,7 @@ political_decisions = {
 			year = 1839
 			NOT = { year = 1844 }
             war = no
-            has_recently_lost_war = no
+            NOT = { has_country_modifier = recently_lost_war }
             is_disarmed = no
 			OR = {
 			    has_global_flag = den_provoke_swe
@@ -1669,7 +1527,7 @@ political_decisions = {
 		    year = 1839
 			NOT = { year = 1844 }
             war = no
-            has_recently_lost_war = no
+            NOT = { has_country_modifier = recently_lost_war }
             is_disarmed = no
         }
 
@@ -1782,7 +1640,7 @@ political_decisions = {
         }
 
         allow = {
-		    has_recently_lost_war = no
+		    NOT = { has_country_modifier = recently_lost_war }
             war = no
 			is_vassal = no
 			OR = {

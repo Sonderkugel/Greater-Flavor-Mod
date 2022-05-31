@@ -7,7 +7,7 @@ country_event = {
     trigger = {
         OR = {
 			tag = CHL
-			AND = { tag = HSA owns = 2324 }
+			AND = { has_country_flag = i_am_hsa owns = 2324 }
 			AND = {
 			    tag = PBC
 				NOT = {
@@ -263,7 +263,7 @@ country_event = {
     trigger = {
         tag = CHL
         is_vassal = no
-        has_recently_lost_war = no
+        NOT = { has_country_modifier = recently_lost_war }
         is_disarmed = no
         war = no
         NOT = { war_exhaustion = 20 }

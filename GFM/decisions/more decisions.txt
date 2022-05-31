@@ -118,10 +118,21 @@ political_decisions = {
                 }
                 country_event = 8751245
             }
-            SPC = { all_core = { add_core = IBR } }
-            SPA = { all_core = { add_core = IBR } }
-            POR = { all_core = { add_core = IBR } }
             517 = { add_core = IBR }
+			SPA_474 = { add_core = IBR }
+			SPA_477 = { add_core = IBR }
+			SPA_484 = { add_core = IBR }
+			SPA_487 = { add_core = IBR }
+			SPA_492 = { add_core = IBR }
+			SPA_498 = { add_core = IBR }
+			SPA_503 = { add_core = IBR }
+			SPA_512 = { add_core = IBR }
+			SPA_513 = { add_core = IBR }
+			POR_518 = { add_core = IBR }
+			POR_521 = { add_core = IBR }
+			POR_525 = { add_core = IBR }
+			POR_2134 = { add_core = IBR }
+			3252 = { remove_core = IBR }
             IBR = {
                 add_accepted_culture = portuguese
                 add_accepted_culture = spanish
@@ -395,7 +406,7 @@ political_decisions = {
         picture = italian_islands
         potential = {
             tag = FRA
-            473 = {is_core = SRD}
+            473 = { is_core = SRD}
             473 = { owned_by = THIS }
             NOT = { exists = ITA }
 			NOT = { exists = ITS }
@@ -403,12 +414,12 @@ political_decisions = {
         allow = {
             war = no
             truce_with = SRD
-            has_recently_lost_war = no
+            NOT = { has_country_modifier = recently_lost_war }
         }
         effect = {
             prestige = 12
-            473 = {remove_core = SRD}
-            473 = {remove_core = ITA}
+            473 = { remove_core = SRD }
+            473 = { remove_core = ITA }
             SRD = {
                 prestige = -15
             }
@@ -465,7 +476,7 @@ political_decisions = {
         allow = {
             prestige = 50
             war = no
-            has_recently_lost_war = no
+            NOT = { has_country_modifier = recently_lost_war }
             OR = {
                 is_greater_power = yes
                 is_secondary_power = yes
@@ -488,7 +499,7 @@ political_decisions = {
             move_issue_percentage = {
                 from = pro_military
                 to = jingoism
-                value = .25
+                value = 0.25
             }
         }
     }
@@ -799,7 +810,7 @@ political_decisions = {
                 tag = SCA
             }
             NOT = { primary_culture = finnish }
-            NOT = { has_global_flag = finland_in_scandinavia}
+            NOT = { has_global_flag = finland_in_scandinavia }
             NOT = { tag = RUS }
         }
         allow = {
@@ -859,7 +870,7 @@ political_decisions = {
                 SCA = { vassal_of = THIS }
                 tag = SCA
             }
-            NOT = { has_global_flag = estonia_in_scandinavia}
+            NOT = { has_global_flag = estonia_in_scandinavia }
             NOT = {
                 tag = RUS
             }
@@ -921,7 +932,7 @@ political_decisions = {
                 SCA = { vassal_of = THIS }
                 tag = SCA
             }
-            NOT = { has_global_flag = karelia_in_scandinavia}
+            NOT = { has_global_flag = karelia_in_scandinavia }
             NOT = {
                 tag = RUS
             }
@@ -1038,13 +1049,13 @@ political_decisions = {
         potential = {
             PAP = {
                 vassal_of = THIS
-                NOT = {government = theocracy}
+                NOT = { government = theocracy }
             }
             has_country_flag = catholic_country
         }
         allow = {
             war = no
-            PAP = {vassal_of = THIS}
+            PAP = { vassal_of = THIS }
             religious_policy = moralism
         }
         effect = {
@@ -1068,7 +1079,7 @@ political_decisions = {
         potential = {
 			OR = {
 				tag = MEX
-				AND = { tag = HSA owns = 2172 }
+				AND = { has_country_flag = i_am_hsa owns = 2172 }
 			}
             OR = {
                 has_global_flag = USA_CAN_denied
@@ -1134,7 +1145,13 @@ political_decisions = {
             tag = MEX
             is_greater_power = yes
             NOT = { has_country_flag = mexico_caribbean }
-			has_country_flag = has_taken_oregon_or_more
+			OR = {
+				NOT = {
+					has_country_flag = guadalupe_enforced
+					USA = { has_country_flag = mexican_american_war_alternate_treaty }
+				}
+				has_country_flag = finished_expanding
+			}
         }
         allow = {
             war = no

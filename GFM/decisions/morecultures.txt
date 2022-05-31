@@ -1,4 +1,114 @@
 political_decisions = {
+	general_colonization_law = {
+		picture = colonization
+		potential = {
+			tag = MEX
+			NOT = { has_country_flag = MEX_colonization_law }
+			centralization = federalism
+		}
+		allow = {
+			NOT = { has_country_modifier = recently_lost_war }
+			war = no
+		}
+		effect = {
+			set_country_flag = MEX_colonization_law
+			political_reform = open_borders
+			political_reform = settlement
+			add_country_modifier = {
+				name = colonization_law_mex
+				duration = -1
+			}
+			any_pop = {
+				limit = {
+					OR = {
+						has_pop_culture = native_american_minor
+						has_pop_culture = pueblo
+						has_pop_culture = nahua
+						has_pop_culture = cherokee
+						has_pop_culture = mayan
+					}
+				}
+				militancy = 3
+				consciousness = 5
+			}
+			any_owned = {
+				limit = {
+					owned_by = MEX
+					OR = {
+						province_id = 2150
+						province_id = 2151
+						province_id = 2149
+						province_id = 2152
+						province_id = 2147
+						province_id = 2155
+						province_id = 2145
+						province_id = 2142
+						province_id = 2143
+						province_id = 2144
+						province_id = 2137
+						province_id = 2138
+						province_id = 2141
+						province_id = 2140
+						province_id = 3456
+						province_id = 2139
+						province_id = 138
+						province_id = 137
+						province_id = 133
+						province_id = 132
+						province_id = 43
+						province_id = 134
+						province_id = 135
+						province_id = 136
+						province_id = 129
+						province_id = 128
+						province_id = 103
+						province_id = 109
+						province_id = 108
+						province_id = 3560
+						province_id = 107
+						province_id = 110
+						province_id = 99
+						province_id = 98
+						province_id = 97
+						province_id = 3459
+						province_id = 95
+						province_id = 3458
+						province_id = 96
+						province_id = 94
+						province_id = 3457
+						province_id = 86
+						province_id = 3453
+						province_id = 3454
+						province_id = 3455
+						province_id = 85
+						province_id = 3448
+						province_id = 87
+						province_id = 3450
+						province_id = 89
+						province_id = 90
+						province_id = 3451
+						province_id = 88
+						province_id = 3452
+						province_id = 3340
+						province_id = 104
+						province_id = 102
+						province_id = 100
+						province_id = 101
+						province_id = 3460
+						province_id = 2148
+						province_id = 105
+						province_id = 2662
+					}
+				}
+				add_province_modifier = {
+					name = colonization_law_mex_prov
+					duration = 3650
+					
+				}
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
 
     form_arab_union = {
     picture = form_arab_union
@@ -26,7 +136,7 @@ political_decisions = {
             rank = 10
             revolution_n_counterrevolution = 1
             all_core = { owned_by = THIS }
-			has_recently_lost_war = no
+			NOT = { has_country_modifier = recently_lost_war }
         }
 
         effect = {
@@ -460,7 +570,6 @@ political_decisions = {
 			472 = { add_core = THIS remove_core = ITA remove_core = SAR }
 			465 = { add_core = THIS remove_core = ITA remove_core = SAR }
 			466 = { add_core = THIS remove_core = ITA remove_core = SAR }
-			3435 = { add_core = THIS remove_core = ITA remove_core = SAR }
 			721 = { add_core = THIS remove_core = ITA remove_core = SAR }
 			3434 = { add_core = THIS remove_core = ITA remove_core = SAR }
 			739 = { add_core = SAR }
@@ -899,53 +1008,6 @@ political_decisions = {
             consciousness = 5
             militancy = 3
             }
-        }
-        ai_will_do = { factor = 1 }
-    }
-    estonia_rename_ubd = {
-        picture = map_estonia
-        potential = {
-            NOT = { has_global_flag = estonia_renamed_ubd }
-            OR = {
-			    primary_culture = north_german
-				primary_culture = south_german
-				primary_culture = volga_german
-			}
-            OR = {
-               349 = { owned_by = THIS }
-               350 = { owned_by = THIS }
-               352 = { owned_by = THIS }
-               3367 = { owned_by = THIS }
-               3368 = { owned_by = THIS }
-               351 = { owned_by = THIS }
-               353 = { owned_by = THIS }
-            }
-        }
-
-        allow = {
-            war = no
-            349 = { owned_by = THIS }
-            350 = { owned_by = THIS }
-            352 = { owned_by = THIS }
-            3367 = { owned_by = THIS }
-            3368 = { owned_by = THIS }
-            351 = { owned_by = THIS }
-            353 = { owned_by = THIS }
-        }
-
-        effect = {
-            prestige = 5
-            set_global_flag = estonia_renamed_ubd
-            clr_global_flag = estonia_renamed_fin
-            clr_global_flag = estonia_renamed_rus
-			clr_global_flag = estonia_renamed_swe
-            349 = { change_province_name = "Reval" }
-            350 = { change_province_name = "Narwa" }
-            352 = { change_province_name = "Dorpat" }
-            3367 = { change_province_name = "Petschur" }
-            3368 = { change_province_name = "Johannstadt" }
-            351 = { change_province_name = "Pernau" }
-            353 = { change_province_name = "Ösel" }
         }
         ai_will_do = { factor = 1 }
     }
@@ -1660,7 +1722,7 @@ political_decisions = {
 
         allow = {
             war = no
-            has_recently_lost_war = no
+            NOT = { has_country_modifier = recently_lost_war }
             is_sphere_leader_of = UBD
             nationalism_n_imperialism = 1
             OR = {
@@ -1751,7 +1813,7 @@ political_decisions = {
             war = no
             nationalism_n_imperialism = 1
 			RUS = { truce_with = THIS }
-			RUS = { has_recently_lost_war = yes }
+			RUS = { has_country_modifier = recently_lost_war }
         }
 
         effect = {
@@ -2188,7 +2250,10 @@ political_decisions = {
 		picture = MEX_rancho
 		potential = {
 			year = 1865
-			has_country_flag = has_taken_oregon_or_more
+			OR = {
+				has_country_flag = has_taken_oregon_or_more
+				has_country_flag = finished_expanding
+			}
 			NOT = { has_country_flag = reforma_agraria }
 		}
 		allow = {
@@ -2278,7 +2343,6 @@ political_decisions = {
             set_country_flag = reclaim_italian_lands
             SAR_466 = { add_core = THIS }
 			3434 = { add_core = THIS }
-			3435 = { add_core = THIS }
 			721 = { add_core = THIS }
             826 = { add_core = THIS }
             852 = { add_core = THIS }
@@ -2589,7 +2653,7 @@ political_decisions = {
             is_vassal = no
             is_greater_power = yes
             NOT = { is_disarmed = yes }
-            NOT = { has_recently_lost_war = yes }
+            NOT = { has_country_modifier = recently_lost_war }
             owns = 418
             war_policy = jingoism
             419 = { owner = { is_disarmed = yes truce_with = THIS war = no NOT = { military_score = THIS } } }
@@ -2648,52 +2712,15 @@ political_decisions = {
         }
     }
 	
-	germanize_crimea = {
-        #picture = germanize_crimea
-        potential = {
-            is_culture_group = germanic
-            owns = 964
-            owns = 966
-            owns = 967
-			owns = 3437
-			owns = 3438
-			owns = 3439
-			owns = 3436
-            NOT = {
-                has_global_flag = germanized_crimea
-            }
-        }
-
-        allow = {
-            is_culture_group = germanic
-            owns = 964
-            owns = 966
-            owns = 967
-			owns = 3437
-			owns = 3438
-			owns = 3439
-			owns = 3436
-        }
-
-        effect = {
-            prestige = 5
-            964 = { change_province_name = "Gotenburg" }
-            966 = { change_province_name = "Kertsch" }
-            967 = { change_province_name = "Kaiserstadt" }
-			3438 = { change_province_name = "Jalta" }
-			3439 = { change_province_name = "Feodossija" }
-			3437 = { change_province_name = "Dschankoj" }
-			3436 = { change_province_name = "Jewpatorija" }
-            set_global_flag = germanized_crimea
-        }
-    }
-	
 	manifest_destiny = {
         potential = {
             OR = { tag = USA tag = US2 }
             is_greater_power = yes
             NOT = { has_country_flag = hasmanifestdestiny }
 			NOT = { has_global_flag = USA_demanded_MEX }
+			NOT = {
+				91 = { owned_by = MEX }
+			}
         }
         allow = {
             war = no
@@ -3060,7 +3087,7 @@ political_decisions = {
 
         allow = {
             war = no
-            NOT = { has_recently_lost_war = yes }
+            NOT = { has_country_modifier = recently_lost_war }
             OR = {
                 AND = {
                     is_greater_power = yes
@@ -3068,11 +3095,11 @@ political_decisions = {
                 }
                 AND = {
                     truce_with = USA
-                    USA = { has_recently_lost_war = yes }
+                    USA = { has_country_modifier = recently_lost_war }
                 }
                 AND = {
                     truce_with = US2
-                    US2 = { has_recently_lost_war = yes }
+                    US2 = { has_country_modifier = recently_lost_war }
                 }
             }
             owns = 128
@@ -3167,7 +3194,10 @@ political_decisions = {
 			is_greater_power = yes
 			war = no
 			NOT = { has_country_flag = forced_education }
-			has_country_flag = has_taken_oregon_or_more
+			OR = { 
+				has_country_flag = has_taken_oregon_or_more
+				has_country_flag = finished_expanding
+			}
 		}
 		allow = {
 			functionalism = 1
@@ -3730,7 +3760,6 @@ political_decisions = {
         potential = {
             has_global_flag = treaty_of_managua_success
             2200 = { NOT = { owned_by = THIS } }
-            3491 = { NOT = { owned_by = THIS } }
             MSK = { exists = yes }
             2197 = {
                 OR = {
@@ -3782,5 +3811,36 @@ political_decisions = {
         }
 
         ai_will_do = { factor = 1 }
+    }
+	claim_pontus = {
+    picture = claim_pontus
+
+        potential = {
+            primary_culture = greek
+            has_country_flag = greece_has_got_a_brand_new_bag
+            all_core = { owned_by = THIS }
+            NOT = { has_country_flag = claim_pontus }
+        }
+
+        allow = {
+            war = no
+        }
+
+        effect = {
+            set_country_flag = claim_pontus
+            badboy = 3
+            PNT = {
+                all_core = { add_core = THIS remove_core = PNT }
+            }
+            any_pop = {
+                limit = { has_pop_culture = greek }
+                militancy = -1
+                dominant_issue = { factor = 0.1 value = jingoism }
+            }
+        }
+
+        ai_will_do = {
+            factor = 1
+        }
     }
 }

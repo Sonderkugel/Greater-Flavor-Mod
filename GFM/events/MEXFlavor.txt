@@ -542,6 +542,7 @@ country_event = {
 
     option = {
         name = "EVT44820OPTA"
+		prestige = -5
         any_owned = {
             limit = { is_core = RGR }
             secede_province = RGR
@@ -579,6 +580,7 @@ country_event = {
     }
     option = {
         name = "Freedom for the Riograndese!"
+		prestige = -15
         any_owned = {
             limit = { is_core = RGR }
             secede_province = RGR
@@ -611,7 +613,7 @@ country_event = {
 
     option = {
         name = "EVT44820OPTB"
-        prestige = -5
+        prestige = -15
         any_owned = {
             limit = { is_core = RGR }
             secede_province = RGR
@@ -675,6 +677,7 @@ country_event = {
 
     option = {
         name = "EVT44820OPTA"
+		prestige = -5
         any_owned = {
             limit = { is_core = YUC }
             secede_province = YUC
@@ -712,7 +715,7 @@ country_event = {
 
     option = {
         name = "EVT44820OPTB"
-        prestige = -5
+        prestige = -15
         any_owned = {
             limit = { is_core = YUC }
             secede_province = YUC
@@ -1066,25 +1069,32 @@ country_event = {
     news_desc_long = "EVTDESC44830"
     news_desc_medium = "EVTDESC44830_NEWS_MEDIUM"
     news_desc_short = "EVTDESC44830_NEWS_SHORT"
-    picture = "execution_of_emperor_maximillian"
+    picture = "death_of_max"
+	fire_only_once = yes
 
     trigger = {
-        tag = MEX
-        OR = {
-            government = hms_government
-            government = constitutional_empire
-        }
-        has_country_flag = we_have_tried_this_once
+        tag = MEE
+        government = constitutional_empire
         2172 = { controlled_by_rebels = yes }
-        NOT = { year = 1880 }
+        NOT = { year = 1890 }
     }
 
     mean_time_to_happen = {
-        days = 10
+        days = 1
     }
 
     option = {
         name = "EVT44830OPTA"
+		random_owned = {
+			limit = {
+				owner = {
+					tag = MEE
+				}
+			}
+			owner = {
+				change_tag = MEX
+			}
+		}
         government = democracy
 		set_country_flag = Government_Democracy
         ruling_party_ideology = liberal
@@ -1215,6 +1225,7 @@ country_event = {
         national_provinces_occupied = 0.25
         any_owned_province = { country_units_in_province = MEX }
         NOT = { has_country_flag = santa_ana_captured }
+		NOT = { has_global_flag = railroaded_mex_keeps_north_mexico }
 		OR = {
 			AND = {
 				TEX = { ai = yes }
@@ -1945,8 +1956,8 @@ country_event = {
 country_event = {
     id = 111022
     title = "La Batalla de Puebla"
-    desc = "Our troops have recaptured Mexico City, expelling the French invaders and the government of Maximilian I. To send a warning against further interventions, he was executed by a firing squad."
-    picture = "death_of_max"
+    desc = "Our troops have recaptured Mexico City, expelling the French invaders and the government of Maximilian I. General Ignacio Zaragoza has won against all odds."
+    picture = "execution_of_emperor_maximillian"
 
     trigger = {
         tag = MEX
@@ -1971,6 +1982,7 @@ country_event = {
 		MEE = { all_core = { remove_core = MEE } }
 		MEE = { annex_to = MEX }
 		FRA = { country_event = 111023 }
+		country_event = 44830
     }
 }
 

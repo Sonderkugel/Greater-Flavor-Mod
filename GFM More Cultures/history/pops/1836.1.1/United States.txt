@@ -490,7 +490,13 @@
     farmers = {
         culture = native_american_minor
         religion = animist
-        size = 500
+        size = 450
+    }
+
+    farmers = {
+        culture = nutka
+        religion = animist
+        size = 50
     }
 }
 #Walla Walla (2000/500 POPS)
@@ -526,7 +532,7 @@
     }
 	
     aristocrats = {
-        culture = walla_walla
+        culture = palouse 
         religion = animist
         size = 10
     }
@@ -544,9 +550,15 @@
     }
 
     farmers = {
+        culture = palouse
+        religion = animist
+        size = 50
+    }
+
+    farmers = {
         culture = walla_walla
         religion = animist
-        size = 175
+        size = 125
     }
 	
 	farmers = {
@@ -697,7 +709,7 @@
     }
 
     artisans = {
-        culture = yankee
+        culture = palouse 
         religion = protestant
         size = 5
     }
@@ -750,7 +762,7 @@
     }
 	
 	farmers = {
-        culture = kutenai
+        culture = palouse
         religion = animist
         size = 50
     }
@@ -890,7 +902,7 @@
 	farmers = {
         culture = north_paiute
         religion = animist
-        size = 90
+        size = 85
     }
 	
 	farmers = {
@@ -902,7 +914,7 @@
     farmers = {
         culture = yakama
         religion = animist
-        size = 40
+        size = 35
     }
 	
 	farmers = {
@@ -914,7 +926,7 @@
 	farmers = {
         culture = klickitat
         religion = animist
-        size = 50
+        size = 45
     }
 	
 	farmers = {
@@ -926,7 +938,7 @@
 	farmers = {
         culture = bannock
         religion = animist
-        size = 25
+        size = 20
     }
 	
 	farmers = {
@@ -934,11 +946,17 @@
         religion = animist
         size = 40
     }
+	
+	farmers = {
+        culture = palouse
+        religion = animist
+        size = 25
+    }
 
     farmers = {
         culture = nez_perce
         religion = animist
-        size = 50
+        size = 45
     }
 
 }
@@ -2342,7 +2360,7 @@
     }
 
     farmers = {
-        culture = bitterroot
+        culture = palouse 
         religion = animist
         size = 50
     }

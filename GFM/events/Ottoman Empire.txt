@@ -710,6 +710,7 @@ country_event = {
                         region = TUR_860 #Thrace
                         region = TUR_869 #Izmir
                         region = TUR_863 #Bursa
+						region = TUR_870 #Eskishehir
                         region = EGY_843 #Aegean Islands
                         region = TUR_855 #Cyprus
                         region = TUR_873 #Konya
@@ -742,6 +743,7 @@ country_event = {
 					region = TUR_860 #Thrace
 					region = TUR_869 #Izmir
 					region = TUR_863 #Bursa
+					region = TUR_870 #Eskishehir
 					region = EGY_843 #Aegean Islands
 					region = TUR_855 #Cyprus
 					region = TUR_873 #Konya
@@ -1816,12 +1818,13 @@ country_event = {
             any_pop = { literacy = -0.99 }
         }
 
-        any_owned = { limit = {
-            is_core = DAR
-            NOT = { province_id = 1845 }
-                }
-            secede_province = DAR
+        any_owned = { 
+			limit = {
+				is_core = DAR
+				NOT = { province_id = 1845 }
             }
+            secede_province = DAR
+        }
 
         ai_chance = { factor = 0 }
     }
@@ -3205,7 +3208,7 @@ country_event = {
 
 country_event = {
 
-    id = 6765860
+    id = 67658601
     title = "The Massacre of Aleppo"
     desc = "EVTDESC6765860"
     picture = "massacre_aleppo"

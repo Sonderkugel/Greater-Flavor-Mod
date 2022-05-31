@@ -5,7 +5,7 @@ political_decisions = {
             OR = {
 				tag = PBC
 				tag = CHL
-				AND = { tag = HSA owns = 2324 }
+				AND = { has_country_flag = i_am_hsa owns = 2324 }
 			}
             OR = {
                 2333 = { empty = yes }
@@ -88,7 +88,7 @@ political_decisions = {
                 OR = {
 					tag = CHL
 					tag = PBC
-					AND = { tag = HSA owns = 2324 }
+					AND = { has_country_flag = i_am_hsa owns = 2324 }
 				}
                 owns = 2325
         }
@@ -117,13 +117,13 @@ political_decisions = {
         potential = {
             tag = CHL
             truce_with = PBC
-            PBC = { exists = yes war_with = PEU has_recently_lost_war = yes }
+            PBC = { exists = yes war_with = PEU has_country_modifier = recently_lost_war }
             SPU = { vassal_of = PBC }
             NOT = { has_country_flag = treaty_of_paucarpata_repudiated }
         }
 
         allow = {
-            NOT = { has_recently_lost_war = yes }
+            NOT = { has_country_modifier = recently_lost_war }
             NOT = { PBC = { military_score = THIS } }
         }
 
@@ -149,7 +149,7 @@ political_decisions = {
         potential = {
 			OR = {
 				tag = CHL
-				AND = { tag = HSA owns = 2324 }
+				AND = { has_country_flag = i_am_hsa owns = 2324 }
 			}
             has_global_flag = minas_gerais_ordered
             relation = { who = ENG value = 100 }

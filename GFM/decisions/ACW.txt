@@ -212,6 +212,7 @@ political_decisions = {
             NOT = { has_country_flag = homestead_act }
             year = 1862
             number_of_states = 3
+			NOT = { MEX = { has_country_flag = finished_expanding } }
 			NOT = { has_global_flag = mexico_has_taken_oregon_or_more }
 			NOT = { MEX = { has_country_flag = manifest_destiny_refuted } }
 			owns = 106
@@ -1207,7 +1208,7 @@ political_decisions = {
             OR = {
                 AND = {
                     USA = { owns = 249 }
-                    NOT = { war_with = USA truce_with = USA}
+                    NOT = { war_with = USA truce_with = USA }
                 }
 				AND = {
 					US2 = { owns = 249 }
@@ -1628,7 +1629,21 @@ political_decisions = {
 
         effect = {
             set_global_flag = iron_ranges
-            158 = { trade_goods = iron change_province_name = "Duluth" }
+			random_owned = {
+				limit = {
+					province_id = 158
+					owner = {
+						OR = {
+							accepted_culture = yankee
+							accepted_culture = dixie
+						}
+					}
+				}
+				owner = {
+					158 = { change_province_name = "Duluth" }
+				}
+			}
+            158 = { trade_goods = iron }
             157 = { trade_goods = iron }
             102 = { trade_goods = iron }
             2662 = { trade_goods = iron }
@@ -1637,7 +1652,7 @@ political_decisions = {
             98 = { trade_goods = iron }
             101 = { trade_goods = iron }
             94 = { trade_goods = iron }
-            95 = { trade_goods = iron }
+            95 = { trade_goods = mercury }
             96 = { trade_goods = iron }
             3457 = { trade_goods = iron }
             3458 = { trade_goods = iron }

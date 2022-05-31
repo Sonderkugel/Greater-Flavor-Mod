@@ -1,3 +1,11 @@
+strait_control_tile = {
+    icon = 21
+}
+
+recently_lost_war = {
+    icon = 8
+}
+
 grant_cooldown = {
     icon = 12
 }
@@ -8,6 +16,11 @@ gov_legit_in_question = {
 
 removed_pm_cd = {
 	icon = 12
+}
+
+half_research_startup = {
+	research_points_modifier = -0.5
+	icon = 4
 }
 
 ##################################################################################################
@@ -1137,7 +1150,7 @@ academic_confusion = {
 liberal_agitation = {
     pop_consciousness_modifier = 0.2
     pop_militancy_modifier = 0.05
-	immigrant_push = 0.25
+	immigrant_push = 0.5
     icon = 4
 }
 
@@ -4816,15 +4829,19 @@ cotton_boom = {
 
 mexico_city_buff = {
 	population_growth = 0.001
-	immigrant_attract = 0.1
-	prestige = 0.1
 	icon = 15
 }
 
-aztec_pride = {
-	global_population_growth = 0.0007
-	global_immigrant_attract = 0.3
+colonization_law_mex = {
+	global_immigrant_attract = 0.1
+	assimilation_rate = 0.05
 	icon = 17
+}
+
+colonization_law_mex_prov = {
+	immigrant_attract = 0.4
+	assimilation_rate = 0.45
+	icon = 19
 }
 
 mexican_national_staff = {
@@ -5081,6 +5098,14 @@ parana_development_forever = {
 	icon = 19
 }
 
+sao_francisco_transposition = {
+    farm_rgo_eff = 0.5
+    mine_rgo_eff = 0.5
+    immigrant_attract = 0.1
+    population_growth = 0.001
+    icon = 3
+}
+
 benito_juarez = {
 	education_efficiency_modifier = 0.1
 	global_pop_consciousness_modifier = 0.1
@@ -5096,7 +5121,7 @@ city_boom = {
 
 banamex_modifier = {
 	tariff_efficiency_modifier = 0.01
-	tax_efficiency = 0.05
+	tax_efficiency = 0.01
 	poor_savings_modifier = 0.01
 	icon = 9
 }
@@ -5115,15 +5140,64 @@ london_mex_bank = {
 
 mex_hospital_prov = {
 	population_growth = 0.001
-	icon = 17
+	icon = 19
 }
 
 small_research_bonus = {
-	research_points = 2
+	research_points = 2.5
 	icon = 3
 }
 
 big_research_bonus = {
 	research_points = 5
 	icon = 3
+}
+
+los_rurales = {
+	local_RGO_throughput = 0.05
+	icon = 19
+}
+
+special_administrative_zone = {
+	assimilation_rate = -0.2
+	pop_militancy_modifier = -0.1
+    local_RGO_output = -0.15
+    pop_consciousness_modifier = -0.1
+	icon = 2
+}
+
+prov_american_integration = {
+	immigrant_attract = 0.15
+	icon = 19
+}
+
+fundidora = {
+	local_RGO_output = 0.05
+	local_RGO_throughput = 0.05
+	pop_militancy_modifier = -0.01
+	pop_consciousness_modifier = -0.01
+	icon = 13
+}
+
+contestado_war = {
+    pop_militancy_modifier = 0.05
+    pop_consciousness_modifier = 0.05
+    local_RGO_output = -0.1
+    local_RGO_throughput = -0.1
+    icon = 18
+}
+
+foreign_imperial_examination = {
+    administrative_efficiency_modifier = 0.05
+    icon = 7
+}
+
+reforming_to_dnb = {
+    administrative_efficiency_modifier = 0.05
+    icon = 7
+}
+
+zollverein_mod = {
+	tax_efficiency = 0.05
+	icon = 9
 }

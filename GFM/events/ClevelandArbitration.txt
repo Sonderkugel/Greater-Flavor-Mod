@@ -197,16 +197,17 @@ country_event = {
 
     option = {
         name = "Damn..."
-        2462 = { 
-			remove_core = ARG
-			remove_core = ARC
-			remove_core = LPL
-			remove_core = HSA
+		any_country = {
+			limit = {
+				primary_culture = platinean
+				is_core = 2462
+			}
+			remove_core = 2462
 		}
 		random_owned = {
             limit = { owner = { primary_culture = brazilian } }
             owner = {
-                2462 = { remove_core = SAC secede_province = FROM }
+                2462 = { remove_core = SAP remove_core = SAC secede_province = FROM }
             }
         }
 		random_owned = {
@@ -214,6 +215,7 @@ country_event = {
             2462 = {
                 secede_province = FROM
 				add_core = FROM
+                change_province_name = "Clevelândia"
             }
         }
     }

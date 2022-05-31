@@ -74,6 +74,10 @@ country_event = {
                     province_id = 221
                     province_id = 222
                     province_id = 2146
+                    province_id = 184
+                    province_id = 185
+                    province_id = 186
+                    province_id = 187
                 }
             }
             secede_province = CSA
@@ -88,8 +92,7 @@ country_event = {
             attacker_goal = { casus_belli = civil_war }
             defender_goal = { casus_belli = status_quo }
         }
-		2424 = { add_province_modifier = { name = cotton_boom duration = 300 } }
-		2425 = { add_province_modifier = { name = cotton_boom duration = 300 } }
+		2424 = { add_province_modifier = { name = cotton_boom duration = 1460 } }
     }
 
     option = {
@@ -114,6 +117,10 @@ country_event = {
                     province_id = 221
                     province_id = 222
                     province_id = 2146
+                    province_id = 184
+                    province_id = 185
+                    province_id = 186
+                    province_id = 187
                 }
             }
             secede_province = CSA
@@ -131,8 +138,7 @@ country_event = {
 		}
 		change_tag_no_core_switch = CSA
         set_global_flag = american_civil_war_has_happened
-		2424 = { add_province_modifier = { name = cotton_boom duration = 300 } }
-		2425 = { add_province_modifier = { name = cotton_boom duration = 300 } }
+		2424 = { add_province_modifier = { name = cotton_boom duration = 1460 } }
     }
 }
 
@@ -358,6 +364,10 @@ country_event = {
                     province_id = 221
                     province_id = 222
                     province_id = 2146
+                    province_id = 184
+                    province_id = 185
+                    province_id = 186
+                    province_id = 187
                 }
             }
             secede_province = CSA
@@ -395,7 +405,7 @@ country_event = {
             add_country_modifier = { name = no_more_war duration = 150 }
         }
         capital = 2146
-        country_event = {id = 16000 days = 150}
+        country_event = { id = 16000 days = 150}
 
         ai_chance = { factor = 100 }
     }
@@ -2696,7 +2706,7 @@ country_event = {
         }
         modifier = {
             factor = 0.5
-            NOT = {average_consciousness = 5 }
+            NOT = { average_consciousness = 5 }
         }
         modifier = {
             factor = 20
@@ -3748,7 +3758,6 @@ province_event = {
         continent = north_america
         NOT = {
             is_core = CSA
-            state_id = 184
         }
         OR = {
             is_core = USA
@@ -3777,6 +3786,8 @@ province_event = {
         OR = {
             state_scope = { is_slave = yes }
             state_id = 133
+			state_id = 184
+			state_id = 218
         }
         OR = {
             yes_slavery = 10

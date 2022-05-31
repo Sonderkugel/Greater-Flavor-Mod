@@ -12,7 +12,7 @@ political_decisions = {
 
         allow = {
             OR = {
-                PBC = { has_recently_lost_war = yes }
+                PBC = { has_country_modifier = recently_lost_war }
                 national_provinces_occupied = 0.01
                 is_disarmed = yes
             }
@@ -218,6 +218,10 @@ political_decisions = {
                 limit = { NOT = { exists = BOL } }
                 owner = {
                     change_tag = BOL
+					2549 = { secede_province = BOL }
+					3381 = { secede_province = BOL }
+					3435 = { secede_province = BOL }
+					3326 = { secede_province = BOL }
                 }
             }
             any_country = {
@@ -442,7 +446,22 @@ political_decisions = {
                     ai = yes
                 }
                 all_core = { remove_core = SPU }
-                PEU = { inherit = SPU }
+                PEU = { 
+					inherit = SPU 
+					any_owned = {
+						limit = {
+							OR = {
+								province_id = 2321
+								province_id = 3382
+								province_id = 3435
+								province_id = 3381
+								province_id = 3326
+								province_id = 2549
+							}
+						}
+						secede_province = BOL
+					}
+				}
             }
             random_country = {
                 limit = {

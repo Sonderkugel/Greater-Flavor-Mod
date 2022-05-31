@@ -2339,7 +2339,7 @@ country_event = {
         }
         is_greater_power = no
         OR = {
-            has_recently_lost_war = yes
+            has_country_modifier = recently_lost_war
             NOT = { owns = 1492 }
             NOT = { owns = 1498 }
             NOT = { owns = 512 }
@@ -2578,7 +2578,7 @@ country_event = {
             average_militancy = 4
             any_core = { country_units_in_province = REB }
             AND = {
-                has_recently_lost_war = yes
+                has_country_modifier = recently_lost_war
                 average_militancy = 3
             }
         }
@@ -2734,7 +2734,7 @@ country_event = {
         OR = {
             average_militancy = 3
             any_core = { country_units_in_province = REB }
-            has_recently_lost_war = yes
+            has_country_modifier = recently_lost_war
         }
         NOT = { year = 1890 }
     }
@@ -5370,7 +5370,7 @@ country_event = {
         }
         modifier = {
             factor = 2
-            has_recently_lost_war = yes
+            has_country_modifier = recently_lost_war
         }
     }
 
@@ -5598,7 +5598,7 @@ country_event = {
             factor = 25
             modifier = {
                 factor = 2
-                has_recently_lost_war = yes
+                has_country_modifier = recently_lost_war
             }
             modifier = {
                 factor = 1.5
@@ -9022,4 +9022,140 @@ country_event = {
 	
 	mean_time_to_happen = { months = 2 } 
 
+}
+country_event = { 
+	id = 31747
+	title = "The Death of Alfonso XII"
+	desc = "ALFONSODEATH"
+	picture = "alfonsoxii_death"
+	
+	fire_only_once = yes 
+	
+	trigger = { 
+		tag = SPA 
+		year = 1885
+		OR = { 
+			government = absolute_monarchy
+			government = prussian_constitutionalism
+			government = hms_government
+		}
+	}
+
+	option = { 
+		name = "May he rest in peace."
+		any_pop = { consciousness = 1 }
+		clr_country_flag = king_alfonso_rules
+	} 
+	
+	mean_time_to_happen = { months = 11 } 
+
 } 
+
+country_event = { 
+	id = 31748 
+	title = "The Affair of the Spanish Marriages"
+	desc = "EVTDESC31748"
+	picture = isabella_the_first 
+	
+	fire_only_once = yes 
+	
+	immediate = { 
+	ENG = { relation = { who = FRA value = -50 } } 
+	}
+	
+	trigger = { 
+		tag = SPA 
+		year = 1846
+	}
+
+	option = { 
+		name = "There's no one better for her than her cousin!"
+		any_pop = { 
+			scaled_consciousness = { 
+				factor = -1 
+				ideology = conservative 
+			}
+			scaled_consciousness = { 
+				factor = 1
+				ideology = liberal
+			}
+		}
+		relation = { who = FRA value = 50 } 
+		relation = { who = ENG value = -50 } 
+		FRA = { 
+			diplomatic_influence = { who = THIS  value = 50 }
+		} 	
+		ENG = { 
+			diplomatic_influence = { who = THIS value = -50 } 
+		} 	
+		ai_chance = { factor = 1 } 
+	}
+	
+	option = { 
+		name = "She and Leopold will bear sons with very long German last names!"
+		any_pop = { 
+			scaled_consciousness = { 
+				factor = -1 
+				ideology = liberal 
+			}
+			scaled_consciousness = { 
+				factor = 1
+				ideology = conservative
+			}
+		}
+		relation = { who = ENG value = 50 } 
+		relation = { who = FRA value = -50 } 
+		ENG = { 
+			diplomatic_influence = { who = THIS  value = 50 }
+		} 	
+		FRA = { 
+			diplomatic_influence = { who = THIS value = -50 } 
+		} 	
+		ai_chance = { factor = 0 } 
+	}
+
+	mean_time_to_happen = { months = 10 } 
+
+}
+
+country_event = { 
+	id = 31749
+	title = "The Affairs of El Arahal"
+	desc = "EVTDESC31749"
+	picture = "arahal" 
+	
+	fire_only_once = yes 
+	
+	trigger = { 
+		OR = { 
+			tag = SPA 
+			tag = SPC 
+		}
+		OR = { 
+			government = absolute_empire
+			government = semi_constitutional_empire
+			government = constitutional_empire
+			government = absolute_monarchy
+			government = prussian_constitutionalism
+			government = hms_government
+		}
+		year = 1857
+		NOT = { 
+			ruling_party_ideology = liberal 
+			ruling_party_ideology = socialist 
+		}
+		owns = 509 
+	}
+	
+	option = { 
+		name = "'Death to the rich?' That's--rich." 
+		509 = { 
+			any_pop = { 
+				limit = { strata = poor } 
+				militancy = 5 
+			}
+		}
+	}
+	
+	mean_time_to_happen = { months = 5 } 
+} 	

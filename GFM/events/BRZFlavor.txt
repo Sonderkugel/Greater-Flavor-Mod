@@ -111,11 +111,16 @@ country_event = { #Bahia Republic
         owns = 2436
 		is_vassal = no
         tag = BRZ
+        OR = {
+            government = absolute_empire
+            government = semi_constitutional_empire
+            government = constitutional_empire
+        }
         year = 1837
-            OR = {
-                slavery = yes_slavery
-                slavery = freedom_of_womb
-            }
+        OR = {
+            slavery = yes_slavery
+            slavery = freedom_of_womb
+        }
         NOT = { year = 1840 }
     }
 
@@ -511,6 +516,7 @@ country_event = {
     option = {
         name = "EVTOPTA46305"
         any_pop = { limit = { location = { province_id = 2410 } } reduce_pop = 0.4 }
+		clr_country_flag = cabanagem_revolt
     }
 }
 
@@ -524,6 +530,11 @@ country_event = {
     trigger = {
         owns = 2425 #Chapada
         tag = BRZ
+        OR = {
+            government = absolute_empire
+            government = semi_constitutional_empire
+            government = constitutional_empire
+        }
         year = 1838
         any_owned_province = {
             OR = {
@@ -591,6 +602,7 @@ country_event = {
             }
             secede_province = MAR
         }
+        MAR = { government = democracy }
         war = {
             target = MAR
             attacker_goal = { casus_belli = conquest_any }

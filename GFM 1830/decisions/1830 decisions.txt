@@ -56,6 +56,7 @@ political_decisions = {
 					duration = 1400
 				}
 			}
+			ALB = { government = colonial_company }
         }
 
         ai_will_do = { factor = 1 }
@@ -130,8 +131,8 @@ political_decisions = {
 			CLM = { 
 				add_country_modifier = { name = power_vacuum duration = 365 }
 				government = prov_gov_conservative
-				political_reform = ruling_party_only
-				political_reform = no_voting
+				political_reform = party_appointed
+				political_reform = none_voting
 				political_reform = no_meeting
 				political_reform = state_press
 				political_reform = underground_parties
@@ -189,6 +190,27 @@ political_decisions = {
 
         ai_will_do = { factor = 1 }
     }
+
+	males_expand = {
+		picture = males_flag
+		potential = {
+			tag = BAH
+			government = theocracy
+			NOT = { has_country_flag = BAH_africa }
+		}
+		allow = { war = no }
+		effect = { 
+            2435 = { add_core = BAH }
+			2440 = { add_core = BAH }
+			2437 = { add_core = BAH }
+			2434 = { add_core = BAH }
+			2432 = { add_core = BAH }
+			2433 = { add_core = BAH }
+			set_country_flag = BAH_africa
+		}
+
+		ai_will_do = { factor = 1 }
+	}
 	
 	brest_litovsk_fort = { 
 		picture = brest_litovsk_fortress
@@ -200,12 +222,13 @@ political_decisions = {
 			}
 		}
 		
-		allow = { war = no } 
+		allow = { 
+			war = no 
+			year = 1833 
+		} 
 		
 		effect = { 
-			year = 1833 
-			war = no
-			940 = { fort = 1 } 
+			940 = { fort = 3 } 
 			prestige = 1 
 			treasury = -50000
 		}
@@ -230,8 +253,76 @@ political_decisions = {
 			ASH = { country_event = 16051835 }
 			set_global_flag = anglo_ashanti_treaty_proposed
 		}
-		ai_will_do = { facotr = 1 } 
+		ai_will_do = { factor = 1 } 
 	}
+	
+	osterreichische_lloyd = {
+		picture = osterreichische_lloyd
+		potential = {
+			tag = AUS
+			owns = 736
+			NOT = { has_global_flag = osterreichische_lloyd }
+		}
+		
+		allow = {
+			war = no
+			money = 20000
+			year = 1833
+		}
+
+		effect = {
+			capital = 736
+			build_factory_in_capital_state = clipper_shipyard
+			capital = 619
+			treasury = -20000
+			set_global_flag = osterreichische_lloyd
+		}
+		ai_will_do = { factor = 1 }
+	}
+	
+	antoine_clot = {
+		picture = antoine_clot
+		potential = {
+			tag = EGY
+			NOT = { has_global_flag = antoine_clot }
+		}
+		
+		allow = {
+			war = no
+			money = 10000
+			year = 1832
+		}
+
+		effect = {
+			treasury = -10000
+			define_general = { name = "Antoine Clot" personality = defence_1.1 background = attack_1.1 }
+			set_global_flag = antoine_clot
+			medicine = 1
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	bavarian_ludwig_railway = {
+        picture = bavarian_ludwig_railway
+        potential = {
+            tag = BAV
+            NOT = { has_country_flag = bavarian_ludwig_railway }
+			year = 1834
+        }
+
+        allow = {
+            war = no
+			money = 10000
+        }
+
+        effect = {
+			set_country_flag = bavarian_ludwig_railway
+			treasury = -10000
+			experimental_railroad = 1
+			595 = { infrastructure = 1 }
+        }
+        ai_will_do = { factor = 1 }
+    }
 }
 
 	

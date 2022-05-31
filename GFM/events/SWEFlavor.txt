@@ -1247,7 +1247,7 @@ country_event = {
 		NOR = {
 		    is_disarmed = yes
 		    truce_with = THIS
-		    has_recently_lost_war = yes 
+		    has_country_modifier = recently_lost_war 
 		}
 	    tag = SWE
 		has_global_flag = scandinavia_war
@@ -1304,7 +1304,7 @@ country_event = {
 		SWE = {
 		    is_disarmed = yes
 		    truce_with = THIS
-		    has_recently_lost_war = yes
+		    has_country_modifier = recently_lost_war
 		}
 	    tag = NOR
 		has_global_flag = scandinavia_war
@@ -1429,14 +1429,9 @@ country_event = {
     fire_only_once = yes
 	trigger = {
 	    tag = SWE
-	    FIN = {
-		    all_core = {
-			    owned_by = SWE
-			}
-		}
 	    NOR = {
 		    all_core = {
-			    owned_by = SWE
+			    owned_by = THIS
 			}
 		}
 	}
@@ -1444,27 +1439,18 @@ country_event = {
 	    months = 1
 	}
 	option = {
-	    name = "No, acceptance is the key to maintaining the Swedish Empire! §GLose 1 infamy§W"
-		add_accepted_culture = sami
-		add_accepted_culture = norwegian
-		add_accepted_culture = finnish
-		badboy = -1
+	    name = "Acceptance is the key to maintaining Sweden!"
+		NOR = { 
+			all_core = {
+				add_core = THIS
+			}
+		}
+		prestige = -15
 	}
 	option = {
-		name = "Do the drastic measures necessary to keep the empire in one piece! §RGain 3 infamy§W"
-		set_country_flag = swedification
-        badboy = 3
+		name = "Sweden shall remain Swedish!"
 		remove_accepted_culture = norwegian
-		remove_accepted_culture = finnish
-		set_country_flag = can_ignore_cultural_core
-		FIN = {
-		    all_core = {
-			    add_province_modifier = {
-				    name = swedish_assimilation
-					duration = -1 
-				}
-	        }
-        }
+		remove_accepted_culture = sami
 		NOR = {
 		    all_core = {
 			    add_province_modifier = {

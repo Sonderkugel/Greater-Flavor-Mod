@@ -2018,7 +2018,7 @@ country_event = {
             factor = 50
             modifier = {
                 factor = 1.5
-                TKG = { has_recently_lost_war = yes }
+                TKG = { has_country_modifier = recently_lost_war }
             }
             modifier = {
                 factor = 1.5
@@ -2488,7 +2488,7 @@ country_event = {
         OR = {
             has_country_flag = caved_to_commodore_perry
             has_country_flag = surrendered_to_perry
-            has_recently_lost_war = yes
+            has_country_modifier = recently_lost_war
             any_core = {
                 empty = no
                 owner = { NOT = { is_culture_group = far_east_asian } }
@@ -2781,6 +2781,10 @@ country_event = {
                 factor = 0
                 tag = CHO
             }
+			modifier = { 
+				factor = 0
+				tag = KAG 
+			}
         }
     }
 }
@@ -3787,11 +3791,11 @@ country_event = {
             liberal = 10
             socialist = 10
         }
-        revolution_n_counterrevolution = 1
         NOT = {
             has_country_flag = taisho_democracy
             num_of_revolts = 1
         }
+		year = 1879
     }
 
     mean_time_to_happen = {
@@ -4032,6 +4036,7 @@ country_event = {
         clr_country_flag = satsuma_rebellion_happened
         SAT = { clr_country_flag = satsuma_rebellion }
         JAP_1660 = { remove_core = SAT }
+		1679 = { remove_core = SAT }
         JAP = {
             political_reform = unitary
         }
@@ -4647,7 +4652,10 @@ country_event = { ##rework
     picture = "ship_attacked"
 
     trigger = {
-        tag = JAP
+		OR = {
+			tag = JAP
+			tag = TKG
+		}
         is_greater_power = yes
         has_country_modifier = line_of_advantage
         is_disarmed = no
@@ -4749,7 +4757,7 @@ country_event = {
         random_owned = {
             limit = { owner = { NOT = { number_of_states = 2 } } }
             THIS = { civilized = no }
-            JAP = { inherit = THIS }
+            FROM = { inherit = THIS }
             THIS = { civilized = yes }
         }
         random_owned = {
@@ -4759,7 +4767,7 @@ country_event = {
                 any_owned = {
                     limit = { region = CHI_1485 }
                     add_core = TAI
-                    secede_province = JAP
+                    secede_province = FROM
                 }
             }
         }
@@ -4787,7 +4795,7 @@ country_event = {
             limit = {
                 owner = { NOT = { number_of_states = 2 } }
             }
-            JAP = {
+            FROM = {
                 diplomatic_influence = { who = THIS value = -100 }
                 war = {
                     target = THIS
@@ -4799,7 +4807,7 @@ country_event = {
             limit = {
                 owner = { number_of_states = 2 }
             }
-            JAP = {
+            FROM = {
                 diplomatic_influence = { who = THIS value = -100 }
                 war = {
                     target = THIS
@@ -4894,7 +4902,11 @@ country_event = {
             factor = 0.5
             OR = {
                 is_our_vassal = KOR
-                any_owned_province = { is_core = KOR }
+                owns = 1637 
+				owns = 1632 
+				owns = 1624 
+				owns = 1619 
+				owns = 1621
             }
         }
         modifier = {
@@ -5670,76 +5682,6 @@ country_event = {
 
 
 country_event = { 
-	id = 7449115 #Seikanron
-	title = "Seikanron"
-	desc = "EVTDESC7749115"
-	picture = "seikanron" 
-	
-	fire_only_once = yes 
-	
-	trigger =  {
-		tag = JAP 
-		civilized = yes 
-		all_core = { owned_by = THIS } 
-		year = 1873
-		NOT = { alliance_with = KOR } 
-		NOT = { is_our_vassal = KOR } 
-		OR = { 
-			QNG = { 
-				is_our_vassal = KOR 
-			}
-			TPG = { 
-				is_our_vassal = KOR 
-			}
-		}
-		NOT = { 
-			KOR = { 
-				any_core = { owned_by =  THIS } 
-			}
-		}
-		NOT = { ruling_party_ideology = socialist } 
-		NOT = { has_global_flag = ganghwa_incident } 
-	} 	
-	
-	immediate = { 
-		relation = { who = KOR value = -20 } 
-	}
-	
-	option = { 
-		name = "We can certainly mete out some punishment for the Koreans."
-		KOR = { country_event = 60205626 } 
-		move_issue_percentage = { 
-			from = anti_military
-			to = pro_military 
-			value = 0.1
-		}
-		move_issue_percentage = { 
-			from = pro_military
-			to = jingoism 
-			value = 0.1
-		}
-		ai_chance = { factor = 0 } 
-	}
-	
-	option = { 
-		name = "These nobles need to get over themselves."
-		move_issue_percentage = { 
-			from = pro_military
-			to = anti_military
-			value = 0.1
-		}
-		move_issue_percentage = { 
-			from = jingoism
-			to = pro_military
-			value = 0.1
-		}
-		ai_chance = { factor = 1 } 
-	}
-	
-	mean_time_to_happen = { months = 3 } 
-}
-
-country_event = { 
 	id = 7449116 #Kiri-sute Gomen 
 	title = "EVTNAME7749116"
 	desc = "EVTDESC7749116"
@@ -6281,4 +6223,31 @@ country_event = {
 	}
 }
 
-
+country_event = { 
+	id = 18481999
+	title = "The Tapani Incident"
+	desc = "TAPANIINCIDENT"
+	picture = "tapani_troops"
+	fire_only_once = yes
+	
+	trigger = { 
+		OR = { 
+			tag = TKG 
+			tag = JAP 
+		}
+		OR = { 
+			is_secondary_power = yes 
+			is_greater_power = yes 
+		}
+		owns = 2681
+		year = 1915
+		month = 3
+	}
+	
+	mean_time_to_happen = { days = 5 }
+	
+	option = { 
+		name = "End them."
+		any_pop = { limit = { location = { region = CHI_1485 } NOT = { has_pop_culture = japanese } } militancy = 6 }
+	}
+} 

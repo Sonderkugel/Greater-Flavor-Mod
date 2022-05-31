@@ -155,29 +155,6 @@ country_event = { #original VIP event by Victor1234
     }
 }
 
-#The Great Drought of 1877-1879
-country_event = { #original VIP event by Pimparel
-    id = 116303
-    title = "EVTNAME116303"
-    desc = "EVTDESC116303"
-    picture = "destroyed_forest"
-    fire_only_once = yes
-
-    trigger = {
-        tag = BRZ
-        year = 1877
-    }
-
-    mean_time_to_happen =  { months = 6 }
-
-    option = {
-        name = "EVTOPTBAD"
-        BRZ_2439 = { any_owned = { add_province_modifier = { name = provincial_drought duration = 1095 } } } #Bahia
-        BRZ_2428 = { any_owned = { add_province_modifier = { name = provincial_drought duration = 1095 } } } #Pernambuco
-        BRZ_2410 = { any_owned = { add_province_modifier = { name = provincial_drought duration = 1095 } } } #Maranhão
-    }
-}
-
 #The Czech National Theater
 country_event = { #original VIP event by Palisadoes
     id = 131509
@@ -202,7 +179,7 @@ country_event = { #original VIP event by Palisadoes
         name = "EVTOPTA131509"
         any_pop = {
             limit = {
-                has_pop_culture = czech
+                is_culture_group = czecho_slovak_culture_group NOT = { has_pop_culture = slovak }
                 location = { is_core = BOH }
             }
             consciousness = 3
@@ -231,7 +208,7 @@ country_event = { #original VIP event by Palisadoes
         name = "EVTOPTA131510" #Sanction this split
         any_pop = {
             limit = {
-                has_pop_culture = czech
+                is_culture_group = czecho_slovak_culture_group NOT = { has_pop_culture = slovak }
                 location = { is_core = BOH }
             }
             consciousness = -2
@@ -250,7 +227,7 @@ country_event = { #original VIP event by Palisadoes
         name = "EVTOPTB131510" #Refuse to split the university
         any_pop = {
             limit = {
-                has_pop_culture = czech
+                is_culture_group = czecho_slovak_culture_group NOT = { has_pop_culture = slovak }
                 location = { is_core = BOH }
             }
             consciousness = 4
@@ -272,19 +249,35 @@ country_event = { #original VIP event by Palisadoes
     id = 131511
     title = "EVTNAME131511"
     desc = "EVTDESC131511"
-    picture = "jews"
+    picture = "theodor_herzl"
+	
     fire_only_once = yes
 
     trigger = {
         NOT = { exists = ISR }
         owns = 619
-        year = 1895
+		has_global_flag = start_of_first_aliyah 
+		revolution_n_counterrevolution = 1 
     }
 
-    mean_time_to_happen =  { 
-		months = 12
+    mean_time_to_happen = { 
+		months = 12 
+		modifier = { 
+			factor = 0
+			NOT = {
+				year = 1895
+				PLS = { 
+					all_core = { 
+						owner = { 
+							relation = { who = THIS value = 150 }
+						}
+					}
+				}
+				PLS = { all_core = { owned_by = THIS } }
+			}
+		}
 	}
-
+	
     option = {
         name = "EVTOPTA131511"
         any_pop = { limit = { religion = jewish } consciousness = 3 }

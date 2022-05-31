@@ -1,4 +1,25 @@
 political_decisions = {
+    irish_land_reform = {
+        picture = gtfo
+        potential = {
+            tag = IRE
+            is_vassal = no
+            NOT = { has_country_flag = irish_land_reform }
+            any_owned_province = { has_province_modifier = enclosures }
+        }
+
+        allow = {
+            war = no
+        }
+
+        effect = {
+            set_country_flag = irish_land_reform
+            all_core = {
+                remove_province_modifier = enclosures
+            }
+        }
+        ai_will_do = { factor = 1 }
+    }
     crown_empress_of_india = {
 		picture = crown_empress_of_india
 		news = yes
@@ -865,5 +886,49 @@ political_decisions = {
 
         ai_will_do = { factor = 1 }
     }
+	challenger_exped = {
+        picture = challenger_exped
+        potential = {
+			NOT = { has_country_flag = challenger_exped }
+			tag = ENG
+			year = 1860
+        }
 
+        allow = {
+            war = no
+			analytic_philosophy = 1
+        }
+
+        effect = {
+            prestige = 5
+            years_of_research = 0.10
+			set_country_flag = challenger_exped
+        }
+
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	parliament_reconstruction = {
+        picture = parliament_burningd
+        potential = {
+            owns = 300
+			has_country_flag = parliament_burning
+			NOT = { has_global_flag = parliament_reconstruction }
+        }
+
+        allow = {
+            war = no
+            money = 50000
+        }
+
+        effect = {
+            set_global_flag = parliament_reconstruction
+			treasury = -50000
+			prestige = 5
+			300 = { infrastructure = 1 }
+        }
+
+        ai_will_do = { factor = 1 }
+    }
 }

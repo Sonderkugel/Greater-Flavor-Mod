@@ -2,9 +2,10 @@
 
 This mod is HFM, but further expanded upon, adding bountiful flavour, provinces, historical accuracy changes, etc
 
-NOTE: If you have problems with downloads from github, use this mirror link. It is updated as often as possible (updated 10/25/21):
-
-https://www.dropbox.com/s/g6sgolqf1aps298/GFM%2010.25.21.zip?dl=0
+IMPORTANT: If you downloaded from Github and for some reason the mod is broken, either:
+- Check if you installed correctly.
+- Redownload from Github maximum 1 day later.
+The mod gets constantly updated sometimes several times in MINUTES or HOURS, but if the mod breaks because of the developers, it gets fixed as fast as possible, so first check if you installed correctly and if so, wait some hours or minutes and re-download, a fix should've probably been uploaded by then.
 
 News! Absolute gigachad Jay de Brabant has made a submod for GFM adding anime girl flags (the repo also includes regular HFM flags). 
 https://github.com/LePetitJayJay/Victoria-2-Anime-Flags-Mod

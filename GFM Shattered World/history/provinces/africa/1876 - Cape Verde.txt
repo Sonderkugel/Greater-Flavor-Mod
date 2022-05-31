@@ -1,0 +1,7 @@
+controller = CPV
+owner = CPV
+add_core = CPV
+trade_goods = coffee
+life_rating = 30
+colonial = 2
+terrain = jungle_mountains

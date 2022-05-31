@@ -569,7 +569,7 @@ country_event = {
     }
 
     mean_time_to_happen = {
-        months = 6
+        months = 1
     }
 
     fire_only_once = yes
@@ -862,7 +862,7 @@ country_event = {
     }
 
     mean_time_to_happen = {
-        months = 2
+        months = 1
     }
 
     option = {
@@ -963,7 +963,7 @@ country_event = {
             limit = {
                 owner = {
                     OR = {
-                        national_provinces_occupied = .25
+                        national_provinces_occupied = 0.25
                         any_greater_power = { war_with = THIS }
                     }
                 }
@@ -983,7 +983,7 @@ country_event = {
             limit = {
                 owner = {
                     NOT = {
-                        national_provinces_occupied = .25
+                        national_provinces_occupied = 0.25
                         any_greater_power = { war_with = THIS }
                     }
                 }
@@ -1804,7 +1804,7 @@ country_event = {
         }
         modifier = {
             factor = 0.8
-            TUR = { has_recently_lost_war = yes }
+            TUR = { has_country_modifier = recently_lost_war }
         }
         modifier = {
             factor = 2
@@ -2100,6 +2100,7 @@ country_event = {
                     has_country_flag = balkan_league_leader
                 }
             }
+			BUL = { casus_belli = { target = TUR type = free_balkans months = 36 } }
             TUR = {
                 war = {
                     target = BUL
@@ -2120,6 +2121,7 @@ country_event = {
                     has_country_flag = balkan_league_leader
                 }
             }
+			SER = { casus_belli = { target = TUR type = free_balkans months = 36 } }
             TUR = {
                 war = {
                     target = SER
@@ -2140,6 +2142,7 @@ country_event = {
                     has_country_flag = balkan_league_leader
                 }
             }
+			GRE = { casus_belli = { target = TUR type = free_balkans months = 36 } } 
             TUR = {
                 war = {
                     target = GRE
@@ -2160,6 +2163,7 @@ country_event = {
                     has_country_flag = balkan_league_leader
                 }
             }
+			MON = { casus_belli = { target = TUR type = free_balkans months = 36 } }
             TUR = {
                 war = {
                     target = MON
@@ -3222,8 +3226,7 @@ country_event = {
         any_pop = {
             limit = {
                 OR = {
-                    has_pop_culture = slovak
-                    has_pop_culture = czech
+                    is_culture_group = czecho_slovak_culture_group
                 }
             }
             militancy = 1
@@ -3280,8 +3283,7 @@ country_event = {
         any_pop = {
             limit = {
                 OR = {
-                    has_pop_culture = slovak
-                    has_pop_culture = czech
+                    is_culture_group = czecho_slovak_culture_group
                 }
             }
             militancy = 1
@@ -3343,8 +3345,7 @@ country_event = {
         any_pop = {
             limit = {
                 OR = {
-                    has_pop_culture = slovak
-                    has_pop_culture = czech
+                    is_culture_group = czecho_slovak_culture_group
                 }
                 location = { is_core = HUN }
             }
@@ -3354,8 +3355,7 @@ country_event = {
         any_pop = {
             limit = {
                 OR = {
-                    has_pop_culture = slovak
-                    has_pop_culture = czech
+                    is_culture_group = czecho_slovak_culture_group
                 }
                 location = { NOT = { is_core = HUN } }
             }
@@ -3400,8 +3400,7 @@ country_event = {
             limit = {
                 OR = {
                     has_pop_culture = hungarian
-                    has_pop_culture = slovak
-                    has_pop_culture = czech
+                    is_culture_group = czecho_slovak_culture_group
                 }
             }
             militancy = 1
@@ -3438,8 +3437,7 @@ country_event = {
             limit = {
                 OR = {
                     has_pop_culture = hungarian
-                    has_pop_culture = slovak
-                    has_pop_culture = czech
+					is_culture_group = czecho_slovak_culture_group
                 }
             }
             militancy = 1

@@ -1,6 +1,5 @@
-owner = TUR
-controller = TUR
-add_core = NEJ
+owner = IRQ
+controller = IRQ
 add_core = KWT
 trade_goods = fish
 life_rating = 32

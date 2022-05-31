@@ -312,11 +312,93 @@ country_event = {
             truce_with = RUS
         }
         OR = {
-            tag = USA
+            AND = { 	
+				tag = USA
+				OR = {
+					owns = 17
+					owns = 368
+					owns = 15
+					owns = 14
+					owns = 13
+					owns = 78
+					owns = 79
+					owns = 81
+					owns = 3462
+					owns = 83
+					owns = 3454
+					owns = 3455
+					owns = 85
+					owns = 3340
+					owns = 84
+					owns = 104
+					owns = 87
+					owns = 3450
+					owns = 89
+					owns = 90
+					owns = 2139
+					owns = 2138
+					owns = 3456
+					owns = 2140
+					owns = 2141
+					owns = 2157
+					owns = 2156
+					owns = 2161
+					owns = 2168
+					owns = 2169
+					owns = 2171
+					owns = 2179
+					owns = 2178
+					owns = 2181
+					owns = 2183
+					owns = 1723
+					owns = 2206
+				}
+			}
             tag = CAN
             tag = ENG
             tag = CAL
-			tag = US2
+			AND = { 	
+				tag = US2
+				OR = {
+					owns = 17
+					owns = 368
+					owns = 15
+					owns = 14
+					owns = 13
+					owns = 78
+					owns = 79
+					owns = 81
+					owns = 3462
+					owns = 83
+					owns = 3454
+					owns = 3455
+					owns = 85
+					owns = 3340
+					owns = 84
+					owns = 104
+					owns = 87
+					owns = 3450
+					owns = 89
+					owns = 90
+					owns = 2139
+					owns = 2138
+					owns = 3456
+					owns = 2140
+					owns = 2141
+					owns = 2157
+					owns = 2156
+					owns = 2161
+					owns = 2168
+					owns = 2169
+					owns = 2171
+					owns = 2179
+					owns = 2178
+					owns = 2181
+					owns = 2183
+					owns = 1723
+					owns = 2206
+				}
+			}
             alliance_with = RUS
         }
         relation = { who = RUS value = 0 }
@@ -808,7 +890,7 @@ country_event = {
             factor = 90
             modifier = {
                 factor = 0.5
-                HUN = { national_provinces_occupied = .25 }
+                HUN = { national_provinces_occupied = 0.25 }
             }
             modifier = {
                 factor = 0.5
@@ -855,7 +937,7 @@ country_event = {
             factor = 10
             modifier = {
                 factor = 4
-                HUN = { national_provinces_occupied = .25 }
+                HUN = { national_provinces_occupied = 0.25 }
             }
             modifier = {
                 factor = 2
@@ -3577,4 +3659,69 @@ country_event = {
 		name = "Why are we still here? Just to suffer?"
 		prestige = -30
 	} 
+}
+
+country_event = { 
+	id = 84205828
+	title = "The Assassination of Alexander II"
+	desc = "ALEXANDERASSASSINATION"
+	picture = "alexander_death"
+	major = yes
+	fire_only_once = yes
+	
+	trigger = {
+        tag = RUS
+        year = 1881
+		month = 2
+		OR = {
+            government = absolute_monarchy
+            government = prussian_constitutionalism
+            government = hms_government
+            government = absolute_empire
+            government = semi_constitutional_empire
+            government = constitutional_empire
+        }
+    }
+
+    mean_time_to_happen = {
+        days = 13
+    }
+	
+	option = { 
+		name = "Our tsar!"
+		any_pop = { consciousness = 1 }
+	} 
+}
+
+country_event = {
+    id = 84205829
+    title = "Ukrainians settle in the Far East"
+    desc = "GUK_desc"
+    picture = "green_ukraine"
+    
+    fire_only_once = yes
+    mean_time_to_happen = { months = 12 }
+
+    trigger = {
+        year = 1882
+        tag = RUS
+        has_global_flag = manchus_expelled_primorye
+        owns = 1082
+        owns = 1084
+        steel_railroad = 1
+    }
+    
+    option = { 
+        name = "Great"
+        1080 = { add_core = GUK }
+        2697 = { add_core = GUK }
+        1081 = { add_core = GUK }
+        CHI_1082 = { add_core = GUK }
+        3107 = { any_pop = { limit = { has_pop_culture = ukrainian } move_pop = 1082 } }
+        2831 = { any_pop = { limit = { has_pop_culture = ukrainian } move_pop = 1083 } }
+        2830 = { any_pop = { limit = { has_pop_culture = ukrainian } move_pop = 1084 } }
+        3580 = { any_pop = { limit = { has_pop_culture = ukrainian } move_pop = 2617 } }
+        2833 = { any_pop = { limit = { has_pop_culture = ukrainian } move_pop = 1085 } }
+        2842 = { any_pop = { limit = { has_pop_culture = ukrainian } move_pop = 1080 } }
+    }
 }

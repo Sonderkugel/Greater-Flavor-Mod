@@ -12,6 +12,7 @@ country_event = {
 
     trigger = {
         tag = BRZ
+        has_country_flag = rgs_revolt_flag
         owns = 2463
         NOT = { year = 1845 }
         OR = {
@@ -222,10 +223,10 @@ country_event = {
     trigger = {
         tag = PBC
         war = no
-        has_recently_lost_war = yes
+        has_country_modifier = recently_lost_war
         OR = {
             AND = {
-                has_recently_lost_war = yes
+                has_country_modifier = recently_lost_war
                 truce_with = CHL
                 NOT = { owns = 2370 }
             }
@@ -288,6 +289,10 @@ country_event = {
             owner = { capital = 2313 }
         }
         change_tag = BOL
+		2549 = { secede_province = BOL }
+		3381 = { secede_province = BOL }
+		3435 = { secede_province = BOL }
+		3326 = { secede_province = BOL }
         PRG = { relation = { who = BOL value = -300 } }
         any_country = {
             limit = {
@@ -501,7 +506,7 @@ country_event = {
         OR = {
             num_of_revolts = 1
             average_militancy = 4
-            has_recently_lost_war = yes
+            has_country_modifier = recently_lost_war
         }
     }
 
@@ -766,6 +771,7 @@ country_event = {
         name = "EVT46610100OPTA" #We agree
         badboy = -5
 		2401 = { remove_core = THIS }
+		3567 = { remove_core = THIS }
 		3359 = { remove_core = THIS }
 		random_owned = {
 			limit = {
@@ -788,6 +794,7 @@ country_event = {
 				OR = {
 					province_id = 2401
 					province_id = 3359
+					province_id = 3567
 				}
 			}
 			add_core = BRZ
@@ -804,11 +811,13 @@ country_event = {
 			limit = {
 				OR = {
 					province_id = 2401
+					province_id = 3567
 					province_id = 3359
 				}
 			}
 			add_core = BRZ
 		}
+        3567 = { add_core = THIS }
         relation = { who = BRZ value = -400 }
         ai_chance = {
             factor = 10
@@ -834,6 +843,8 @@ country_event = {
         badboy = -2
         2549 = { remove_core = THIS }
 		3381 = { remove_core = THIS }
+        3435 = { remove_core = THIS }
+		3326 = { remove_core = THIS }
 		random_owned = {
 			limit = {
 				owner = {
@@ -843,6 +854,10 @@ country_event = {
 						tag = LPL
 						tag = BOL
 						tag = PBC
+						AND = {
+							tag = PEU
+							owns = 2319
+						}
 					}
 				}
 			}
@@ -850,25 +865,20 @@ country_event = {
 				BRZ = { 3382 = { secede_province = THIS add_core = THIS remove_core = BRZ } }
 			}
 		}
-		any_owned = { 
-			limit = {
-				OR = {
-					province_id = 2321
-					province_id = 3382
-				}
-			}
-			remove_core = PEU
-		}
 		any_country = {
 			limit = {
 				tag = FROM
 				owns = 3381
+				owns = 3435
 				owns = 3380
 			}
 			THIS = { 
 				any_owned = {
 					limit = {
-						province_id = 2549
+						OR = {
+							province_id = 2549
+							province_id = 3326
+						}
 					}
 					secede_province = FROM
 				}
@@ -896,8 +906,10 @@ country_event = {
 			owner = {
 				2321 = { add_core = PEU }
 				3381 = { add_core = PEU }
+				3435 = { add_core = PEU }
 				3382 = { add_core = PEU }
 				2549 = { add_core = PEU }
+				3326 = { add_core = PEU }
 			}
 		}
         relation = { who = BRZ value = -200 }
@@ -1004,6 +1016,8 @@ country_event = {
             }
             2308 = { remove_core = THIS remove_core = PEU }
             2307 = { remove_core = THIS remove_core = PEU }
+            2309 = { remove_core = THIS remove_core = PEU }
+            2305 = { remove_core = THIS remove_core = PEU }
         }
 
         random_owned = {
@@ -1140,7 +1154,7 @@ country_event = {
         NOT = { has_country_modifier = french_blockade }
         OR = {
             PBC = { truce_with = THIS }
-            PBC = { has_recently_lost_war = yes }
+            PBC = { has_country_modifier = recently_lost_war }
             PBC = { exists = no }
 		}
     }

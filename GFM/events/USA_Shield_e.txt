@@ -1064,7 +1064,7 @@ country_event = {
     }
 
     option = {
-        name = "Send the Son's of Democracy down south. §RGain 2 infamy§W"
+        name = "Send the Son's of Democracy down South. §RGain 2 infamy§W"
         badboy = 2
         set_country_flag = USA_demcoup
         release_vassal = MEX
@@ -2541,7 +2541,7 @@ country_event = {
     }
 
     option = {
-        name = "End the Union"
+        name = "End the Union."
         change_tag = GUA
         release = COS
         release = ELS
@@ -2549,7 +2549,7 @@ country_event = {
         release = NIC
         release = YUC
         release = PNM
-        UCA = { all_core = { remove_core = UCA}  }
+        UCA = { all_core = { remove_core = UCA }  }
         any_pop = {
             limit = {
                 OR = {

@@ -914,7 +914,13 @@ political_decisions = {
             }
 			country_event = 899094
 		} 
-		ai_will_do = { factor = 0.1 }
+		ai_will_do = { 
+			factor = 0.2
+			modifier = { 
+				factor = 0 
+				has_global_flag = railroaded_japan_empire
+			}
+		}
 	} 
 	
     meiji_constitution = {
@@ -1407,6 +1413,14 @@ political_decisions = {
                     factor = 6
                 }
             }
+			SEN = { all_core = { add_core = TKG remove_core = SEN } }
+            CHO = { all_core = { add_core = TKG remove_core = CHO } }
+            YZW = { all_core = { add_core = TKG remove_core = YZW } }
+			SOC = { all_core = { add_core = TKG remove_core = SOC } }
+            KAG = { all_core = { add_core = KAG remove_core = SEN } }
+            TOS = { all_core = { add_core = TKG remove_core = TOS } }
+            SAT = { all_core = { add_core = TKG remove_core = SAT } }
+            KAG = { all_core = { add_core = TKG remove_core = KAG } }
         }
     }
 
@@ -1483,49 +1497,14 @@ political_decisions = {
 				name = resistance_to_new_regime 
 				duration = 10000
 			}
-
-            SEN = {
-                    all_core = {
-                           add_core = TKG
-                        remove_core = SEN
-                    }
-            }
-            CHO = {
-                    all_core = {
-                           add_core = TKG
-                        remove_core = CHO
-                    }
-            }
-            YZW = {
-                    all_core = {
-                           add_core = TKG
-                        remove_core = YZW
-                    }
-            }
-			SOC = {
-                    all_core = {
-                           add_core = TKG
-                        remove_core = SOC
-                    }
-            }
-            KAG = {
-                    all_core = {
-                           add_core = KAG
-                        remove_core = SEN
-                    }
-            }
-            TOS = {
-                    all_core = {
-                           add_core = TKG
-                        remove_core = TOS
-                    }
-            }
-            SAT = {
-                    all_core = {
-                           add_core = TKG
-                        remove_core = SAT
-                    }
-            }
+			SEN = { all_core = { add_core = TKG remove_core = SEN } }
+            CHO = { all_core = { add_core = TKG remove_core = CHO } }
+            YZW = { all_core = { add_core = TKG remove_core = YZW } }
+			SOC = { all_core = { add_core = TKG remove_core = SOC } }
+            KAG = { all_core = { add_core = KAG remove_core = SEN } }
+            TOS = { all_core = { add_core = TKG remove_core = TOS } }
+            SAT = { all_core = { add_core = TKG remove_core = SAT } }
+            KAG = { all_core = { add_core = TKG remove_core = KAG } }
 			any_country = { 
 				limit = {
 					tag = RYU
@@ -1534,12 +1513,6 @@ political_decisions = {
 				}
 				release_vassal = RYU
 			}
-            KAG = {
-                    all_core = {
-                           add_core = TKG
-                        remove_core = KAG
-                    }
-            }
             set_country_flag = daimyos_united
             remove_country_modifier = uncivilized_isolationism
             years_of_research = 0.5
@@ -1586,7 +1559,14 @@ political_decisions = {
     picture = become_japan
         potential = {
             tag = TKG
-            has_country_flag = made_peace_with_emperor
+			OR = { 
+				has_country_flag = made_peace_with_emperor
+				AND = { 
+					ai = yes 
+					has_global_flag = railroaded_japan_empire
+					has_global_flag = boshin_war_has_happened
+				}
+			}	
             OR = {
                 has_country_flag = daimyos_united
                 has_country_flag = han_system_abolished
@@ -1607,6 +1587,7 @@ political_decisions = {
         effect = {
             set_country_flag = peaceful_transition_to_japan
             remove_country_modifier = uncivilized_isolationism
+			remove_country_modifier = ansei_purge 
             prestige = 10
             TKG = {
                 all_core = {
@@ -1634,13 +1615,14 @@ political_decisions = {
         }
 
         ai_will_do = {
-            factor = 0.1
+            factor = 0.8
             modifier = {
+                factor = 1
+                has_global_flag = railroaded_japan_empire
+            }
+			modifier = {
                 factor = 0
-                OR = {
-                    government = absolute_monarchy
-                    government = absolute_empire
-                }
+                has_global_flag = railroaded_japan_shogunate
             }
         }
     }
@@ -1913,12 +1895,67 @@ political_decisions = {
 
         effect = {
             set_country_flag = negotiate_treaty_shimonoseki
-            1616 = {
-                owner = {
-                    set_country_flag = negotiate_unequal_treaty
-                    country_event = 1316085
-                }
-            }
+			random_owned = {
+				limit = {
+					owner = {
+						1485 = {
+							owner = {
+								owns = 1616
+								is_culture_group = east_asian
+								war_with = THIS
+								NOT = {
+									capital = 1485
+									has_country_flag = negotiate_unequal_treaty
+								}
+							}
+						}
+					}
+				}
+				owner = {
+					1616 = {
+						owner = {
+							set_country_flag = negotiate_unequal_treaty
+							country_event = 1316085
+						}
+					}
+					set_country_flag = no_self_treaty
+				}
+			}
+			random_owned = {
+				limit = {
+					owner = {
+						NOT = { has_country_flag = no_self_treaty }
+						TPG = {
+							truce_with = THIS
+							exists = yes
+						}
+					}
+				}
+				owner = {
+					TPG = {
+						set_country_flag = negotiate_unequal_treaty
+						country_event = 1316085
+					}
+				}
+			}
+			random_owned = {
+				limit = {
+					owner = {
+						NOT = { has_country_flag = no_self_treaty }
+						QNG = {
+							truce_with = THIS
+							exists = yes
+						}
+					}
+				}
+				owner = {
+					QNG = {
+						set_country_flag = negotiate_unequal_treaty
+						country_event = 1316085
+					}
+				}
+			}
+			clr_country_flag = no_self_treaty
         }
 
         ai_will_do = {

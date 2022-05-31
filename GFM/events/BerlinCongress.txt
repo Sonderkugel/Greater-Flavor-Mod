@@ -1194,23 +1194,6 @@ country_event = {
 			3373 = { secede_province = RUM }
 		}
 		
-		any_country = {
-			limit = {
-				tag = BUL
-				owns = 807
-				exists = RUM
-			}
-			807 = { secede_province = RUM }
-		}
-		any_country = {
-			limit = {
-				tag = BUL
-				owns = 3291
-				exists = TUR
-			}
-			3291 = { secede_province = RUM }
-		}
-		
         # Release Bosnia
         any_country = {
             limit = {
@@ -1273,22 +1256,6 @@ country_event = {
                     secede_province = BOS
                 }
             }
-            BOS = { set_country_flag = received_congress_benefit }
-        }
-        random_owned = {
-            limit = {
-                province_id = 804
-                BOS = { exists = yes }
-            }
-            secede_province = BOS
-            BOS = { set_country_flag = received_congress_benefit }
-        }
-        random_owned = {
-            limit = {
-                province_id = 2577
-                BOS = { exists = yes }
-            }
-            secede_province = BOS
             BOS = { set_country_flag = received_congress_benefit }
         }
         random_country = {
@@ -1438,7 +1405,6 @@ country_event = {
             limit = {
                 province_id = 834 #Athens
                 owned_by = TUR
-                NOT = { exists = GRE }
             }
             state_scope = {
                 any_owned = {
@@ -2002,22 +1968,22 @@ country_event = {
             }
             BOS = { set_country_flag = received_congress_benefit }
         }
-        random_owned = {
-            limit = {
-                province_id = 804
-                BOS = { exists = yes }
-            }
-            secede_province = BOS
-            BOS = { set_country_flag = received_congress_benefit }
-        }
-        random_owned = {
-            limit = {
-                province_id = 2577
-                BOS = { exists = yes }
-            }
-            secede_province = BOS
-            BOS = { set_country_flag = received_congress_benefit }
-        }
+		random_owned = {
+			limit = {
+				owner = {
+					TUR = {
+						owns = 2577
+						owns = 804
+					}
+					BOS = { exists = yes }
+				}
+			}
+			owner = {
+				2577 = { secede_province = BOS }
+				804 = { secede_province = BOS }
+				BOS = { set_country_flag = received_congress_benefit }
+			}
+		}
         random_country = {
             limit = {
                 tag = BOS
@@ -2137,9 +2103,12 @@ country_event = {
             limit = {
                 province_id = 834 #Athens
                 owned_by = TUR
-                NOT = { exists = GRE }
             }
-            owner = { release_vassal = GRE }
+            state_scope = {
+                any_owned = {
+                    secede_province = GRE
+                }
+            }
             GRE = { set_country_flag = received_congress_benefit }
         }
         random_owned = {

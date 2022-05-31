@@ -263,7 +263,7 @@ political_decisions = {
             CAN_13 = { secede_province = THIS }
             SPA_610 = { secede_province = THIS }
             SPA_1955 = { secede_province = THIS }
-            RUS_2618 = { secede_province = THIS }
+            RUS_1074 = { secede_province = THIS }
             1644 = { secede_province = THIS }
             2630 = { secede_province = THIS }
         }
@@ -310,6 +310,56 @@ political_decisions = {
 
         ai_will_do = { factor = 1 }
     }
+	
+	option_early_israel = { 
+		picture = israeli_flag 
+		
+		potential = { 
+			ai = no
+            has_country_flag = country_looking_through_options
+			has_global_flag = fantasy_countries_enabled
+            NOT = { year = 1837 }
+			NOT = { has_global_flag = early_israel } 
+		}
+		allow = {} 
+		
+		effect = { 
+			set_global_flag = early_israel 
+			set_global_flag = israel_has_her_cores
+			set_global_flag = israel_palestine
+			EGY_921 = { add_core = ISR } 
+			EGY_921 = { remove_core = TUR } 
+			EGY_921 = { remove_core = EGY } 
+			909 = { remove_core = ISR }
+			908 = { remove_core = ISR }
+			908 = { add_core = TUR } 
+			909 = { add_core = TUR } 
+			908 = { add_core = EGY } 
+			909 = { add_core = EGY } 
+			EGY = { 
+				release = ISR 
+				release_vassal = ISR 
+				any_owned = { limit = { is_core = ISR } secede_province = ISR }
+			} 
+			ISR = { 
+				civilized = yes 
+				government = democracy 
+				set_country_flag = Government_Democracy
+			} 
+			916 = { change_province_name = "Akko" }
+			917 = { 
+				change_province_name = "Yerushalayim"
+				state_scope = { change_region_name = "Eretz Yisrael" } 
+			}
+			918 = { change_province_name = "Shomron" }
+			919 = { change_province_name = "Yafo" }
+			3357 = { change_province_name = "Be'er Sheva" }
+			3474 = { change_province_name = "Heyfa" }
+			change_tag_no_core_switch = ISR
+		}
+		
+		ai_will_do = { factor = 0 } 
+	}
     option_disable_colonial_railroading = {
         alert = no
         picture = starting_options
@@ -1546,7 +1596,7 @@ political_decisions = {
             NOT = { has_country_modifier = grant_cooldown }
         }
         effect = {
-            country_event = {id = 100000 days = 0}
+            country_event = { id = 100000 days = 0}
             add_country_modifier = {
                 name = grant_cooldown
                 duration = 30
