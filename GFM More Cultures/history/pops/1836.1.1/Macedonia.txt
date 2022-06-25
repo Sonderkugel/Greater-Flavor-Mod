@@ -53,7 +53,13 @@
     farmers = {
         culture = albanian
         religion = sunni
-        size = 9836
+        size = 5000
+    }
+	
+	farmers = {
+        culture = albanian
+        religion = shiite
+        size = 4836
     }
 
     aristocrats = {
@@ -89,13 +95,31 @@
     farmers = {
         culture = bulgarian
         religion = orthodox
-        size = 23000
+        size = 21800
+    }
+	
+	farmers = {
+        culture = megleno_romanian
+        religion = orthodox
+        size = 1700
+    }
+
+	farmers = {
+        culture = megleno_romanian
+        religion = sunni
+        size = 600
+    }
+	
+	farmers = {
+        culture = megleno_romanian
+        religion = shiite
+        size = 100
     }
 	
 	farmers = {
         culture = torbesi
         religion = sunni
-        size = 4941
+        size = 4241
     }
 
     aristocrats = {
@@ -201,7 +225,13 @@
 	farmers = {
         culture = turkish
         religion = sunni
-        size = 3043
+        size = 2400
+    }
+	
+	farmers = {
+        culture = turkish
+        religion = shiite
+        size = 643
     }
 	
 	aristocrats = {

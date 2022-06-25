@@ -85,10 +85,10 @@ country_event = {
         relation = { who = EGY value = -100 }
         release_vassal = EGY
         leave_alliance = EGY
-        casus_belli = { target = EGY type = make_puppet months = 12 }
+        casus_belli = { target = EGY type = make_puppet_no_infamy months = 12 }
         war = {
             target = EGY
-            attacker_goal = { casus_belli = make_puppet }
+            attacker_goal = { casus_belli = make_puppet_no_infamy }
         }
         any_pop = {
             limit = { is_primary_culture = yes }
@@ -273,13 +273,13 @@ country_event = {
 			owner = { release_vassal = EGY }
 		}
 		leave_alliance = EGY
-        casus_belli = { target = EGY type = make_puppet months = 12 }
+        casus_belli = { target = EGY type = make_puppet_no_infamy months = 12 }
         random_owned = {
             limit = { owner = { NOT = { war_with = EGY } } }
             owner = {
                 war = {
                     target = EGY
-                    attacker_goal = { casus_belli = make_puppet }
+                    attacker_goal = { casus_belli = make_puppet_no_infamy }
                 }
             }
         }
@@ -726,7 +726,7 @@ country_event = {
                 tag = EGY
                 part_of_sphere = no
             }
-            add_casus_belli = { target = THIS type = make_puppet months = 60 }
+            add_casus_belli = { target = THIS type = make_puppet_no_infamy months = 60 }
         }
         any_country = {
             limit = {
@@ -883,6 +883,12 @@ country_event = {
                     in_sphere = TUR
                 }
             }
+			random_owned = {
+				limit = {
+					province_id = 1179
+				}
+				secede_province = NYE
+			}
             any_owned = { add_core = TUR }
             all_core = { add_core = TUR }
             annex_to = THIS
@@ -938,12 +944,8 @@ country_event = {
             }
             country_event = 90089
         }
-		any_owned = {
-			limit = {
-				province_id = 1179
-			}
+		1179 = {
 			remove_core = TUR
-			secede_province = NYE
 		}
 
         ai_chance = { factor = 1 }
@@ -968,17 +970,19 @@ country_event = {
                     in_sphere = TUR
                 }
             }
+			random_owned = {
+				limit = {
+					province_id = 1179
+				}
+				secede_province = NYE
+			}
             any_owned = { add_core = TUR }
             all_core = { add_core = TUR }
             annex_to = THIS
             government = absolute_monarchy
         }
-		any_owned = {
-			limit = {
-				province_id = 1179
-			}
+		1179 = {
 			remove_core = TUR
-			secede_province = NYE
 		}
         relation = { who = RUS value = -200 }
         leave_alliance = RUS
@@ -1306,6 +1310,12 @@ country_event = {
                     in_sphere = TUR
                 }
             }
+			random_owned = {
+				limit = {
+					province_id = 1179
+				}
+				secede_province = NYE
+			}
             any_owned = { add_core = TUR }
             all_core = { add_core = TUR }
             annex_to = THIS
@@ -1358,6 +1368,10 @@ country_event = {
         set_country_flag = egypt_limited_rule_agreed
         diplomatic_influence = { who = EGY value = 400 }
         EGY = { government = colonial_company }
+		
+		1179 = {
+			remove_core = TUR
+		}
 
         ai_chance = { factor = 100 }
     }

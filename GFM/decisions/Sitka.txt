@@ -17,6 +17,7 @@ political_decisions = {
 			set_country_flag = trinec_steel
 			capital = 689
 			build_factory_in_capital_state = steel_factory
+			# Audax Validator "." Ignore_NEXT
 			capital = 619
         }
         ai_will_do = { factor = 1 }
@@ -2661,9 +2662,6 @@ political_decisions = {
             2186 = {
             add_core = YUC
             }
-            3402 = {
-            add_core = YUC
-            }
             2182 = {
             add_core = YUC
             }
@@ -4457,7 +4455,7 @@ political_decisions = {
                     release_vassal = THIS
                     casus_belli = {
                         target = ROM
-                        type = make_puppet
+                        type = make_puppet_no_infamy
                         months = 24
                     }
                 }
@@ -4527,6 +4525,10 @@ political_decisions = {
 				government = fascist_dictatorship
 				government = proletarian_dictatorship
 				government = presidential_dictatorship
+				government = theocracy
+				ruling_party_ideology = fascist
+				ruling_party_ideology = reactionary 
+				ruling_party_ideology = communist
 			}
 			war_policy = jingoism
         }
@@ -8202,7 +8204,7 @@ political_decisions = {
 			set_country_flag = coptic_museum
 			treasury = -15000
 		}
-		ai_will_do = { factor = 1}
+		ai_will_do = { factor = 1 }
 	}
 	integrate_copts = {
 		picture = Coptic
