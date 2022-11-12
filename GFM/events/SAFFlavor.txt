@@ -847,7 +847,7 @@ country_event = {
         war = no
         invention = manifest_destiny_invention
         owns = 2071
-        owns = 2072
+        owns = 2039
         owns = 2069
         owns = 2073
         owns = 2068
@@ -985,7 +985,7 @@ province_event = {
         has_province_modifier = african_exodus
         owner = {
 			owns = 2071
-			owns = 2072
+			owns = 2039
 			owns = 2069
 			owns = 2073
 			owns = 2068
@@ -1012,7 +1012,7 @@ province_event = {
                 chance = 80
                 random_list = {
                     13 = { move_pop = 2071 }
-                    13 = { move_pop = 2072 }
+                    13 = { move_pop = 2039 }
                     13 = { move_pop = 2069 }
                     13 = { move_pop = 2073 }
                     13 = { move_pop = 2070 }

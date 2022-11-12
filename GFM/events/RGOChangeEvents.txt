@@ -5862,7 +5862,6 @@ country_event = {
         2036 = { trade_goods = cotton }
 
         2041 = { trade_goods = fruit }
-        2039 = { trade_goods = fruit }
 
         ai_chance = { factor = 80 }
     }
@@ -5882,7 +5881,6 @@ country_event = {
         2036 = { trade_goods = tobacco }
 
         2041 = { trade_goods = fruit }
-        2039 = { trade_goods = fruit }
 
         ai_chance = {
             factor = 10
@@ -5921,7 +5919,6 @@ country_event = {
         2036 = { trade_goods = cotton }
 
         2041 = { trade_goods = fruit }
-        2039 = { trade_goods = fruit }
 
         ai_chance = {
             factor = 10
@@ -8809,12 +8806,11 @@ country_event = {
         2071 = { trade_goods = iron }
         2073 = { trade_goods = coal }
 
-        2072 = { trade_goods = coal }
-
         2069 = { trade_goods = coffee }
         2070 = { trade_goods = tobacco }
 
         2068 = { trade_goods = tobacco }
+        2039 = { trade_goods = coal }
 
         ai_chance = { factor = 80 }
     }
@@ -8825,11 +8821,10 @@ country_event = {
         2071 = { trade_goods = iron }
         2073 = { trade_goods = coal }
 
-        2072 = { trade_goods = coal }
-
         2070 = { trade_goods = cotton }
         2069 = { trade_goods = cotton }
         2068 = { trade_goods = tobacco }
+        2039 = { trade_goods = coal }
 
         ai_chance = {
             factor = 10
@@ -8859,12 +8854,11 @@ country_event = {
         2071 = { trade_goods = iron }
         2073 = { trade_goods = coal }
 
-        2072 = { trade_goods = coal }
-
         2069 = { trade_goods = tobacco }
         2070 = { trade_goods = tobacco }
 
         2068 = { trade_goods = tobacco }
+        2039 = { trade_goods = coal }
 
         ai_chance = {
             factor = 10

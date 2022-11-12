@@ -30,8 +30,22 @@ country_event = { #Mzilikazi of Matabele flees to Matabeland
     fire_only_once = yes
 
     option = {
-        name = "EVT95518OPTA"
-        2071 = {
+        name = "EVT95518OPTA" 
+		2072 = { secede_province = THIS }
+		any_country = {
+			limit = {
+				owns = 2072
+			}
+			owner = {
+				2072 = {
+					life_rating = 25
+					secede_province = THIS
+					any_pop = { limit = { NOT = { has_pop_culture = boer } } literacy = -0.99 }
+				}
+			}
+		}
+		2075 = { secede_province = THIS secede_province = NULL }
+        2069 = {
             add_core = MAT
             secede_province = MAT
             life_rating = 25
@@ -43,16 +57,10 @@ country_event = { #Mzilikazi of Matabele flees to Matabeland
             life_rating = 20
             any_pop = { limit = { NOT = { has_pop_culture = boer } } literacy = -0.99 }
         }
-        2075 = {
+        2073 = {
             add_core = MAT
             secede_province = MAT
             life_rating = 20
-            any_pop = { limit = { NOT = { has_pop_culture = boer } } literacy = -0.99 }
-        }
-        2069 = {
-            add_core = MAT
-            secede_province = MAT
-            life_rating = 25
             any_pop = { limit = { NOT = { has_pop_culture = boer } } literacy = -0.99 }
         }
 
@@ -65,7 +73,7 @@ country_event = { #Mzilikazi of Matabele flees to Matabeland
         2071 = { any_pop = { limit = { has_pop_culture = nguni } reduce_pop = 1.2 } }
 
         MAT = {
-            capital = 2071
+            capital = 2069
             add_country_modifier = { name = assegai duration = -1 }
             any_owned = {
                 limit = {
@@ -81,7 +89,7 @@ country_event = { #Mzilikazi of Matabele flees to Matabeland
                 secede_province = TRN
             }
         }
-        random_owned = { limit = { province_id = 2071 } state_scope = { change_region_name = "Matabeleland" } }
+        random_owned = { limit = { province_id = 2069 } state_scope = { change_region_name = "Matabeleland" } }
     }
 }
 
