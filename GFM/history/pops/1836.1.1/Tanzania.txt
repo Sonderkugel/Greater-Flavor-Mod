@@ -215,9 +215,6 @@
         religion = animist
         size = 10000
     }
-}
-#Lindi (64000/16000 POPS)
-2039 = {
     aristocrats = {
         culture = swahili
         religion = sunni

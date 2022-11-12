@@ -281,7 +281,7 @@
     farmers = {
         culture = nguni
         religion = animist
-        size = 3650
+        size = 2650
     }
 
     aristocrats = {
@@ -311,13 +311,13 @@
     farmers = {
         culture = shona
         religion = animist
-        size = 39375
+        size = 30375
     }
 
     slaves = {
         culture = shona
         religion = animist
-        size = 22700
+        size = 21700
     }
 
 }

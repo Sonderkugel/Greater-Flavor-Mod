@@ -29,7 +29,7 @@
     farmers = {
         culture = shona
         religion = animist
-        size = 13675
+        size = 15675
     }
 
     aristocrats = {
@@ -79,197 +79,15 @@
         religion = animist
         size = 1800
     }
+	
+    farmers = {
+        culture = southern_bantu
+        religion = animist
+        size = 2000
+    }
 }
 #Gweru (96000/24000 POPS)
 2069 = {
-    aristocrats = {
-        culture = shona
-        religion = animist
-        size = 450
-    }
-
-    clergymen = {
-        culture = shona
-        religion = animist
-        size = 250
-    }
-
-    artisans = {
-        culture = shona
-        religion = animist
-        size = 1200
-    }
-
-    soldiers = {
-        culture = shona
-        religion = animist
-        size = 250
-    }
-
-    farmers = {
-        culture = shona
-        religion = animist
-        size = 21850
-    }
-}
-#Mutare (96000/24000 POPS)
-2070 = {
-    aristocrats = {
-        culture = shona
-        religion = animist
-        size = 425
-    }
-
-    clergymen = {
-        culture = shona
-        religion = animist
-        size = 225
-    }
-
-    artisans = {
-        culture = shona
-        religion = animist
-        size = 1100
-    }
-
-    soldiers = {
-        culture = shona
-        religion = animist
-        size = 225
-    }
-
-    farmers = {
-        culture = shona
-        religion = animist
-        size = 20025
-    }
-
-    aristocrats = {
-        culture = southern_bantu
-        religion = animist
-        size = 25
-    }
-
-    clergymen = {
-        culture = southern_bantu
-        religion = animist
-        size = 50
-    }
-
-    artisans = {
-        culture = southern_bantu
-        religion = animist
-        size = 100
-    }
-
-    soldiers = {
-        culture = southern_bantu
-        religion = animist
-        size = 25
-    }
-
-    farmers = {
-        culture = southern_bantu
-        religion = animist
-        size = 1800
-    }
-}
-#Kariba (36000/9000 POPS)
-2635 = {
-    aristocrats = {
-        culture = southern_bantu
-        religion = animist
-        size = 75
-    }
-
-    clergymen = {
-        culture = southern_bantu
-        religion = animist
-        size = 50
-    }
-
-    artisans = {
-        culture = southern_bantu
-        religion = animist
-        size = 300
-    }
-
-    soldiers = {
-        culture = southern_bantu
-        religion = animist
-        size = 50
-    }
-
-    farmers = {
-        culture = southern_bantu
-        religion = animist
-        size = 5525
-    }
-
-    aristocrats = {
-        culture = shona
-        religion = animist
-        size = 25
-    }
-
-    clergymen = {
-        culture = shona
-        religion = animist
-        size = 50
-    }
-
-    artisans = {
-        culture = shona
-        religion = animist
-        size = 100
-    }
-
-    soldiers = {
-        culture = shona
-        religion = animist
-        size = 25
-    }
-
-    farmers = {
-        culture = shona
-        religion = animist
-        size = 1800
-    }
-
-    aristocrats = {
-        culture = sena
-        religion = animist
-        size = 10
-    }
-
-    clergymen = {
-        culture = sena
-        religion = animist
-        size = 25
-    }
-
-    artisans = {
-        culture = sena
-        religion = animist
-        size = 50
-    }
-
-    soldiers = {
-        culture = sena
-        religion = animist
-        size = 15
-    }
-
-    farmers = {
-        culture = sena
-        religion = animist
-        size = 900
-    }
-}
-#Matabeleland Region (188000)
-#under the rule of Matabele in 1836
-#Bulawayo (136000/34000 POPS)
-2071 = {
     aristocrats = {
         culture = british
         religion = anglican
@@ -321,7 +139,7 @@
     farmers = {
         culture = nguni
         religion = animist
-        size = 29000
+        size = 24000
     }
 
     aristocrats = {
@@ -372,8 +190,194 @@
         size = 6650
     }
 }
-#Hwange (96000/24000 POPS)
-2072 = {
+#Mutare (96000/24000 POPS)
+2070 = {
+    aristocrats = {
+        culture = shona
+        religion = animist
+        size = 425
+    }
+
+    clergymen = {
+        culture = shona
+        religion = animist
+        size = 225
+    }
+
+    artisans = {
+        culture = shona
+        religion = animist
+        size = 1100
+    }
+
+    soldiers = {
+        culture = shona
+        religion = animist
+        size = 225
+    }
+
+    farmers = {
+        culture = shona
+        religion = animist
+        size = 17025
+    }
+
+    aristocrats = {
+        culture = southern_bantu
+        religion = animist
+        size = 25
+    }
+
+    clergymen = {
+        culture = southern_bantu
+        religion = animist
+        size = 50
+    }
+
+    artisans = {
+        culture = southern_bantu
+        religion = animist
+        size = 100
+    }
+
+    soldiers = {
+        culture = southern_bantu
+        religion = animist
+        size = 25
+    }
+
+    farmers = {
+        culture = southern_bantu
+        religion = animist
+        size = 6800
+    }
+	
+    aristocrats = {
+        culture = shona
+        religion = animist
+        size = 450
+    }
+
+    clergymen = {
+        culture = shona
+        religion = animist
+        size = 250
+    }
+
+    artisans = {
+        culture = shona
+        religion = animist
+        size = 1200
+    }
+
+    soldiers = {
+        culture = shona
+        religion = animist
+        size = 250
+    }
+
+    farmers = {
+        culture = shona
+        religion = animist
+        size = 21850
+    }
+}
+#Kariba (36000/9000 POPS)
+2635 = {
+    aristocrats = {
+        culture = southern_bantu
+        religion = animist
+        size = 75
+    }
+
+    clergymen = {
+        culture = southern_bantu
+        religion = animist
+        size = 50
+    }
+
+    artisans = {
+        culture = southern_bantu
+        religion = animist
+        size = 300
+    }
+
+    soldiers = {
+        culture = southern_bantu
+        religion = animist
+        size = 50
+    }
+
+    farmers = {
+        culture = southern_bantu
+        religion = animist
+        size = 3525
+    }
+
+    aristocrats = {
+        culture = shona
+        religion = animist
+        size = 25
+    }
+
+    clergymen = {
+        culture = shona
+        religion = animist
+        size = 50
+    }
+
+    artisans = {
+        culture = shona
+        religion = animist
+        size = 100
+    }
+
+    soldiers = {
+        culture = shona
+        religion = animist
+        size = 25
+    }
+
+    farmers = {
+        culture = shona
+        religion = animist
+        size = 2800
+    }
+
+    aristocrats = {
+        culture = sena
+        religion = animist
+        size = 10
+    }
+
+    clergymen = {
+        culture = sena
+        religion = animist
+        size = 25
+    }
+
+    artisans = {
+        culture = sena
+        religion = animist
+        size = 50
+    }
+
+    soldiers = {
+        culture = sena
+        religion = animist
+        size = 15
+    }
+
+    farmers = {
+        culture = sena
+        religion = animist
+        size = 900
+    }
+}
+#Matabeleland Region (188000)
+#under the rule of Matabele in 1836
+#Bulawayo (136000/34000 POPS)
+2071 = {
     aristocrats = {
         culture = british
         religion = anglican
@@ -398,12 +402,6 @@
         size = 100
     }
 
-    artisans = {
-        culture = shona
-        religion = animist
-        size = 400
-    }
-
     soldiers = {
         culture = shona
         religion = animist
@@ -413,7 +411,7 @@
     farmers = {
         culture = shona
         religion = animist
-        size = 10950
+        size = 7000
     }
 
     aristocrats = {
@@ -443,7 +441,7 @@
     farmers = {
         culture = southern_bantu
         religion = animist
-        size = 9150
+        size = 6000
     }
 
     aristocrats = {
@@ -472,6 +470,111 @@
 
     farmers = {
         culture = nguni
+        religion = animist
+        size = 1800
+    }
+}
+2036 = {
+    aristocrats = {
+        culture = british
+        religion = anglican
+        size = 5
+    }
+
+    farmers = {
+        culture = british
+        religion = anglican
+        size = 50
+    }
+	
+    artisans = {
+        culture = shona
+        religion = animist
+        size = 400
+    }
+
+    farmers = {
+        culture = shona
+        religion = animist
+        size = 2950
+    }
+
+    soldiers = {
+        culture = southern_bantu
+        religion = animist
+        size = 100
+    }
+
+    farmers = {
+        culture = southern_bantu
+        religion = animist
+        size = 3150
+    }
+
+    farmers = {
+        culture = nguni
+        religion = animist
+        size = 200
+    }
+}
+#Hwange (96000/24000 POPS)
+2072 = {
+    aristocrats = {
+        culture = nguni
+        religion = animist
+        size = 10
+    }
+
+    clergymen = {
+        culture = nguni
+        religion = animist
+        size = 5
+    }
+
+    artisans = {
+        culture = nguni
+        religion = animist
+        size = 100
+    }
+
+    soldiers = {
+        culture = nguni
+        religion = animist
+        size = 50
+    }
+
+    farmers = {
+        culture = nguni
+        religion = animist
+        size = 835
+    }
+
+    aristocrats = {
+        culture = shona
+        religion = animist
+        size = 200
+    }
+
+    artisans = {
+        culture = shona
+        religion = animist
+        size = 300
+    }
+
+    soldiers = {
+        culture = shona
+        religion = animist
+        size = 400
+    }
+
+    farmers = {
+        culture = shona
+        religion = animist
+        size = 8100
+    }
+
+    slaves = {
+        culture = shona
         religion = animist
         size = 2000
     }
@@ -523,7 +626,7 @@
     farmers = {
         culture = shona
         religion = animist
-        size = 1800
+        size = 5800
     }
 
     aristocrats = {
@@ -553,7 +656,7 @@
     farmers = {
         culture = southern_bantu
         religion = animist
-        size = 14575
+        size = 9575
     }
 
 }
