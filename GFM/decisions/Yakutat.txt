@@ -2340,4 +2340,69 @@ political_decisions = {
             factor = 1
         }
     }
+	rozvi_reborn = {
+		picture = map_zimbabwe
+        potential = {
+			tag = ZBW
+			has_global_flag = mthwakazi_troll
+			MAT = { exists = no }
+			owns = 2069
+			2075 = { empty = yes }
+            NOT = { has_global_flag = rozvi_reborn }
+        }
+        allow = {
+            war = no
+        }
+        effect = {
+            set_global_flag = rozvi_reborn
+			2075 = {
+                secede_province = THIS
+                add_core = THIS
+                life_rating = 20
+                any_pop = { limit = { is_primary_culture = yes } literacy = 0.49 }
+            }
+			2072 = {
+				add_core = THIS
+			}
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	rudd_concession = {
+		picture = rudd_concession
+        potential = {
+			tag = ENG
+			has_global_flag = mthwakazi_troll
+			NOT = { 2069 = { owned_by = BZW } }
+			owns = 2087
+            NOT = { has_global_flag = rudd_concession }
+        }
+        allow = {
+            war = no
+			OR = {
+				AND = { ai = yes year = 1888 }
+				AND = {
+					ai = no
+					revolution_n_counterrevolution = 1
+					OR = {
+						TRN = { vassal_of = THIS }
+						is_sphere_leader_of = TRN
+						AND = {
+							TRN = { exists = no }
+							owns = 2108
+						}
+					}
+				}
+			}
+					
+        }
+        effect = {
+            set_global_flag = rudd_concession
+			ZBW = { country_event = 18482302 }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
 }

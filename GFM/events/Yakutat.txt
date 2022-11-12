@@ -15559,3 +15559,323 @@ country_event = {
 		}
 	}
 }
+country_event = {
+    id = 18482300
+    title = "Our Periferical Territories"
+    desc = "ROZVIGETSWEAK"
+    picture = "bee_is_the_best_1"
+	fire_only_once = yes
+
+	trigger = {
+		has_global_flag = mthwakazi_troll
+		tag = ZBW
+	}
+
+	mean_time_to_happen = { days = 3 }
+
+    option = {
+		name = "Perfidious... we'll come back to get you!" 
+		2072 = { secede_province = THIS }
+		any_country = {
+			limit = {
+				owns = 2072
+			}
+				2072 = {
+					life_rating = 25
+					secede_province = THIS
+					any_pop = { limit = { NOT = { has_pop_culture = boer } } literacy = -0.99 }
+				}
+			}
+		}
+		2075 = { secede_province = THIS secede_province = NULL }
+	}
+}
+country_event = {
+    id = 18482301
+    title = "The Matabele-Rozvi War"
+    desc = "ROZVIGETSWEAK2"
+    picture = "bee_is_the_best_2"
+	fire_only_once = yes
+
+	trigger = {
+		has_global_flag = mthwakazi_troll
+		tag = ZBW
+	}
+
+    option = {
+		name = "The damned Matabele will return to what's theirs." 
+		prestige = 10
+		add_country_modifier = {
+			name = all_or_nothing
+			duration = 400
+		}
+			
+	}
+}
+country_event = {
+    id = 18482302
+    title = "The Rudd Concession"
+    desc = "ROZVIGETSWEAK3"
+    picture = "bee_is_the_best_3"
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+    option = {
+		name = "We have no other choice but to accept...§R(Pay or owe 40,000¤)§W" 
+		prestige = -10
+        random_owned = {
+            limit = {
+                owner = {
+                    ZBW = { ai = no money = 50000 }
+                }
+            }
+            owner = { ZBW = { treasury = -40000 } }
+        }
+        random_owned = {
+            limit = {
+                owner = {
+                    NOT = { money = 50000 }
+                    NOT = { check_variable = { which = owed_cash_money value = 1 } }
+                }
+            }
+            owner = { set_variable = { which = owed_cash_money value = 40 } }
+        }
+		ENG = {
+			diplomatic_influence = { who = ZBW value = 200 }
+			relation = { who = THIS value = 100 }
+			country_event = 184823021
+		}
+		ai_chance = {
+            factor = 1
+		}
+	}
+    option = {
+		name = "We'll never cede to outside threats! (may cause war)" 
+		prestige = 10
+		ENG = {
+			diplomatic_influence = { who = ZBW value = -200 }
+			relation = { who = ZBW value = -100 }
+			country_event = 184823022
+		}
+		ai_chance = {
+            factor = 0
+		}
+			
+	}
+}
+country_event = {
+    id = 184823021
+    title = "The Rudd Concession Accepted"
+    desc = "ROZVIGETSWEAK3ACCEPTED"
+    picture = "bee_is_the_best_3"
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+    option = {
+		name = "Perfect!"
+		diplomatic_influence = { who = ZBW value = 200 }
+		relation = { who = ZBW value = 100 }
+		prestige = 5
+		treasury = 40000
+		set_global_flag = zimbabwe_not_pa_denga
+	}
+}
+country_event = {
+    id = 184823022
+    title = "The Rudd Concession Refused"
+    desc = "ROZVIGETSWEAK3REFUSED"
+    picture = "bee_is_the_best_3"
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+    option = {
+		name = "They must accept by force, then!"
+		war = {
+            target = ZBW
+            attacker_goal = { casus_belli = establish_protectorate_NI_casus_belli }
+            defender_goal = { casus_belli = humiliate_no_infamy }
+        }
+		ai_chance = {
+            factor = 0.80
+		}
+	}
+    option = {
+		name = "This doesn't make any sense."
+		prestige = -5
+		ai_chance = {
+            factor = 0.20
+		}
+	}
+}
+country_event = {
+    id = 18482303
+    title = "The Pioneer Column"
+    desc = "ROZVIGETSWEAK4"
+    picture = "bee_is_the_best_4"
+	fire_only_once = yes
+
+	trigger = {
+		has_global_flag = zimbabwe_not_pa_denga
+		tag = ENG
+		NOT = { ZBW = { rank = 16 } }
+		ZBW = { exists = yes }
+	}
+
+	mean_time_to_happen = { months = 4 }
+	
+    option = {
+		name = "Use it to invade Mashonaland. §RGain 1 infamy§W" 
+		prestige = 5
+		badboy = 1
+        random_owned = {
+            limit = {
+                owner = {
+                    has_global_flag = colonial_railroading_disabled
+                }
+            }
+            owner = {
+				war = {
+					target = ZBW
+					attacker_goal = { casus_belli = establish_protectorate_NI_casus_belli }
+					defender_goal = { casus_belli = humiliate_no_infamy }
+				}
+				ZBW = { country_event = 184823031 }
+			}
+        }
+        random_owned = {
+            limit = {
+                owner = {
+                    NOT = { has_global_flag = colonial_railroading_disabled }
+                }
+            }
+            owner = {
+				inherit = ZBW
+				any_owned = {
+					limit = {
+						is_core = ZBW
+					}
+					add_core = RHO
+					secede_province = RHO
+				}
+				create_vassal = RHO
+				RHO = { government = colonial_company }
+			}
+        }
+		ai_chance = {
+            factor = 1
+		}
+			
+	}
+	option = {
+		name = "This is unnecessary."
+		ai_chance = {
+            factor = 0
+		}
+	}
+}
+country_event = {
+    id = 184823031
+    title = "The Pioneer Column"
+    desc = "ROZVIGETSWEAK4OHNO"
+    picture = "bee_is_the_best_4"
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+    option = {
+		name = "We must save what we can..."
+		add_country_modifier = {
+			name = all_or_nothing
+			duration = 400
+		}
+	}
+}
+country_event = {
+    id = 18482304
+    title = "The British South Africa Company in Southern Rhodesia"
+    desc = "ROZVIGETSWEAK5"
+    picture = "bee_is_the_best_4"
+	fire_only_once = yes
+
+	trigger = {
+		tag = ENG
+		owns = 2071
+		owns = 2069
+		owns = 2073
+		owns = 2070
+		owns = 2068
+		OR = { 2635 = { owned_by = THIS } 2635 = { empty = yes } }
+		OR = { 2039 = { owned_by = THIS } 2039 = { empty = yes } }
+		ZBW = { exists = no }
+	}
+
+	mean_time_to_happen = { days = 1 }
+	
+    option = {
+		name = "Bring in Southern Rhodesia. §GLose 0.5 infamy§!"
+		prestige = 2
+		badboy = -0.5
+		any_owned = {
+			limit = {
+				is_core = ZBW
+			}
+			add_core = RHO
+			secede_province = RHO
+		}
+        random_owned = {
+            limit = {
+                owner = {
+                    2635 = { empty = yes }
+					2039 = { empty = yes }
+                }
+            }
+            owner = {
+				2635 = {
+					add_core = RHO
+					secede_province = THIS
+					secede_province = RHO
+					life_rating = 30
+					any_pop = { limit = { NOT = { has_pop_culture = boer } } literacy = -0.99 }
+				}
+				2039 = {
+					add_core = RHO
+					secede_province = THIS
+					secede_province = RHO
+					life_rating = 30
+					any_pop = { limit = { NOT = { has_pop_culture = boer } } literacy = -0.99 }
+				}
+			}
+        }
+		create_vassal = RHO
+		RHO = { government = colonial_company }
+		ai_chance = {
+            factor = 1
+		}
+	}
+    option = {
+		name = "The current administration is what we need. §RGain 0.5 infamy§W"
+		badboy = 0.5	
+        random_owned = {
+            limit = {
+                owner = {
+                    2635 = { empty = yes }
+					2039 = { empty = yes }
+                }
+            }
+            owner = {
+				2635 = {
+					secede_province = THIS
+					life_rating = 25
+					any_pop = { limit = { NOT = { has_pop_culture = boer } } literacy = -0.99 }
+				}
+				2039 = {
+					secede_province = THIS
+					life_rating = 25
+					any_pop = { limit = { NOT = { has_pop_culture = boer } } literacy = -0.99 }
+				}
+			}
+        }
+		ai_chance = {
+            factor = 0
+		}
+	}
+}
