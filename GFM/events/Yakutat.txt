@@ -15801,7 +15801,7 @@ country_event = {
 		owns = 2070
 		owns = 2068
 		OR = { 2635 = { owned_by = THIS } 2635 = { empty = yes } }
-		OR = { 2039 = { owned_by = THIS } 2039 = { empty = yes } }
+		OR = { 3636 = { owned_by = THIS } 3636 = { empty = yes } }
 		ZBW = { exists = no }
 	}
 
@@ -15822,7 +15822,7 @@ country_event = {
             limit = {
                 owner = {
                     2635 = { empty = yes }
-					2039 = { empty = yes }
+					3636 = { empty = yes }
                 }
             }
             owner = {
@@ -15833,7 +15833,7 @@ country_event = {
 					life_rating = 30
 					any_pop = { limit = { NOT = { has_pop_culture = boer } } literacy = -0.99 }
 				}
-				2039 = {
+				3636 = {
 					add_core = RHO
 					secede_province = THIS
 					secede_province = RHO
@@ -15845,7 +15845,7 @@ country_event = {
 		create_vassal = RHO
 		RHO = { government = colonial_company }
 		3075 = { any_pop = { move_pop = 2073 } }
-		3076 = { any_pop = { move_pop = 2039 } }
+		3076 = { any_pop = { move_pop = 3636 } }
 		3100 = { any_pop = { move_pop = 2071 } }
 		3070 = { any_pop = { move_pop = 2069 } }
 		3090 = { any_pop = { move_pop = 2068 } }
@@ -15860,7 +15860,7 @@ country_event = {
             limit = {
                 owner = {
                     2635 = { empty = yes }
-					2039 = { empty = yes }
+					3636 = { empty = yes }
                 }
             }
             owner = {
@@ -15869,7 +15869,7 @@ country_event = {
 					life_rating = 25
 					any_pop = { limit = { NOT = { has_pop_culture = boer } } literacy = -0.99 }
 				}
-				2039 = {
+				3636 = {
 					secede_province = THIS
 					life_rating = 25
 					any_pop = { limit = { NOT = { has_pop_culture = boer } } literacy = -0.99 }
@@ -15877,7 +15877,7 @@ country_event = {
 			}
         }
 		3075 = { any_pop = { move_pop = 2073 } }
-		3076 = { any_pop = { move_pop = 2039 } }
+		3076 = { any_pop = { move_pop = 3636 } }
 		3100 = { any_pop = { move_pop = 2071 } }
 		3070 = { any_pop = { move_pop = 2069 } }
 		3090 = { any_pop = { move_pop = 2068 } }

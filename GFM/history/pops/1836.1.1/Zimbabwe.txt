@@ -477,7 +477,7 @@
         size = 50
     }
 }
-2039 = {	
+3636 = {	
     artisans = {
         culture = shona
         religion = animist

@@ -88651,44 +88651,53 @@
 
 # Lindi
 2039 = {
-    text_position = {
-        x = 3225.358333
-        y = 467.666667
+	text_position = {
+        x = 3425.750000
+        y = 597.900000
     }
 
-    text_rotation = 0.542138
+    text_rotation = 5.5
     text_scale = 2.5
     unit = {
-        x = 3233.750000
-        y = 475.793333
+        x = 3427.000000
+        y = 600.000000
     }
 
     factory = {
-        x = 3205.130000
-        y = 471.465000
+        x = 3420.199951
+        y = 606.400024
     }
 
     building_construction = {
-        x = 3214.051667
-        y = 462.720000
+        x = 3424.000000
+        y = 603.200012
     }
 
     military_construction = {
-        x = 3241.700000
-        y = 488.513333
+        x = 3422.350000
+        y = 600.800000
     }
 
     building_position = {
         fort = {
-            x = 3213.168333
-            y = 474.115000
+            x = 3433.000000
+            y = 595.099976
         }
 
         railroad = {
-            x = 3221.295000
-            y = 469.168333
+            x = 3425.705000
+            y = 598.125000
         }
 
+        naval_base = {
+            x = 3427.300049
+            y = 606.599976
+        }
+
+    }
+
+    building_rotation = {
+        naval_base = 2.705261
     }
 
 }
@@ -141204,15 +141213,43 @@
 
 3636 = {
     text_position = {
-        x = 4956.333333
-        y = 256.225000
+        x = 3225.358333
+        y = 467.666667
     }
 
-    text_rotation = 5.326811
-    text_scale = 1.900000
+    text_rotation = 0.542138
+    text_scale = 2.5
     unit = {
-        x = 4957.908333
-        y = 247.008333
+        x = 3233.750000
+        y = 475.793333
+    }
+
+    factory = {
+        x = 3205.130000
+        y = 471.465000
+    }
+
+    building_construction = {
+        x = 3214.051667
+        y = 462.720000
+    }
+
+    military_construction = {
+        x = 3241.700000
+        y = 488.513333
+    }
+
+    building_position = {
+        fort = {
+            x = 3213.168333
+            y = 474.115000
+        }
+
+        railroad = {
+            x = 3221.295000
+            y = 469.168333
+        }
+
     }
 
 }

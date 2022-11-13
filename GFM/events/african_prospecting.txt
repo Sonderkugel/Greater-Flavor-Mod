@@ -3392,7 +3392,7 @@ country_event = {
         2070 = { trade_goods = tobacco }
 
         2068 = { trade_goods = tobacco }
-        2039 = { trade_goods = coal }
+        3636 = { trade_goods = coal }
 
         ai_chance = { factor = 80 }
     }
@@ -3406,7 +3406,7 @@ country_event = {
         2070 = { trade_goods = cotton }
         2069 = { trade_goods = cotton }
         2068 = { trade_goods = tobacco }
-        2039 = { trade_goods = coal }
+        3636 = { trade_goods = coal }
 
         ai_chance = {
             factor = 10
@@ -3440,7 +3440,7 @@ country_event = {
         2070 = { trade_goods = tobacco }
 
         2068 = { trade_goods = tobacco }
-        2039 = { trade_goods = coal }
+        3636 = { trade_goods = coal }
 
         ai_chance = {
             factor = 10

@@ -364,7 +364,7 @@ political_decisions = {
 			owns = 2069
 			owns = 2070
 			owns = 2071
-			owns = 2039
+			owns = 3636
 			owns = 2073
 			owns = 2635
 			NOT = { has_global_flag = colonial_railroading_disabled }
@@ -437,7 +437,7 @@ political_decisions = {
 					any_owned = { add_core = RHO }
 				}
 			}
-			2039 = { change_province_name = "Wankie" }
+			3636 = { change_province_name = "Wankie" }
 			ENG_2071 = { add_core = RHO }
 			ENG_2014 = { add_core = RHO }
 			ENG_2016 = { add_core = RHO }
