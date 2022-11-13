@@ -1124,7 +1124,7 @@ POR_2060 = { 2060 2061 2063 2064 2581 } #Moçambique
 
 ENG_2067 = { 2067 2066 } #Nyasaland
 
-ENG_2068 = { 2068 2070 2635 2039 } #Mashonaland
+ENG_2068 = { 2068 2070 2635 3636 } #Mashonaland
 
 ENG_2071 = { 2071 2069 2073 } #Matabeleland - Rozwi until matabele moves there.
 
