@@ -1,6 +1,7 @@
-capital = 2068
+capital = 2070
 primary_culture = shona
 culture = nguni
+culture = sena
 religion = animist
 government = absolute_monarchy
 plurality = 0.0
@@ -38,7 +39,7 @@ colonial_policy = no_colonies
 
 set_country_flag = animist_country
 
-ruling_party = ZBW_reactionary
+ruling_party = ZBW_reactionary_2
 upper_house = {
     fascist = 0
     liberal = 16
@@ -53,3 +54,5 @@ govt_flag = {
     government = presidential_dictatorship
     flag = theocracy
 }
+
+oob = "ZBW_oob.txt"
