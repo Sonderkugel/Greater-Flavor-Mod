@@ -33,24 +33,6 @@
     }
 
     aristocrats = {
-        culture = british
-        religion = anglican
-        size = 50
-    }
-
-    farmers = {
-        culture = british
-        religion = anglican
-        size = 500
-    }
-
-    soldiers = {
-        culture = british
-        religion = anglican
-        size = 250
-    }
-
-    aristocrats = {
         culture = sena
         religion = animist
         size = 25
@@ -86,20 +68,27 @@
         size = 2000
     }
 }
-#Gweru (96000/24000 POPS)
-2069 = {
+3090 = {
     aristocrats = {
-        culture = british
-        religion = anglican
-        size = 5
-    }
-
-    farmers = {
         culture = british
         religion = anglican
         size = 50
     }
 
+    farmers = {
+        culture = british
+        religion = anglican
+        size = 500
+    }
+
+    soldiers = {
+        culture = british
+        religion = anglican
+        size = 250
+    }
+}
+#Gweru (96000/24000 POPS)
+2069 = {
     aristocrats = {
         culture = nguni
         religion = animist
@@ -188,6 +177,19 @@
         culture = sotho
         religion = animist
         size = 6650
+    }
+}
+3070 = {
+    aristocrats = {
+        culture = british
+        religion = anglican
+        size = 5
+    }
+
+    farmers = {
+        culture = british
+        religion = anglican
+        size = 50
     }
 }
 #Mutare (96000/24000 POPS)
@@ -379,18 +381,6 @@
 #Bulawayo (136000/34000 POPS)
 2071 = {
     aristocrats = {
-        culture = british
-        religion = anglican
-        size = 5
-    }
-
-    farmers = {
-        culture = british
-        religion = anglican
-        size = 50
-    }
-
-    aristocrats = {
         culture = shona
         religion = animist
         size = 200
@@ -474,7 +464,7 @@
         size = 1800
     }
 }
-2039 = {
+3100 = {
     aristocrats = {
         culture = british
         religion = anglican
@@ -486,7 +476,8 @@
         religion = anglican
         size = 50
     }
-	
+}
+2039 = {	
     artisans = {
         culture = shona
         religion = animist
@@ -515,6 +506,19 @@
         culture = nguni
         religion = animist
         size = 200
+    }
+}
+3076 = {
+    aristocrats = {
+        culture = british
+        religion = anglican
+        size = 5
+    }
+
+    farmers = {
+        culture = british
+        religion = anglican
+        size = 50
     }
 }
 #Hwange (96000/24000 POPS)
@@ -582,24 +586,6 @@
 #Masvingo (72000/18000 POPS)
 2073 = {
     aristocrats = {
-        culture = british
-        religion = anglican
-        size = 50
-    }
-
-    farmers = {
-        culture = british
-        religion = anglican
-        size = 500
-    }
-
-    soldiers = {
-        culture = british
-        religion = anglican
-        size = 250
-    }
-
-    aristocrats = {
         culture = shona
         religion = animist
         size = 25
@@ -659,4 +645,23 @@
         size = 9575
     }
 
+}
+3075 = {
+    aristocrats = {
+        culture = british
+        religion = anglican
+        size = 50
+    }
+
+    farmers = {
+        culture = british
+        religion = anglican
+        size = 500
+    }
+
+    soldiers = {
+        culture = british
+        religion = anglican
+        size = 250
+    }
 }

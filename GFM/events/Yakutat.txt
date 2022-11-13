@@ -15844,6 +15844,11 @@ country_event = {
         }
 		create_vassal = RHO
 		RHO = { government = colonial_company }
+		3075 = { any_pop = { move_pop = 2073 } }
+		3076 = { any_pop = { move_pop = 2039 } }
+		3100 = { any_pop = { move_pop = 2071 } }
+		3070 = { any_pop = { move_pop = 2069 } }
+		3090 = { any_pop = { move_pop = 2068 } }
 		ai_chance = {
             factor = 1
 		}
@@ -15871,6 +15876,11 @@ country_event = {
 				}
 			}
         }
+		3075 = { any_pop = { move_pop = 2073 } }
+		3076 = { any_pop = { move_pop = 2039 } }
+		3100 = { any_pop = { move_pop = 2071 } }
+		3070 = { any_pop = { move_pop = 2069 } }
+		3090 = { any_pop = { move_pop = 2068 } }
 		ai_chance = {
             factor = 0
 		}
