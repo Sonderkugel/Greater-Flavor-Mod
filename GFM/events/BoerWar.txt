@@ -895,6 +895,7 @@ country_event = {
                 owner = {
                     civilized = no
                     war = no
+					NOT = { AND = { tag = ZBW prestige = 110 } }
                 }
                 owned_by = THIS
             }
