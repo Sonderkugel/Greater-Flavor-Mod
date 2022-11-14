@@ -16004,19 +16004,27 @@ country_event = {
 
 	option = {
 		name = "What a shame."
-		any_owned = {
+		random_owned = {
 			limit = {
-				province_id = 409
+				owner = {
+					owns = 409
+				}
 			}
-			trade_goods = fruit 
-			set_global_flag = coalexhaustedone
+			owner = {
+				409 = { trade_goods = fruit }
+				set_global_flag = coalexhaustedone
+			}
 		}
-		any_owned = {
+		random_owned = {
 			limit = {
-				province_id = 3414
+				owner = {
+					owns = 3414
+				}
 			}
-			trade_goods = fish
-			set_global_flag = coalexhaustedtwo
+			owner = {
+				3414 = { trade_goods = fish }
+				set_global_flag = coalexhaustedtwo
+			}
 		}
 	}
 }
@@ -18269,9 +18277,6 @@ country_event = {
 	   }
 	   NOT = {
 		owns = 639
-	   }
-	   NOT = {
-		owns = 642
 	   }
 	   NOT = {
 		owns = 642
