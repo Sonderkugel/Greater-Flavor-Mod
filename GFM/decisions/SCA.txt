@@ -573,91 +573,91 @@ political_decisions = {
         }
     }
 
-    form_DNN_den = {
-        picture = SCA_political_union
-        potential = {
-            tag = DEN
-            NOT = { has_country_flag = form_DNN }
-        }
-        allow = {
-            prestige = 25
-            state_n_government = 1
-			NOR = {
-				OR = {
-					AND = {
-						in_sphere = THIS
-						is_vassal = no
-					}
-					vassal_of = THIS
-				}
-			}
-			war = no
-        }
-        effect = {
-            set_country_flag = form_DNN
-            prestige = 50
-			inherit = NOR
-			add_accepted_culture = norwegian
-            DEN = { all_core = { add_core = DNN } }
-            NOR = { all_core = { add_core = DNN } }
-            251 = { add_core = DNN }
-            ICL = { all_core = { add_core = DNN } }
-            253 = { add_core = DNN } #faroe islands
-            982 = { add_core = DNN } #petsamo
-            983 = { add_core = DNN } #kola 1
-            2587 = { add_core = DNN } #kola 2
-            319 = { add_core = DNN } #Ostersund
-            329 = { add_core = DNN } #Gotheborg
-            1724 = { add_core = DNN } #shetlands
-            334 = { add_core = DNN } #skane 1
-            335 = { add_core = DNN } #skane 2
-			331 = { add_core = DNN } #gotland
-            change_tag = DNN
-        }
-    }
+#   form_DNN_den = {
+#       picture = SCA_political_union
+#       potential = {
+#           tag = DEN
+#           NOT = { has_country_flag = form_DNN }
+#       }
+#       allow = {
+#           prestige = 25
+#           state_n_government = 1
+#			NOR = {
+#				OR = {
+#					AND = {
+#						in_sphere = THIS
+#						is_vassal = no
+#					}
+#					vassal_of = THIS
+#				}
+#			}
+#			war = no
+#       }
+#       effect = {
+#           set_country_flag = form_DNN
+#           prestige = 50
+#			inherit = NOR
+#			add_accepted_culture = norwegian
+#           DEN = { all_core = { add_core = DNN } }
+#           NOR = { all_core = { add_core = DNN } }
+#           251 = { add_core = DNN }
+#           ICL = { all_core = { add_core = DNN } }
+#           253 = { add_core = DNN } #faroe islands
+#           982 = { add_core = DNN } #petsamo
+#           983 = { add_core = DNN } #kola 1
+#           2587 = { add_core = DNN } #kola 2
+#           319 = { add_core = DNN } #Ostersund
+#           329 = { add_core = DNN } #Gotheborg
+#           1724 = { add_core = DNN } #shetlands
+#           334 = { add_core = DNN } #skane 1
+#           335 = { add_core = DNN } #skane 2
+#			331 = { add_core = DNN } #gotland
+#           change_tag = DNN
+#       }
+#   }
 	
-	form_DNN_nor = {
-        picture = SCA_political_union
-        potential = {
-            tag = NOR
-            NOT = { has_country_flag = form_DNN }
-        }
-        allow = {
-            prestige = 25
-            state_n_government = 1
-			DEN = {
-				OR = {
-					AND = {
-						in_sphere = THIS
-						is_vassal = no
-					}
-					vassal_of = THIS
-				}
-			}
-			war = no
-        }
-        effect = {
-            set_country_flag = form_DNN
-            prestige = 50
-			inherit = DEN
-			add_accepted_culture = danish
-            DEN = { all_core = { add_core = DNN } }
-            NOR = { all_core = { add_core = DNN } }
-            251 = { add_core = DNN }
-            ICL = { all_core = { add_core = DNN } }
-            253 = { add_core = DNN } #faroe islands
-            982 = { add_core = DNN } #petsamo
-            983 = { add_core = DNN } #kola 1
-            2587 = { add_core = DNN } #kola 2
-            319 = { add_core = DNN } #Ostersund
-            329 = { add_core = DNN } #Gotheborg
-            1724 = { add_core = DNN } #shetlands
-            334 = { add_core = DNN } #skane 1
-            335 = { add_core = DNN } #skane 2
-			331 = { add_core = DNN } #gotland
-            change_tag = DNN
-        }
-    }
+#	form_DNN_nor = {
+#       picture = SCA_political_union
+#       potential = {
+#           tag = NOR
+#           NOT = { has_country_flag = form_DNN }
+#       }
+#       allow = {
+#           prestige = 25
+#           state_n_government = 1
+#			DEN = {
+#				OR = {
+#					AND = {
+#						in_sphere = THIS
+#						is_vassal = no
+#					}
+#					vassal_of = THIS
+#				}
+#			}
+#			war = no
+#       }
+#       effect = {
+#           set_country_flag = form_DNN
+#           prestige = 50
+#			inherit = DEN
+#			add_accepted_culture = danish
+#           DEN = { all_core = { add_core = DNN } }
+#           NOR = { all_core = { add_core = DNN } }
+#           251 = { add_core = DNN }
+#           ICL = { all_core = { add_core = DNN } }
+#           253 = { add_core = DNN } #faroe islands
+#           982 = { add_core = DNN } #petsamo
+#           983 = { add_core = DNN } #kola 1
+#           2587 = { add_core = DNN } #kola 2
+#           319 = { add_core = DNN } #Ostersund
+#           329 = { add_core = DNN } #Gotheborg
+#           1724 = { add_core = DNN } #shetlands
+#           334 = { add_core = DNN } #skane 1
+#           335 = { add_core = DNN } #skane 2
+#			331 = { add_core = DNN } #gotland
+#           change_tag = DNN
+#       }
+#   }
 
     form_SCA_as_finland = {
         picture = SCA_political_union
