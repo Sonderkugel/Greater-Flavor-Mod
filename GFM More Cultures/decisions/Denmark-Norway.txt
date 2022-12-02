@@ -1,0 +1,87 @@
+political_decisions = {
+	reunite_DNN = {
+		picture = SCA_political_union
+		potential = {
+			tag = DEN
+			NOT = { has_country_flag = DNN_exists }
+			NOT = { has_country_flag = norwegian_DNN }
+		}
+		allow = {
+			state_n_government = 1
+			NOR = {
+				OR = {
+					AND = {
+						in_sphere = THIS
+						is_vassal = no
+					}
+					vassal_of = THIS
+					all_core = {
+						owned_by = THIS
+					}
+				}
+			}
+			war = no
+		}
+		effect = {
+			set_country_flag = DNN_exists
+			prestige = 50
+			inherit = NOR
+			add_accepted_culture = norwegian
+			add_accepted_culture = jamska
+			all_core = {
+				remove_core = DEN
+				add_core = DNN
+			}
+			NOR = {
+				all_core = { add_core = DNN }
+			}
+			change_tag = DNN
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	reunite_DNN_norway = {
+		picture = SCA_political_union
+		potential = {
+			tag = NOR
+			NOT = { has_country_flag = DNN_exists }
+			NOT = { has_country_flag = norwegian_DNN }
+		}
+		allow = {
+			state_n_government = 1
+			DEN = {
+				OR = {
+					AND = {
+						in_sphere = THIS
+						is_vassal = no
+					}
+					vassal_of = THIS
+					all_core = {
+						owned_by = THIS
+					}
+				}
+			}
+			war = no
+		}
+		effect = {
+			set_country_flag = norwegian_DNN
+			prestige = 50
+			inherit = DEN
+			add_accepted_culture = danish
+			add_accepted_culture = scanian
+			all_core = {
+				remove_core = NOR
+				add_core = DNN
+			}
+			DEN = {
+				all_core = { add_core = DNN }
+			}
+			change_tag = DNN
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
