@@ -3,8 +3,7 @@ political_decisions = {
 		picture = SCA_political_union
 		potential = {
 			tag = DEN
-			NOT = { has_country_flag = DNN_exists }
-			NOT = { has_country_flag = norwegian_DNN }
+			NOT = { has_country_flag = has_become_DNN }
 		}
 		allow = {
 			state_n_government = 1
@@ -23,7 +22,7 @@ political_decisions = {
 			war = no
 		}
 		effect = {
-			set_country_flag = DNN_exists
+			set_country_flag = has_become_DNN
 			prestige = 20
 			inherit = NOR
 			add_accepted_culture = norwegian
@@ -41,51 +40,60 @@ political_decisions = {
 			factor = 1
 		}
 	}
-	
-	reunite_DNN_norway = {
-		picture = SCA_political_union
-		potential = {
-			tag = NOR
-			NOT = { has_country_flag = DNN_exists }
-			NOT = { has_country_flag = norwegian_DNN }
-		}
-		allow = {
-			state_n_government = 1
-			DEN = {
-				OR = {
-					AND = {
-						in_sphere = THIS
-						is_vassal = no
-					}
-					vassal_of = THIS
-					all_core = {
-						owned_by = THIS
-					}
+
+	become_austria = {
+        picture = SCA_political_union
+        potential = {
+            tag = DNN
+            NOT = {
+                owns = 313
+				exists = DEN
+            }
+        }
+
+        allow = {
+            war = no
+            OR = {
+                AND = {
+                    exists = NOR
+                    NOR = {
+                        NOT = { vassal_of = DNN }
+                    }
+                }
+                NOT = {
+                    any_owned_province = {
+                        is_core = NOR
+                    }
+                }
+            }
+        }
+
+        effect = {
+            prestige = -20
+            NOR = {
+                all_core = { remove_core = DNN }
+            }
+            all_core = {
+                remove_core = DNN
+                add_core = DEN
+            }
+            any_pop = {
+                limit = { has_pop_culture = norwegian }
+                militancy = 4
+            }
+			any_country = {
+				limit = {
+					tag = DEN
+					exists = yes
 				}
+				annex_to = THIS
 			}
-			war = no
-		}
-		effect = {
-			set_country_flag = norwegian_DNN
-			prestige = 20
-			inherit = DEN
-			add_accepted_culture = danish
-			add_accepted_culture = scanian
-			add_accepted_culture = icelandic
-			add_accepted_culture = faroese
-			all_core = {
-				remove_core = NOR
-				add_core = DNN
-			}
-			DEN = {
-				all_core = { add_core = DNN }
-			}
-			change_tag = DNN
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+            remove_accepted_culture = norwegian
+			remove_accepted_culture = jamska
+            clr_global_flag = has_become_DNN
+            change_tag = DEN
+        }
+    }
 	
 	become_norway = {
         picture = SCA_political_union
@@ -104,38 +112,20 @@ political_decisions = {
         }
 
         effect = {
-            DNN = {
-                all_core = { remove_core = DNN }
-            }
 			DNN = {
 				all_core = {
 					limit = {
-						OR = {
-							region = DEN_372
-							region = DEN_367
-							province_id = 334
-							province_id = 335
+						NOT = {
+							is_core = NOR
 						}
 					}
 					add_core = DEN
 				}
 			}
 			DNN = {
-				all_core = {
-					limit = {
-						OR = {
-							province_id = 251
-							province_id = 252
-							province_id = 253
-							province_id = 1724
-							province_id = 3477
-						}
-					}
-					add_core = NOR
-					remove_core = DEN
-				}
-			}
-            capital = 313 #Oslo
+                all_core = { remove_core = DNN }
+            }
+            capital = 313
             any_pop = {
                 limit = { has_pop_culture = danish }
                 militancy = 4
@@ -145,16 +135,10 @@ political_decisions = {
                 militancy = -4
             }
             primary_culture = norwegian
-            clr_global_flag = DNN_exists
-			clr_global_flag = norwegian_DNN
+            clr_country_flag = has_become_DNN
             change_tag = NOR
-			add_accepted_culture = danish
-			add_accepted_culture = faroese
-			add_accepted_culture = icelandic
-            remove_accepted_culture = scanian
-			DEN = {
-				remove_accepted_culture = norwegian
-			}
+            remove_accepted_culture = danish
+			remove_accepted_culture = scanian
         }
     }
 }
