@@ -107,30 +107,19 @@ political_decisions = {
             DNN = {
                 all_core = { remove_core = DNN }
             }
-            DEN_372 = { add_core = DEN }
-            DEN_367 = { add_core = DEN }
-			all_core = {
+			251 = { add_core = NOR }
+			252 = { add_core = NOR }
+			253 = { add_core = NOR }
+			1724 = { add_core = NOR }
+			3477 = { add_core = NOR }
+			251 = { add_core = NOR }
+			any_core = {
 				limit = {
-					province_id = 331
-					province_id = 334
-					province_id = 335
-					province_id = 353
-					province_id = 370
-					province_id = 371
+					NOT = {
+						is_core = NOR
+					}
 				}
 				add_core = DEN
-			}
-			all_core = {
-				limit = {
-					province_id = 251
-					province_id = 252
-					province_id = 253
-					province_id = 1724
-					province_id = 3477
-					province_id = 371
-				}
-				add_core = NOR
-				remove_core = DEN
 			}
             capital = 313 #Oslo
             any_pop = {
