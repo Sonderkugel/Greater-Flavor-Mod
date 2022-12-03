@@ -109,7 +109,7 @@ political_decisions = {
             }
             DEN_372 = { add_core = DEN }
             DEN_367 = { add_core = DEN }
-            any_core  {
+            any_core = {
 				limit = {
 					province_id = 331
 					province_id = 334
@@ -120,7 +120,7 @@ political_decisions = {
 				}
 				add_core = DEN
 			}
-			any_core  {
+			any_core = {
 				limit = {
 					province_id = 251
 					province_id = 252
