@@ -24,7 +24,7 @@ political_decisions = {
 		}
 		effect = {
 			set_country_flag = DNN_exists
-			prestige = 50
+			prestige = 20
 			inherit = NOR
 			add_accepted_culture = norwegian
 			add_accepted_culture = jamska
@@ -67,7 +67,7 @@ political_decisions = {
 		}
 		effect = {
 			set_country_flag = norwegian_DNN
-			prestige = 50
+			prestige = 20
 			inherit = DEN
 			add_accepted_culture = danish
 			add_accepted_culture = scanian
@@ -92,26 +92,46 @@ political_decisions = {
         potential = {
             tag = DNN
             NOT = {
-                owns = 329 #Copenhagen
+                owns = 372 #Copenhagen
                 exists = NOR
             }
         }
 
         allow = {
             war = no
-            NOT = { owns = 619 } #Copenhagen
-            owns = 641 #Oslo
+            NOT = { owns = 372 } #Copenhagen
+            owns = 313 #Oslo
         }
 
         effect = {
             DNN = {
                 all_core = { remove_core = DNN }
             }
-            AUS_619 = { add_core = AUS }
-            AUS_612 = { add_core = AUS }
-            AUS_613 = { add_core = AUS }
-            AUS_734 = { add_core = AUS }
-            capital = 641 #Oslo
+            DEN_372 = { add_core = DEN }
+            DEN_367 = { add_core = DEN }
+            any_core  {
+				limit = {
+					province_id = 331
+					province_id = 334
+					province_id = 335
+					province_id = 334
+					province_id = 334
+					province_id = 353
+				}
+				add_core = DEN
+			}
+			any_core  {
+				limit = {
+					province_id = 251
+					province_id = 252
+					province_id = 253
+					province_id = 1724
+					province_id = 3477
+				}
+				remove_core = DEN
+				add_core = NOR
+			}
+            capital = 313 #Oslo
             any_pop = {
                 limit = { has_pop_culture = danish }
                 militancy = 4
@@ -125,7 +145,12 @@ political_decisions = {
 			clr_global_flag = norwegian_DNN
             change_tag = NOR
 			add_accepted_culture = danish
+			add_accepted_culture = faroese
+			add_accepted_culture = icelandic
             remove_accepted_culture = scanian
+			DEN = {
+				remove_accepted_culture = norwegian
+			}
         }
     }
 }

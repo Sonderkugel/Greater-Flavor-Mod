@@ -24,7 +24,7 @@ political_decisions = {
 		}
 		effect = {
 			set_country_flag = DNN_exists
-			prestige = 50
+			prestige = 20
 			inherit = NOR
 			add_accepted_culture = norwegian
 			all_core = {
@@ -66,7 +66,7 @@ political_decisions = {
 		}
 		effect = {
 			set_country_flag = norwegian_DNN
-			prestige = 50
+			prestige = 20
 			inherit = DEN
 			add_accepted_culture = danish
 			all_core = {
