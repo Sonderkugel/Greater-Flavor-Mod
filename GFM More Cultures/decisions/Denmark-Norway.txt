@@ -111,22 +111,26 @@ political_decisions = {
             DEN_367 = { add_core = DEN }
             any_core = {
 				limit = {
-					province_id = 331
-					province_id = 334
-					province_id = 335
-					province_id = 334
-					province_id = 334
-					province_id = 353
+					OR = {
+						province_id = 331
+						province_id = 334
+						province_id = 335
+						province_id = 334
+						province_id = 334
+						province_id = 353
+					}
 				}
 				add_core = DEN
 			}
 			any_core = {
 				limit = {
-					province_id = 251
-					province_id = 252
-					province_id = 253
-					province_id = 1724
-					province_id = 3477
+					OR = {
+						province_id = 251
+						province_id = 252
+						province_id = 253
+						province_id = 1724
+						province_id = 3477
+					}
 				}
 				remove_core = DEN
 				add_core = NOR
