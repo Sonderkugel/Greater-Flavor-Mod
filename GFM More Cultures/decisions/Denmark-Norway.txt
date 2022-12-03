@@ -125,6 +125,20 @@ political_decisions = {
 			DNN = {
                 all_core = { remove_core = DNN }
             }
+			any_owned = {
+				limit = {
+					is_core = DEN
+					OR = {
+						is_core = GRN
+						is_core = ICL
+						is_core = FRO
+						is_core = SCO
+						is_core = IOM
+					}
+				}
+				add_core = NOR
+				remove_core = DEN
+			}
             capital = 313
             any_pop = {
                 limit = { has_pop_culture = danish }
@@ -139,6 +153,13 @@ political_decisions = {
             change_tag = NOR
             remove_accepted_culture = danish
 			remove_accepted_culture = scanian
+			DEN = {
+				remove_accepted_culture = norwegian
+				remove_accepted_culture = jamska
+				add_accepted_culture = scanian
+				add_accepted_culture = icelandic
+				add_accepted_culture = faroese
+			}
         }
     }
 }

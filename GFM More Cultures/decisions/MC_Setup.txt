@@ -571,6 +571,8 @@ political_decisions = {
 			NOR = {
 				primary_culture = norwegian
 				add_accepted_culture = danish
+				add_accepted_culture = icelandic
+				add_accepted_culture = faroese
 				add_accepted_culture = jamska
 			}
 			NGF = {
