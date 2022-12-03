@@ -41,7 +41,7 @@ political_decisions = {
 		}
 	}
 
-	become_austria = {
+	become_denmark = {
         picture = SCA_political_union
         potential = {
             tag = DNN
@@ -149,7 +149,7 @@ political_decisions = {
                 militancy = -4
             }
             primary_culture = norwegian
-            clr_country_flag = has_become_DNN
+            clr_global_flag = has_become_DNN
             change_tag = NOR
             remove_accepted_culture = danish
 			remove_accepted_culture = scanian
@@ -161,5 +161,40 @@ political_decisions = {
 				add_accepted_culture = faroese
 			}
         }
+
+		claim_swedish_land = {
+        	picture = SCA_political_union
+        	potential = {
+			    tag = DNN
+    	        NOT = { has_country_flag = swedish_land_claimed }
+				OR = {
+					ai = no
+					government = fascist_dictatorship
+				}
+     		}
+
+     		allow = {
+     	    	war = no
+     	    	is_vassal = no
+      	    	nationalism_n_imperialism = 1
+				OR = {
+      	        	war_policy = jingoism
+					war_policy = pro_military
+			    }
+      		}
+
+      		effect = {
+      			set_country_flag = swedish_land_claimed
+     	    	319 = { add_core = THIS }
+				319 = { add_core = NOR }
+      	    	329 = { add_core = THIS }
+      	    	329 = { add_core = NOR }
+       	    	334 = { add_core = THIS }
+       	    	335 = { add_core = THIS }
+            	badboy = 5
+            	prestige = 10
+        	}
+        	ai_will_do = { factor = 1 }
+    	}
     }
 }
