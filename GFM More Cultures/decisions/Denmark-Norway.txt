@@ -127,7 +127,7 @@ political_decisions = {
             }
 			all_core = {
 				limit = {
-					is_core = DEN
+					is_core = DNN
 					OR = {
 						is_core = GRN
 						is_core = ICL
