@@ -338,7 +338,7 @@ political_decisions = {
                     }
                 }
                 owner = {
-                    1481 = { change_province_name = "Lüshun" }
+                    1481 = { change_province_name = "Lï¿½shun" }
                     set_global_flag = lushun
                     clr_global_flag = renamed_port_arthur
                     clr_global_flag = renamed_ryojun
@@ -1328,7 +1328,7 @@ political_decisions = {
 						province_id = 498
                     }
                 }
-                life_rating = 3
+                life_rating = 5
                 add_province_modifier = { name = recently_built_city duration = 1825 }
             }
         }
