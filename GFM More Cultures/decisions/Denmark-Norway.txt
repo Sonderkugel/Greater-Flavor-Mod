@@ -128,13 +128,15 @@ political_decisions = {
 				}
 				all_core = {
 					limit = {
-						is_core = GRN
-						is_core = ICL
-						is_core = FRO
-						is_core = SCO
-						is_core = IOM
+						OR = {
+							is_core = GRN
+							is_core = ICL
+							is_core = FRO
+							is_core = SCO
+							is_core = IOM
+						}
 					}
-					add_core = DEN
+					add_core = NOR
 				}
 				all_core = { remove_core = DNN }
 			}
