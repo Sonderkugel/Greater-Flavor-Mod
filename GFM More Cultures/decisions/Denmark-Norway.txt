@@ -117,27 +117,26 @@ political_decisions = {
 					limit = {
 						NOT = {
 							is_core = NOR
+							is_core = GRN
+							is_core = ICL
+							is_core = FRO
+							is_core = SCO
+							is_core = IOM
 						}
 					}
 					add_core = DEN
 				}
-			}
-			DNN = {
-                all_core = { remove_core = DNN }
-            }
-			all_core = {
-				limit = {
-					is_core = DNN
-					OR = {
+				all_core = {
+					limit = {
 						is_core = GRN
 						is_core = ICL
 						is_core = FRO
 						is_core = SCO
 						is_core = IOM
 					}
+					add_core = DEN
 				}
-				add_core = NOR
-				remove_core = DEN
+				all_core = { remove_core = DNN }
 			}
             capital = 313
             any_pop = {
