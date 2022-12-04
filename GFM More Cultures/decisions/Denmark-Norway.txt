@@ -125,7 +125,7 @@ political_decisions = {
 			DNN = {
                 all_core = { remove_core = DNN }
             }
-			any_owned = {
+			all_core = {
 				limit = {
 					is_core = DEN
 					OR = {
