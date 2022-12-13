@@ -5670,19 +5670,49 @@ political_decisions = {
 					owns = 304
 				}
 				AND = {
-					NOT = { has_global_flag = jemtland_renamed }
 					OR = {
 						primary_culture = norwegian
-						tag = DNN
+						primary_culture = danish
 					}
-					owns = 319
-					owns = 329
+					OR = {
+						AND = {
+							owns = 319
+							NOT = { has_global_flag = jemtland_renamed }
+						}
+						AND = {
+							owns = 329
+							NOT = { has_global_flag = goteborg_renamed }
+						}
+						AND = {
+							owns = 334
+							NOT = { has_global_flag = malmo_renamed }
+						}
+						AND = {
+							owns = 335
+							NOT = { has_global_flag = karlskrona_renamed }
+						}
+					}
 				}
 				AND = {
-					has_global_flag = jemtland_renamed
 					primary_culture = swedish
-					owns = 319
-					owns = 329
+					OR = {
+						AND = {
+							owns = 319
+							has_global_flag = jemtland_renamed
+						}
+						AND = {
+							owns = 329
+							has_global_flag = goteborg_renamed
+						}
+						AND = {
+							owns = 334
+							has_global_flag = malmo_renamed
+						}
+						AND = {
+							owns = 335
+							has_global_flag = karlskrona_renamed
+						}
+					}
 				}
 				AND = {
 					NOT = { has_global_flag = kola_renamed_nor }
@@ -5700,18 +5730,6 @@ political_decisions = {
 					owns = 982
 					owns = 2587
 					owns = 983
-				}
-				AND = {
-					NOT = { has_global_flag = scania_renamed }
-					primary_culture = danish
-					334 = { owned_by = THIS }
-					335 = { owned_by = THIS }
-				}
-				AND = {
-					has_global_flag = scania_renamed
-					primary_culture = swedish
-					334 = { owned_by = THIS }
-					335 = { owned_by = THIS }
 				}
 				AND = {
 					has_global_flag = florida_renamed
@@ -43746,94 +43764,141 @@ political_decisions = {
 					272 = { change_province_name = "Dumfries" }
 					304 = { change_province_name = "Isle of Man" }
 				}
-			}	
+			}
 			random_owned = {
 				limit = {
 					owner = {
-						NOT = { has_global_flag = jemtland_renamed }
 						OR = {
 							primary_culture = norwegian
-							tag = DNN
+							primary_culture = danish
 						}
 						owns = 319
-						owns = 329						
+						NOT = { has_global_flag = jemtland_renamed }
 					}
 				}
 				owner = {
 					set_global_flag = jemtland_renamed
-					319 = {
-						change_province_name = "Østersund"
-					}
-					329 = {
-						change_province_name = "Oddevald"
-					}
-					random_owned = {
-						limit = {
-							owner = {
-								primary_culture = norwegian
-							}
-						}
-						owner = {
-							# Audax Validator "." Ignore_NEXT
-							319 = {
-								assimilate = yes
-							}
-							# Audax Validator "." Ignore_NEXT
-							329 = {
-								assimilate = yes
-							}
-						
-						}
-					}
-					random_owned = {
-						limit = {
-							owner = {
-								primary_culture = danish
-								accepted_culture = norwegian
-							}
-						}
-						owner = {
-							# Audax Validator "." Ignore_NEXT
-							primary_culture = norwegian
-							# Audax Validator "." Ignore_NEXT
-							319 = {
-								assimilate = yes
-							}
-							# Audax Validator "." Ignore_NEXT
-							329 = {
-								assimilate = yes
-							}
-							# Audax Validator "." Ignore_NEXT
-							primary_culture = danish
-							# Audax Validator "." Ignore_NEXT
-							add_accepted_culture = norwegian
-						}
-					}
+					319 = { change_province_name = "Jemtland" }
 				}
 			}
 			random_owned = {
 				limit = {
 					owner = {
-						has_global_flag = jemtland_renamed
+						OR = {
+							primary_culture = norwegian
+							primary_culture = danish
+						}
+						owns = 329
+						NOT = { has_global_flag = goteborg_renamed }
+						NOT = { has_global_flag = norwegian_spelling_reform }
+					}
+				}
+				owner = {
+					set_global_flag = goteborg_renamed
+					329 = { change_province_name = "Baahuslen" }
+				}
+			}
+			random_owned = {
+				limit = {
+					owner = {
+						OR = {
+							primary_culture = norwegian
+							primary_culture = danish
+						}
+						owns = 329
+						NOT = { has_global_flag = goteborg_renamed }
+						has_global_flag = norwegian_spelling_reform
+					}
+				}
+				owner = {
+					set_global_flag = goteborg_renamed
+					329 = { change_province_name = "Båhuslen" }
+				}
+			}
+			random_owned = {
+				limit = {
+					owner = {
+						OR = {
+							primary_culture = norwegian
+							primary_culture = danish
+						}
+						owns = 334
+						NOT = { has_global_flag = malmo_renamed }
+					}
+				}
+				owner = {
+					set_global_flag = malmo_renamed
+					334 = { change_province_name = "Malmø" }
+				}
+			}	
+			random_owned = {
+				limit = {
+					owner = {
+						OR = {
+							primary_culture = norwegian
+							primary_culture = danish
+						}
+						owns = 335
+						NOT = { has_global_flag = karlskrona_renamed }
+					}
+				}
+				owner = {
+					set_global_flag = karlskrona_renamed
+					335 = { change_province_name = "Bleking" }
+				}
+			}	
+			random_owned = {
+				limit = {
+					owner = {
 						primary_culture = swedish
 						owns = 319
-						owns = 329
+						has_global_flag = jemtland_renamed
 					}
 				}
 				owner = {
 					clr_global_flag = jemtland_renamed
-					# Audax Validator "." Ignore_NEXT
-					319 = {
-						change_province_name = "Östersund"
-						assimilate = yes
-					}
-					# Audax Validator "." Ignore_NEXT
-					329 = {
-						change_province_name = "Göteborg"
-						assimilate = yes
-					}
+					319 = { change_province_name = "Östersund" }
 				}
 			}
+			random_owned = {
+				limit = {
+					owner = {
+						primary_culture = swedish
+						owns = 329
+						has_global_flag = goteborg_renamed
+					}
+				}
+				owner = {
+					clr_global_flag = goteborg_renamed
+					329 = { change_province_name = "Göteborg" }
+				}
+			}
+			random_owned = {
+				limit = {
+					owner = {
+						primary_culture = swedish
+						owns = 334
+						has_global_flag = malmo_renamed
+					}
+				}
+				owner = {
+					clr_global_flag = malmo_renamed
+					334 = { change_province_name = "Malmö" }
+				}
+			}	
+			random_owned = {
+				limit = {
+					owner = {
+						primary_culture = swedish
+						owns = 335
+						has_global_flag = karlskrona_renamed
+					}
+				}
+				owner = {
+					clr_global_flag = karlskrona_renamed
+					335 = { change_province_name = "Karlskrona" }
+				}
+			}	
 			random_owned = {
 				limit = {
 					owner = {
