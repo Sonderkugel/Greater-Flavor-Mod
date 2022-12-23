@@ -3,6 +3,43 @@ political_decisions = {
         picture = gtfo
         potential = {
 			OR = {
+				AND = {
+					OR = {
+						primary_culture = spanish
+						AND = {
+							is_culture_group = latin_american_cultures
+							NOT = { primary_culture = brazilian }
+						}
+					}
+					owns = 658
+					NOT = { has_global_flag = spanish_rename_hawaii }
+				}
+				AND = {
+					is_culture_group = oceanic
+					owns = 658
+					OR = { has_global_flag = french_rename_hawaii has_global_flag = greek_rename_hawaii has_global_flag = external_rename_hawaii has_global_flag = spanish_rename_hawaii }
+				}
+				AND = {
+					primary_culture = greek
+					owns = 658
+					NOT = { has_global_flag = greek_rename_hawaii }
+				}
+				AND = {
+					is_culture_group = french
+					owns = 658
+					NOT = { has_global_flag = french_rename_hawaii }
+				}
+				AND = {
+					NOT = { 
+						is_culture_group = french
+						primary_culture = greek
+						is_culture_group = oceanic
+						primary_culture = spanish
+						AND = { is_culture_group = latin_american_cultures NOT = { primary_culture = brazilian } } 
+					}
+					owns = 658
+					NOT = { has_global_flag = external_rename_hawaii }
+				}
                 AND = {
                     is_culture_group = french
                     owns = 605
@@ -1096,6 +1133,8 @@ political_decisions = {
 				AND = {
 					is_culture_group = germanic
 					owns = 2084
+					owns = 2085
+					owns = 2086
 					NOT = { has_global_flag = german_namaqualand }
 				}
 				AND = {
@@ -1104,26 +1143,37 @@ political_decisions = {
 						primary_culture = boer
 					}
 					owns = 2084
+					owns = 2085
+					owns = 2086
 					NOT = { has_global_flag = boer_namaqualand }
 				}
 				AND = {
 					is_culture_group = british
 					owns = 2084
+					owns = 2085
+					owns = 2086
 					NOT = { has_global_flag = british_namaqualand }
 				}
 				AND = {
 					primary_culture = portuguese
 					owns = 2084
+					owns = 2085
+					owns = 2086
 					NOT = { has_global_flag = portuguese_namaqualand }
 				}
 				AND = {
 					is_culture_group = southern_african
 					owns = 2084
+					owns = 2085
+					owns = 2086
 					OR = { has_global_flag = german_namaqualand has_global_flag = portuguese_namaqualand has_global_flag = boer_namaqualand has_global_flag = british_namaqualand }
 				}
 				AND = {
 					is_culture_group = germanic
-					owns = 2078
+					owns = 2078 
+					owns = 2079 
+					owns = 2080 
+					owns = 2082
 					NOT = { has_global_flag = german_hereroland }
 				}
 				AND = {
@@ -1131,23 +1181,32 @@ political_decisions = {
 						primary_culture = dutch
 						primary_culture = boer
 					}
-					owns = 2078
+					owns = 2078 
+					owns = 2079 
+					owns = 2080 
+					owns = 2082
 					NOT = { has_global_flag = boer_hereroland }
 				}
 				AND = {
 					is_culture_group = british
-					owns = 2078
-					NOT = { has_global_flag = british_hereroland }
+					owns = 2078 
+					owns = 2079 
+					owns = 2080 
+					owns = 2082					NOT = { has_global_flag = british_hereroland }
 				}
 				AND = {
 					primary_culture = portuguese
-					owns = 2078
-					NOT = { has_global_flag = portuguese_hereroland }
+					owns = 2078 
+					owns = 2079 
+					owns = 2080 
+					owns = 2082					NOT = { has_global_flag = portuguese_hereroland }
 				}
 				AND = {
 					is_culture_group = southern_african
-					owns = 2078
-					OR = { has_global_flag = german_hereroland has_global_flag = portuguese_hereroland has_global_flag = boer_hereroland has_global_flag = british_hereroland }
+					owns = 2078 
+					owns = 2079 
+					owns = 2080 
+					owns = 2082					OR = { has_global_flag = german_hereroland has_global_flag = portuguese_hereroland has_global_flag = boer_hereroland has_global_flag = british_hereroland }
 				}
 				AND = {
 					is_culture_group = germanic
@@ -9080,6 +9139,97 @@ political_decisions = {
         }
 
         effect = {
+			random_owned = {
+                limit = {
+                    owner = {
+						OR = {
+							primary_culture = spanish
+							AND = {
+								is_culture_group = latin_american_cultures
+								NOT = { primary_culture = brazilian }
+							}
+						}
+						owns = 658
+						NOT = { has_global_flag = spanish_rename_hawaii }
+                    }
+                }
+                owner = {
+					658 = { change_province_name = "La Mesa" }
+					set_global_flag = spanish_rename_hawaii
+					clr_global_flag = external_rename_hawaii
+					clr_global_flag = greek_rename_hawaii
+					clr_global_flag = french_rename_hawaii
+                }
+            }
+			random_owned = {
+                limit = {
+                    owner = {
+						is_culture_group = oceanic
+						owns = 658
+						OR = { has_global_flag = french_rename_hawaii has_global_flag = greek_rename_hawaii has_global_flag = external_rename_hawaii has_global_flag = spanish_rename_hawaii }
+                    }
+                }
+                owner = {
+					658 = { change_province_name = "Hawai'i" }
+					clr_global_flag = spanish_rename_hawaii
+					clr_global_flag = external_rename_hawaii
+					clr_global_flag = greek_rename_hawaii
+					clr_global_flag = french_rename_hawaii
+                }
+            }
+			random_owned = {
+                limit = {
+                    owner = {
+						primary_culture = greek
+						owns = 658
+						NOT = { has_global_flag = greek_rename_hawaii }
+                    }
+                }
+                owner = {
+					658 = { change_province_name = "Chavái" }
+					set_global_flag = greek_rename_hawaii
+					clr_global_flag = spanish_rename_hawaii
+					clr_global_flag = external_rename_hawaii
+					clr_global_flag = french_rename_hawaii
+                }
+            }
+			random_owned = {
+                limit = {
+                    owner = {
+						is_culture_group = french
+						owns = 658
+						NOT = { has_global_flag = french_rename_hawaii }
+                    }
+                }
+                owner = {
+					658 = { change_province_name = "Hawaï" }
+					set_global_flag = french_rename_hawaii
+					clr_global_flag = greek_rename_hawaii
+					clr_global_flag = spanish_rename_hawaii
+					clr_global_flag = external_rename_hawaii
+                }
+            }
+			
+			random_owned = {
+                limit = {
+                    owner = {
+						NOT = { is_culture_group = french }
+						NOT = { primary_culture = greek }
+						NOT = { is_culture_group = oceanic }
+						NOT = { primary_culture = spanish }
+						NOT = { AND = { is_culture_group = latin_american_cultures NOT = { primary_culture = brazilian } } }
+						owns = 658
+						NOT = { has_global_flag = external_rename_hawaii }
+                    }
+                }
+                owner = {
+					658 = { change_province_name = "Hawaii" }
+					set_global_flag = external_rename_hawaii
+					clr_global_flag = spanish_rename_hawaii
+					clr_global_flag = greek_rename_hawaii
+					clr_global_flag = french_rename_hawaii
+                }
+            }
             random_owned = {
                 limit = {
                     owner = {
@@ -18233,6 +18383,34 @@ political_decisions = {
 				limit = {
 					owner = {
 						primary_culture = catalan
+						owns = 2409
+						NOT = { has_global_flag = catalan_grenada_n }
+					}
+				}
+				owner = {
+					clr_global_flag = spanish_grenada_n
+					clr_global_flag = french_grenada_n
+					clr_global_flag = german_grenada_n
+					set_global_flag = catalan_grenada_n
+					clr_global_flag = portuguese_grenada_n
+					2231 = { 
+						change_province_name = "Santa Llúcia"
+					}
+					2409 = { 
+						change_province_name = "Sant Vicent"
+					}
+					2233 = { 
+						change_province_name = "Granada"
+					}
+					2229 = { 
+						change_province_name = "Barbados"
+					}
+				}
+			}
+			random_owned = {
+				limit = {
+					owner = {
+						primary_culture = catalan
 						owns = 2237
 						NOT = { has_global_flag = catalan_trinidad }
 					}
@@ -19259,6 +19437,8 @@ political_decisions = {
 					owner = {
 						is_culture_group = germanic
 						owns = 2084
+						owns = 2085
+						owns = 2086
 						NOT = { has_global_flag = german_namaqualand }
 					}
 				}
@@ -19280,6 +19460,8 @@ political_decisions = {
 					owner = {
 						primary_culture = portuguese
 						owns = 2084
+						owns = 2085
+						owns = 2086
 						NOT = { has_global_flag = portuguese_namaqualand }
 					}
 				}
@@ -19304,6 +19486,8 @@ political_decisions = {
 							primary_culture = boer
 						}
 						owns = 2084
+						owns = 2085
+						owns = 2086
 						NOT = { has_global_flag = boer_namaqualand }
 					}
 				}
@@ -19326,6 +19510,8 @@ political_decisions = {
 					owner = {
 						is_culture_group = british
 						owns = 2084
+						owns = 2085
+						owns = 2086
 						NOT = { has_global_flag = british_namaqualand }
 					}
 				}
@@ -19347,6 +19533,8 @@ political_decisions = {
 					owner = {
 						is_culture_group = southern_african
 						owns = 2084
+						owns = 2085
+						owns = 2086
 						OR = { has_global_flag = portuguese_namaqualand has_global_flag = german_namaqualand has_global_flag = boer_namaqualand has_global_flag = british_namaqualand }
 					}
 				}
@@ -19367,7 +19555,10 @@ political_decisions = {
 				limit = {
 					owner = {
 						is_culture_group = germanic
-						owns = 2078
+						owns = 2078 
+						owns = 2079 
+						owns = 2080 
+						owns = 2082
 						NOT = { has_global_flag = german_hereroland }
 					}
 				}
@@ -19389,7 +19580,10 @@ political_decisions = {
 				limit = {
 					owner = {
 						primary_culture = portuguese
-						owns = 2078
+						owns = 2078 
+						owns = 2079 
+						owns = 2080 
+						owns = 2082
 						NOT = { has_global_flag = portuguese_hereroland }
 					}
 				}
@@ -19414,7 +19608,10 @@ political_decisions = {
 							primary_culture = dutch
 							primary_culture = boer
 						}
-						owns = 2078
+						owns = 2078 
+						owns = 2079 
+						owns = 2080 
+						owns = 2082
 						NOT = { has_global_flag = boer_hereroland }
 					}
 				}
@@ -19436,7 +19633,10 @@ political_decisions = {
 				limit = {
 					owner = {
 						is_culture_group = british
-						owns = 2078
+						owns = 2078 
+						owns = 2079 
+						owns = 2080 
+						owns = 2082
 						NOT = { has_global_flag = british_hereroland }
 					}
 				}
@@ -19458,7 +19658,10 @@ political_decisions = {
 				limit = {
 					owner = {
 						is_culture_group = southern_african
-						owns = 2078
+						owns = 2078 
+						owns = 2079 
+						owns = 2080 
+						owns = 2082
 						OR = { has_global_flag = portuguese_hereroland has_global_flag = german_hereroland has_global_flag = boer_hereroland has_global_flag = british_hereroland }
 					}
 				}
@@ -31585,6 +31788,50 @@ political_decisions = {
 					}
 					524 = {
 						change_province_name = "Shatübar"
+					}
+				}
+			}
+			random_owned = {
+				limit = {
+					owner = {
+						primary_culture = portuguese
+						has_global_flag = alentejo_rename_arab
+						owns = 525
+					}
+				}
+				owner = {
+					clr_global_flag = alentejo_rename_arab
+					525 = { 
+						change_province_name = "Évora" 
+						state_scope = { change_region_name = "Alentejo" }
+					}
+					526 = { 
+						change_province_name = "Beja"
+					}
+					527 = {
+						change_province_name = "Faro"
+					}
+				}
+			}
+			random_owned = {
+				limit = {
+					owner = {
+						is_culture_group = arab
+						NOT = { has_global_flag = alentejo_rename_arab }
+						owns = 525
+					}
+				}
+				owner = {
+					set_global_flag = alentejo_rename_arab
+					525 = { 
+						change_province_name = "Iyfura" 
+						state_scope = { change_region_name = "al-Gharb" }
+					}
+					526 = { 
+						change_province_name = "Baja"
+					}
+					527 = {
+						change_province_name = "Shantamariyyat"
 					}
 				}
 			}
@@ -49583,19 +49830,6 @@ political_decisions = {
 					3392 = { change_province_name = "Noworossijsk" }
 					clr_global_flag = circassia_rename_ukr
 					set_global_flag = circassia_rename_ger
-				}
-			}
-			random_owned = {
-				limit = {
-					owner = {
-						NOT = { has_country_flag = hawaii_trolls_there }
-						tag = HAW
-						owns = 3459
-					}
-				}
-				owner = {
-					3459 = { change_province_name = "Iosepa" }
-					set_country_flag = hawaii_trolls_there
 				}
 			}
 			random_owned = { 
