@@ -858,7 +858,7 @@ political_decisions = {
 	darfur_war = {
         picture = darfur
         potential = {
-            NOT = { has_global_flag = colonial_railroading_disabled }
+            NOT = { has_country_flag = darfur_warred has_global_flag = colonial_railroading_disabled }
 			neighbour = DAR
 			exists = DAR
 			civilized = yes
@@ -886,6 +886,7 @@ political_decisions = {
         }
 		
         effect = {
+			set_country_flag = darfur_warred
 			casus_belli = {
 				target = DAR
 				type = establish_protectorate_casus_belli
@@ -1483,7 +1484,7 @@ political_decisions = {
             any_pop = {
                 limit = {
                     culture = french
-                    location = { is_core = ALD}
+                    location = { is_core = ALD }
                 }
                 ideology = { factor = 0.9 value = conservative }
             }
@@ -2241,8 +2242,8 @@ political_decisions = {
             treasury = -50000
             set_country_flag = founding_german_namibia
             2084 = { secede_province = THIS any_pop = { literacy = -0.99 } life_rating = 21 }
-            2086 = { secede_province = THIS any_pop = { literacy = -0.99 } life_rating = 25 }
             2085 = { secede_province = THIS any_pop = { literacy = -0.99 } life_rating = 25 }
+            2086 = { secede_province = THIS any_pop = { literacy = -0.99 } life_rating = 25 }
             2078 = { secede_province = THIS any_pop = { literacy = -0.99 } }
             2079 = { secede_province = THIS any_pop = { literacy = -0.99 } }
             2080 = { secede_province = THIS any_pop = { literacy = -0.99 } }
